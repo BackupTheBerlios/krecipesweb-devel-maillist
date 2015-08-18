@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb INSTALL,1.1,1.2 README,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-December/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20INSTALL%2C1.1%2C1.2%20README%2C1.3%2C1.4&In-Reply-To=%3C200512111501.jBBF1hk06805%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000053.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb INSTALL,1.1,1.2 README,1.3,1.4</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20INSTALL%2C1.1%2C1.2%20README%2C1.3%2C1.4&In-Reply-To=%3C200512111501.jBBF1hk06805%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb INSTALL,1.1,1.2 README,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Dec 11 16:01:43 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000053.html">[Krecipesweb-devel] krecipesweb/lang en.php,1.10,1.11 nb.php,1.7,1.8
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14257
+
+Modified Files:
+	INSTALL README 
+Log Message:
+
+
+Index: INSTALL
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/INSTALL,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** INSTALL	1 Oct 2005 15:32:19 -0000	1.1
+--- INSTALL	11 Dec 2005 15:01:41 -0000	1.2
+***************
+*** 12,15 ****
+--- 12,19 ----
+         for $dbhost, $dbuser, $dbpass and $dbname to fit your
+         environment.  Here,  &quot;$dbhost&quot; means the MySQL server.
++        Then edit the site settings below in the same file with the values for
++        $site_title, $site_lang, $url, $admin_mail and $mtable_width
++        ($mtable_width is optional).
++        And then the rest of the values in config.php
+      4. Open the file &lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php in your
+         browser. Krecipes Web Frontend should now display the categories in your
+
+Index: README
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/README,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** README	1 Oct 2005 15:32:42 -0000	1.3
+--- README	11 Dec 2005 15:01:41 -0000	1.4
+***************
+*** 4,8 ****
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.1-alpha
+    -----------------
+    <A HREF="http://krecipesweb.sourceforge.net/">http://krecipesweb.sourceforge.net/</A>
+--- 4,8 ----
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.2-beta
+    -----------------
+    <A HREF="http://krecipesweb.sourceforge.net/">http://krecipesweb.sourceforge.net/</A>
+***************
+*** 36,41 ****
+        - Display the categories &amp; recipes
+        - Multilangual (curently only english &amp; norwegian)
+!       - Got a print page for easing print layout
+!       - Started full css implementation
+        More will come...
+  
+--- 36,42 ----
+        - Display the categories &amp; recipes
+        - Multilangual (curently only english &amp; norwegian)
+!       - Got a print page for easing print layout (improved in 0.2b)
+!       - Full css implementation (improved in 0.2b)
+!       - 'Send to a friend' feature
+        More will come...
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000053.html">[Krecipesweb-devel] krecipesweb/lang en.php,1.10,1.11 nb.php,1.7,1.8
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

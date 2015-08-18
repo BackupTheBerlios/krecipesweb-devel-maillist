@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb send_friend.php,1.1,1.2 view_recipe.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-November/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2C1.1%2C1.2%20view_recipe.php%2C1.3%2C1.4&In-Reply-To=%3C200511291959.jATJx4N01390%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000026.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb send_friend.php,1.1,1.2 view_recipe.php,1.3,1.4</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2C1.1%2C1.2%20view_recipe.php%2C1.3%2C1.4&In-Reply-To=%3C200511291959.jATJx4N01390%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb send_friend.php,1.1,1.2 view_recipe.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Nov 29 20:59:04 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000026.html">[Krecipesweb-devel] zxc
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv4146
+
+Modified Files:
+	send_friend.php view_recipe.php 
+Log Message:
+empty
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** send_friend.php	20 Nov 2005 13:52:05 -0000	1.1
+--- send_friend.php	29 Nov 2005 19:59:02 -0000	1.2
+***************
+*** 2,13 ****
+  include(&quot;config.php&quot;);
+  
+! if(!isset($_GET['js']) || $_GET['js'] == &quot;&quot;){
+! 	$link = $url.$_GET['id'];
+! }
+! else if($_GET['js'] == &quot;on&quot;){
+! 	$link = $_GET['id'];
+! }
+! 
+! $link = str_replace(&quot; &quot;,&quot;+&quot;, $link); // get rid of spaces
+  
+  if(!isset($_POST['action']) || $_POST['action'] == &quot;&quot;){
+--- 2,6 ----
+  include(&quot;config.php&quot;);
+  
+! $link = $_GET[&quot;id&quot;];
+  
+  if(!isset($_POST['action']) || $_POST['action'] == &quot;&quot;){
+***************
+*** 37,41 ****
+  	$optional_message = $_POST['optional_message'];
+  	$link = $_POST['link'];
+- 	$js = $_POST['js'];
+  	$id = $_POST['id'];
+  
+--- 30,33 ----
+***************
+*** 67,77 ****
+  		mail ($recipient, $send_subject, $message, $headers);
+  
+- 		if($auto_responder == &quot;yes&quot;){
+- 			$recipient2 = &quot;$sender_name &lt;$sender_mail&gt;&quot;;
+- 			$subject2 = &quot;$thankyousubject&quot;;
+- 			$message2 = &quot;$thankyoumessage\n\n$your_website\n$admin_mail\n\n Note: This is an automated response, please do not reply to this\n\n&quot;;
+- 			$headers2 = &quot;From: $your_website &lt;$admin_email&gt;\r\nReply-To: $admin_mail\r\n&quot;;
+- 			mail ($recipient2, $subject2, $message2, $headers2);
+- 		}
+  		printthanks($sender_name,$friend_mail,$link);
+  		exit;
+--- 59,62 ----
+***************
+*** 88,98 ****
+  include(&quot;config.php&quot;);
+  
+! global $link, $id, $js;
+! 		?&gt;
+  
+  &lt;html&gt;
+  &lt;head&gt;
+! &lt;META NAME=&quot;Title&quot; CONTENT=&quot;&lt;? echo $title; ?&gt;&quot;&gt;
+! &lt;title&gt;Send &lt;? echo $link; ?&gt; to a friend!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+--- 73,84 ----
+  include(&quot;config.php&quot;);
+  
+! ?&gt;
+  
+  &lt;html&gt;
+  &lt;head&gt;
+! &lt;title&gt;Send recipe to a friend!&lt;/title&gt;
+! &lt;?php
+! require('inc/metatags.php');
+! ?&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+***************
+*** 101,133 ****
+    &lt;input type=&quot;hidden&quot; name=&quot;link&quot; value=&quot;&lt;? echo $link; ?&gt;&quot;&gt;
+     &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;? echo $id; ?&gt;&quot;&gt;
+-     &lt;input type=&quot;hidden&quot; name=&quot;js&quot; value=&quot;&lt;? echo $js; ?&gt;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;submit&quot;&gt;
+    &lt;font color=&quot;red&quot;&gt;&lt;b&gt;&lt;? echo $errors; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;p&gt;
+!   &lt;table width=&quot;600&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;5&quot;&gt;
+      &lt;tr&gt;
+!       &lt;td colspan=&quot;2&quot; width=&quot;625&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;b&gt;&lt;? echo $title; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td colspan=&quot;2&quot; width=&quot;625&quot;&gt;&lt;? echo $suggest_exp; ?&gt;&lt;br&gt;&lt;small&gt;&lt;? echo $link; ?&gt;&lt;/small&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourname; ?&gt;&nbsp;&lt;/td&gt;
+!       &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_name; ?&gt;&quot; name=&quot;sender_name&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourmail; ?&gt;&lt;/td&gt;
+!       &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_mail; ?&gt;&quot; name=&quot;sender_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;232&quot;&gt;&lt;? echo $recipientmail; ?&gt;&lt;/td&gt;
+!       &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $friend_mail; ?&gt;&quot; name=&quot;friend_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourmessage; ?&gt;&lt;/td&gt;
+!       &lt;td width=&quot;381&quot;&gt;&lt;textarea name=&quot;optional_message&quot; cols=&quot;45&quot; rows=&quot;8&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;232&quot;&gt;&nbsp;&lt;/td&gt;
+!       &lt;td width=&quot;381&quot;&gt;
+          &lt;div align=&quot;left&quot;&gt;
+            &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;&lt;? echo $submitbutton; ?&gt;&quot;&gt;
+--- 87,118 ----
+    &lt;input type=&quot;hidden&quot; name=&quot;link&quot; value=&quot;&lt;? echo $link; ?&gt;&quot;&gt;
+     &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;? echo $id; ?&gt;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;submit&quot;&gt;
+    &lt;font color=&quot;red&quot;&gt;&lt;b&gt;&lt;? echo $errors; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;p&gt;
+!   &lt;table width=&quot;100%&quot; border=&quot;1&quot;  cellspacing=&quot;0&quot; cellpadding=&quot;5&quot;&gt;
+      &lt;tr&gt;
+!       &lt;td colspan=&quot;2&quot; width=&quot;100%&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;b&gt;&lt;? echo $lng_friend_title; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td colspan=&quot;2&quot; width=&quot;100%&quot;&gt;&lt;? echo $suggest_exp; ?&gt;&lt;br&gt;&lt;small&gt;&lt;? echo $link; ?&gt;&lt;/small&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;230&quot;&gt;&lt;? echo $yourname; ?&gt;&nbsp;&lt;/td&gt;
+!       &lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_name; ?&gt;&quot; name=&quot;sender_name&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;230&quot;&gt;&lt;? echo $yourmail; ?&gt;&lt;/td&gt;
+!       &lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_mail; ?&gt;&quot; name=&quot;sender_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;230&quot;&gt;&lt;? echo $recipientmail; ?&gt;&lt;/td&gt;
+!       &lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $friend_mail; ?&gt;&quot; name=&quot;friend_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;230&quot;&gt;&lt;? echo $yourmessage; ?&gt;&lt;/td&gt;
+!       &lt;td&gt;&lt;textarea name=&quot;optional_message&quot; cols=&quot;45&quot; rows=&quot;8&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+!       &lt;td width=&quot;230&quot;&gt;&nbsp;&lt;/td&gt;
+!       &lt;td&gt;
+          &lt;div align=&quot;left&quot;&gt;
+            &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;&lt;? echo $submitbutton; ?&gt;&quot;&gt;
+***************
+*** 153,161 ****
+  &lt;html&gt;
+  &lt;head&gt;
+! &lt;META NAME=&quot;Title&quot; CONTENT=&quot;&lt;? echo $title; ?&gt;&quot;&gt;
+! &lt;title&gt;Thanks for sending &lt;? echo $link; ?&gt; to a friend!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body topmargin=&quot;20&quot; leftmargin=&quot;20&quot;&gt;
+! Thank you &lt;? echo $sender_name; ?&gt; for sending..&lt;br&gt;&lt;? echo $link; ?&gt; to a friend!
+  &lt;p&gt;
+  &lt;center&gt;
+--- 138,148 ----
+  &lt;html&gt;
+  &lt;head&gt;
+! &lt;title&gt;Thanks for sending this recipe to a friend!&lt;/title&gt;
+! &lt;?php
+! require('inc/metatags.php');
+! ?&gt;
+  &lt;/head&gt;
+  &lt;body topmargin=&quot;20&quot; leftmargin=&quot;20&quot;&gt;
+! Thank you &lt;? echo $sender_name; ?&gt; for sending..&lt;br&gt;this recipe to a friend!
+  &lt;p&gt;
+  &lt;center&gt;
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** view_recipe.php	20 Nov 2005 13:52:05 -0000	1.3
+--- view_recipe.php	29 Nov 2005 19:59:02 -0000	1.4
+***************
+*** 35,39 ****
+          // Below - to open a full-sized window, just use: window.open(this.href);
+          window.open(this.href, &quot;&quot;,
+! &quot;top=40,left=40,width=&lt;?php echo &quot;$pwidth&quot;?&gt;,height=&lt;?php echo &quot;$pheight&quot;?&gt;,scrollbars&quot;);
+          return false;
+        }
+--- 35,39 ----
+          // Below - to open a full-sized window, just use: window.open(this.href);
+          window.open(this.href, &quot;&quot;,
+! &quot;top=40,left=40,width=500,height=600,scrollbars&quot;);
+          return false;
+        }
+***************
+*** 176,180 ****
+  &lt;br /&gt;
+  &lt;?php echo &quot;
+!   &lt;a href=\&quot;send_friend.php?id=$PHP_SELF\&quot; class=\&quot;sendrecipe\&quot;&gt;
+    &lt;img src=\&quot;img/send.gif\&quot; width=\&quot;15\&quot; height=\&quot;14\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+    $lng_sendfriend&lt;/a&gt;&quot;;
+--- 176,180 ----
+  &lt;br /&gt;
+  &lt;?php echo &quot;
+!   &lt;a href=\&quot;send_friend.php?id=$recipe_id\&quot; class=\&quot;sendrecipe\&quot;&gt;
+    &lt;img src=\&quot;img/send.gif\&quot; width=\&quot;15\&quot; height=\&quot;14\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+    $lng_sendfriend&lt;/a&gt;&quot;;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000026.html">[Krecipesweb-devel] zxc
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

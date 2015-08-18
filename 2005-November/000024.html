@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb send_friend.php,NONE,1.1 settings.php,NONE,1.1 config.php,1.4,1.5 view_recipe.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-November/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2CNONE%2C1.1%20settings.php%2CNONE%2C1.1%20config.php%2C1.4%2C1.5%20view_recipe.php%2C1.2%2C1.3&In-Reply-To=%3C200511201352.jAKDq7N26538%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000023.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb send_friend.php,NONE,1.1 settings.php,NONE,1.1 config.php,1.4,1.5 view_recipe.php,1.2,1.3</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2CNONE%2C1.1%20settings.php%2CNONE%2C1.1%20config.php%2C1.4%2C1.5%20view_recipe.php%2C1.2%2C1.3&In-Reply-To=%3C200511201352.jAKDq7N26538%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb send_friend.php,NONE,1.1 settings.php,NONE,1.1 config.php,1.4,1.5 view_recipe.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Nov 20 14:52:07 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000023.html">[Krecipesweb-devel] krecipesweb/inc top_table.php,1.1.1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Krecipesweb-devel] zxc
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv32130
+
+Modified Files:
+	config.php view_recipe.php 
+Added Files:
+	send_friend.php settings.php 
+Log Message:
+
+
+--- NEW FILE: send_friend.php ---
+&lt;?
+include(&quot;config.php&quot;);
+
+if(!isset($_GET['js']) || $_GET['js'] == &quot;&quot;){
+	$link = $url.$_GET['id'];
+}
+else if($_GET['js'] == &quot;on&quot;){
+	$link = $_GET['id'];
+}
+
+$link = str_replace(&quot; &quot;,&quot;+&quot;, $link); // get rid of spaces
+
+if(!isset($_POST['action']) || $_POST['action'] == &quot;&quot;){
+	if(!isset($link)){
+		print &quot;No Link Specified&quot;;
+	}
+	else{
+		printpage(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);
+	} 
+} 
+else if($_POST['action'] == &quot;submit&quot;){
+
+	$send = true;
+
+	function is_valid_email($sender_mail) { 
+		if(ereg(&quot;([[:alnum:]\.\-]+)(\@[[:alnum:]\.\-]+\.+)&quot;, $sender_mail)) {
+			return 0;
+	    }
+		else{
+			return 1;
+	    } 
+	}
+	
+	$sender_mail = $_POST['sender_mail'];
+	$friend_mail = $_POST['friend_mail'];
+	$sender_name = $_POST['sender_name'];
+	$optional_message = $_POST['optional_message'];
+	$link = $_POST['link'];
+	$js = $_POST['js'];
+	$id = $_POST['id'];
+
+	$s_emailvalid = is_valid_email($sender_mail);  // check email
+	$f_emailvalid = is_valid_email($friend_mail);  // check email
+
+	$emsg = &quot;There were errors in your form:&lt;br&gt;&lt;br&gt;\n&quot;;
+
+	if ($sender_name == &quot;&quot;){
+		$emsg .= &quot;Please enter your name&lt;br&gt;\n&quot;;
+		$send = false;
+	}
+	if ($sender_mail == &quot;&quot; || $s_emailvalid == 1){
+		$emsg .= &quot;Please enter your valid email address&lt;br&gt;\n&quot;;
+		$send = false;
+	}
+	if ($friend_mail == &quot;&quot; || $f_emailvalid == 1){
+		$emsg .= &quot;Please enter your friends valid email address&lt;br&gt;\n&quot;;
+		$send = false;
+	}
+
+	if($send){		
+		$recipient = &quot;$friend_mail&quot;;
+		$message .= &quot;$sender_name wanted to share the following link with you:\n$link\n\n&quot;;
+		if($optional_message != &quot;&quot;){
+			$message .= &quot;They added this message:\n$optional_message\n\n&quot;;
+		}
+		$headers = &quot;From: $sender_name &lt;$sender_mail&gt;\r\nReply-To: $sender_mail\r\n&quot;;
+		mail ($recipient, $send_subject, $message, $headers);
+
+		if($auto_responder == &quot;yes&quot;){
+			$recipient2 = &quot;$sender_name &lt;$sender_mail&gt;&quot;;
+			$subject2 = &quot;$thankyousubject&quot;;
+			$message2 = &quot;$thankyoumessage\n\n$your_website\n$admin_mail\n\n Note: This is an automated response, please do not reply to this\n\n&quot;;
+			$headers2 = &quot;From: $your_website &lt;$admin_email&gt;\r\nReply-To: $admin_mail\r\n&quot;;
+			mail ($recipient2, $subject2, $message2, $headers2);
+		}
+		printthanks($sender_name,$friend_mail,$link);
+		exit;
+	}
+	else if(!$send){
+			printpage($sender_name,$sender_mail,$friend_mail,$emsg);
+	}
+}
+else{
+	printpage(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);
+}
+
+function printpage($sender_name,$sender_mail,$friend_mail,$errors){
+include(&quot;config.php&quot;);
+
+global $link, $id, $js;
+		?&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;META NAME=&quot;Title&quot; CONTENT=&quot;&lt;? echo $title; ?&gt;&quot;&gt;
+&lt;title&gt;Send &lt;? echo $link; ?&gt; to a friend!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form method=&quot;post&quot; action=&quot;send_friend.php&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;link&quot; value=&quot;&lt;? echo $link; ?&gt;&quot;&gt;
+   &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;? echo $id; ?&gt;&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;js&quot; value=&quot;&lt;? echo $js; ?&gt;&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;submit&quot;&gt;
+  &lt;font color=&quot;red&quot;&gt;&lt;b&gt;&lt;? echo $errors; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;p&gt;
+  &lt;table width=&quot;600&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;5&quot;&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; width=&quot;625&quot;&gt;&lt;font size=&quot;3&quot;&gt;&lt;b&gt;&lt;? echo $title; ?&gt;&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;2&quot; width=&quot;625&quot;&gt;&lt;? echo $suggest_exp; ?&gt;&lt;br&gt;&lt;small&gt;&lt;? echo $link; ?&gt;&lt;/small&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourname; ?&gt;&nbsp;&lt;/td&gt;
+      &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_name; ?&gt;&quot; name=&quot;sender_name&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourmail; ?&gt;&lt;/td&gt;
+      &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $sender_mail; ?&gt;&quot; name=&quot;sender_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;232&quot;&gt;&lt;? echo $recipientmail; ?&gt;&lt;/td&gt;
+      &lt;td width=&quot;381&quot;&gt;&lt;input type=&quot;text&quot; value=&quot;&lt;? echo $friend_mail; ?&gt;&quot; name=&quot;friend_mail&quot; size=&quot;40&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;232&quot;&gt;&lt;? echo $yourmessage; ?&gt;&lt;/td&gt;
+      &lt;td width=&quot;381&quot;&gt;&lt;textarea name=&quot;optional_message&quot; cols=&quot;45&quot; rows=&quot;8&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;232&quot;&gt;&nbsp;&lt;/td&gt;
+      &lt;td width=&quot;381&quot;&gt;
+        &lt;div align=&quot;left&quot;&gt;
+          &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;&lt;? echo $submitbutton; ?&gt;&quot;&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;?
+
+
+}
+
+function printthanks($sender_name,$friend_mail,$link){
+include(&quot;config.php&quot;);
+	?&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;META NAME=&quot;Title&quot; CONTENT=&quot;&lt;? echo $title; ?&gt;&quot;&gt;
+&lt;title&gt;Thanks for sending &lt;? echo $link; ?&gt; to a friend!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body topmargin=&quot;20&quot; leftmargin=&quot;20&quot;&gt;
+Thank you &lt;? echo $sender_name; ?&gt; for sending..&lt;br&gt;&lt;? echo $link; ?&gt; to a friend!
+&lt;p&gt;
+&lt;center&gt;
+&lt;A HREF=&quot;javascript:window.close();&quot;&gt;Close window&lt;/A&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;?
+
+}
+
+?&gt;
+--- NEW FILE: settings.php ---
+&lt;?php
+##########################################################################################
+#  End Configuration
+##########################################################################################
+#
+#  !!! DO NOT EDIT ANYTHING BEHIND THIS LINE !!!
+#
+##########################################################################################
+$frontend_ver =  '0.1';
+
+
+
+
+?&gt;
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** config.php	18 Nov 2005 16:30:06 -0000	1.4
+--- config.php	20 Nov 2005 13:52:05 -0000	1.5
+***************
+*** 8,19 ****
+  #  e-mail            	: <A HREF="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">project at nilsk.net</A>
+  #  purpose           	: Configuration File
+! #  last modified     	: 10.10.2005
+  #
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'HOSTNAME';
+! $dbuser = 'DB_USER';
+! $dbpass = 'DB_PASS';
+! $dbname = 'Krecipes';
+  
+  #SITE SETTINGS
+--- 8,19 ----
+  #  e-mail            	: <A HREF="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">project at nilsk.net</A>
+  #  purpose           	: Configuration File
+! #  last modified     	: 18.11.2005
+  #
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'localhost';
+! $dbuser = 'root';
+! $dbpass = '';
+! $dbname = 'KrecipesWeb';
+  
+  #SITE SETTINGS
+***************
+*** 33,51 ****
+  $print_copy = &quot;&copy; 2005 recipe.com&quot;;
+  
+- ##########################################################################################
+- #  End Configuration
+- ##########################################################################################
+- #
+- #  !!! DO NOT EDIT ANYTHING BEHIND THIS LINE !!!
+- #
+- ##########################################################################################
+- $frontend_ver =  '0.1b';
+- 
+- 
+- 
+- 
+- 
+  
+  
+  
+  ?&gt;
+--- 33,39 ----
+  $print_copy = &quot;&copy; 2005 recipe.com&quot;;
+  
+  
+  
+  
++ include 'settings.php';
+  ?&gt;
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** view_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+--- view_recipe.php	20 Nov 2005 13:52:05 -0000	1.3
+***************
+*** 10,14 ****
+  
+  require('view_recipe_functions.php');
+! ?&gt; 
+  &lt;head&gt;
+  	&lt;title&gt;&lt;?php echo &quot;$site_title&quot; ?&gt; -&gt; &lt;?php echo &quot;$recipe_title&quot;; ?&gt;&lt;/title&gt;
+--- 10,14 ----
+  
+  require('view_recipe_functions.php');
+! ?&gt;
+  &lt;head&gt;
+  	&lt;title&gt;&lt;?php echo &quot;$site_title&quot; ?&gt; -&gt; &lt;?php echo &quot;$recipe_title&quot;; ?&gt;&lt;/title&gt;
+***************
+*** 23,27 ****
+    var links=document.getElementsByTagName(&quot;a&quot;);
+    for (var i=0; i &lt; links.length; i++) {
+!     if (links[i].className.match(&quot;popup&quot;)) {
+        links[i].onclick=function() {
+          // Below - to open a full-sized window, just use: window.open(this.href);
+--- 23,35 ----
+    var links=document.getElementsByTagName(&quot;a&quot;);
+    for (var i=0; i &lt; links.length; i++) {
+!     if (links[i].className.match(&quot;printrecipe&quot;)) {
+!       links[i].onclick=function() {
+!         // Below - to open a full-sized window, just use: window.open(this.href);
+!         window.open(this.href, &quot;&quot;,
+! &quot;top=40,left=40,width=&lt;?php echo &quot;$pwidth&quot;?&gt;,height=&lt;?php echo &quot;$pheight&quot;?&gt;,scrollbars&quot;);
+!         return false;
+!       }
+!     }
+! if (links[i].className.match(&quot;sendrecipe&quot;)) {
+        links[i].onclick=function() {
+          // Below - to open a full-sized window, just use: window.open(this.href);
+***************
+*** 162,170 ****
+    
+    &lt;?php echo &quot;
+!   &lt;a href=\&quot;print_recipe.php?id=$recipe_id\&quot; class=\&quot;popup\&quot;&gt;
+!   &lt;img src=\&quot;img/printer.gif\&quot; width=\&quot;31\&quot; height=\&quot;23\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+    $lng_print&lt;/a&gt;&quot;;
+  ?&gt;
+! 
+    &lt;/td&gt;
+  &lt;/tr&gt;
+--- 170,183 ----
+    
+    &lt;?php echo &quot;
+!   &lt;a href=\&quot;print_recipe.php?id=$recipe_id\&quot; class=\&quot;printrecipe\&quot;&gt;
+!   &lt;img src=\&quot;img/print.gif\&quot; width=\&quot;15\&quot; height=\&quot;14\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+    $lng_print&lt;/a&gt;&quot;;
+  ?&gt;
+! &lt;br /&gt;
+! &lt;?php echo &quot;
+!   &lt;a href=\&quot;send_friend.php?id=$PHP_SELF\&quot; class=\&quot;sendrecipe\&quot;&gt;
+!   &lt;img src=\&quot;img/send.gif\&quot; width=\&quot;15\&quot; height=\&quot;14\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+!   $lng_sendfriend&lt;/a&gt;&quot;;
+! ?&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000023.html">[Krecipesweb-devel] krecipesweb/inc top_table.php,1.1.1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Krecipesweb-devel] zxc
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

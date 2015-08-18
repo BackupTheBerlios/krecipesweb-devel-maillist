@@ -1,0 +1,10 @@
+From bogus@does.not.exist.com  Wed Mar 14 15:20:24 2012
+From: bogus@does.not.exist.com ()
+Date: Wed, 14 Mar 2012 14:20:24 -0000
+Subject: No subject
+Message-ID: <mailman.0.1331734823.4715.krecipesweb-devel@lists.berlios.de>
+
+- Removed print button on printpage (prints automatic when window loads)
+- Some layout changes
+
+

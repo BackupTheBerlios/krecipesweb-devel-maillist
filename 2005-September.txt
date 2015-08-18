@@ -1,0 +1,368 @@
+From nobody at sheep.berlios.de  Thu Sep 29 21:04:46 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Thu, 29 Sep 2005 21:04:46 +0200
+Subject: [Krecipesweb-devel] krecipesweb/inc menu.php,1.1.1.1,1.2 metatags.php,1.1.1.1,1.2
+Message-ID: <200509291904.j8TJ4k907933@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv26051/inc
+
+Modified Files:
+	menu.php metatags.php 
+Log Message:
+-
+
+Index: menu.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/menu.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** menu.php	27 Sep 2005 21:39:38 -0000	1.1.1.1
+--- menu.php	29 Sep 2005 19:04:43 -0000	1.2
+***************
+*** 1,15 ****
+! <?php
+! ##########################################################################################
+! #
+! #  project           	: Krecipes WebFrontend
+! #  filename          	: menu.php
+! #  version           	: 0.01
+! #  last modified by  	: Nils Kristian Tomren
+! #  e-mail            	: project at nilsk.net
+! #  purpose           	: Displays menu
+! #  last modified     	: 17.09.2005
+! #
+! ##########################################################################################
+! ?>
+  <div class="nav">
+  <u><strong>Menu:</strong></u> 
+--- 1,3 ----
+! 
+  <div class="nav">
+  <u><strong>Menu:</strong></u> 
+
+Index: metatags.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/metatags.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** metatags.php	27 Sep 2005 21:39:38 -0000	1.1.1.1
+--- metatags.php	29 Sep 2005 19:04:43 -0000	1.2
+***************
+*** 1,15 ****
+- <?php
+- ##########################################################################################
+- #
+- #  project           	: Krecipes WebFrontend
+- #  filename          	: metatags.php
+- #  version           	: 0.01
+- #  last modified by  	: Nils Kristian Tomren
+- #  e-mail            	: project at nilsk.net
+- #  purpose           	: Keeps metatags for the site
+- #  last modified     	: 17.09.2005
+- #
+- ##########################################################################################
+- ?>
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta name="GENERATOR" content="Quanta Plus" />
+--- 1,2 ----
+
+
+
+From nobody at sheep.berlios.de  Thu Sep 29 21:04:46 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Thu, 29 Sep 2005 21:04:46 +0200
+Subject: [Krecipesweb-devel] krecipesweb functions.php,1.1.1.1,1.2
+Message-ID: <200509291904.j8TJ4k907937@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv26051
+
+Modified Files:
+	functions.php 
+Log Message:
+-
+
+Index: functions.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/functions.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** functions.php	27 Sep 2005 21:39:35 -0000	1.1.1.1
+--- functions.php	29 Sep 2005 19:04:43 -0000	1.2
+***************
+*** 1,14 ****
+  <?php
+! ##########################################################################################
+! #
+! #  project           	: Krecipes WebFrontend
+! #  filename          	: functions.php
+! #  version           	: 0.01
+! #  last modified by  	: Nils Kristian Tomren
+! #  e-mail            	: project at nilsk.net
+! #  purpose           	: Contins misc. functions
+! #  last modified     	: 17.09.2005
+! #
+! ##########################################################################################
+  //Connecting to DB
+  $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die
+--- 1,4 ----
+  <?php
+! 
+  //Connecting to DB
+  $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die
+
+
+
+From nobody at sheep.berlios.de  Fri Sep 30 20:25:52 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 30 Sep 2005 20:25:52 +0200
+Subject: [Krecipesweb-devel] krecipesweb print_recipe.php,1.1.1.1,1.2 view_recipe.php,1.1.1.1,1.2
+Message-ID: <200509301825.j8UIPq925782@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv25267
+
+Modified Files:
+	print_recipe.php view_recipe.php 
+Log Message:
+na
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** print_recipe.php	27 Sep 2005 21:39:37 -0000	1.1.1.1
+--- print_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+***************
+*** 19,26 ****
+  <SCRIPT LANGUAGE="JavaScript">
+  
+- <!-- This script and many more are available free online at -->
+- <!-- The JavaScript Source!! http://javascript.internet.com -->
+- 
+- <!-- Begin
+  function printPage() {
+  if (window.print) {
+--- 19,22 ----
+***************
+*** 30,34 ****
+     }
+  }
+- //  End -->
+  </script>
+  </head>
+--- 26,29 ----
+***************
+*** 45,49 ****
+      <tr>
+        <td align="center" valign="middle" width="450">
+!         <img src="recipe_photo.php?id=<?php echo $recipe_id; ?>" width="174" border="0" />
+        </td>
+        <td>
+--- 40,44 ----
+      <tr>
+        <td align="center" valign="middle" width="450">
+!         <img src="recipe_photo.php?id=<?php echo $recipe_id; ?>" border="0" />
+        </td>
+        <td>
+***************
+*** 146,150 ****
+  <tr align="center">
+    <td width="100%" colspan="2" align="center">
+! <p><br /><br />  <?php echo " $print_copy  "; ?>
+  </p>  </td>
+  </tr>
+--- 141,150 ----
+  <tr align="center">
+    <td width="100%" colspan="2" align="center">
+! <p><br /><br />  <?php echo " $print_copy  "; ?><br />
+! <?php
+! //$url = $_SERVER[''HTTP_REFERER''];
+! echo
+! "http://".$HTTP_SERVER_VARS['HTTP_HOST']."".dirname($HTTP_SERVER_VARS['PHP_SELF'])."/";
+! ?>
+  </p>  </td>
+  </tr>
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** view_recipe.php	27 Sep 2005 21:39:35 -0000	1.1.1.1
+--- view_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+***************
+*** 58,62 ****
+      <tr>
+        <td align="center" valign="middle" width="450">
+!         <img src="recipe_photo.php?id=<?php echo $recipe_id; ?>" width="174" border="0" />
+        </td>
+        <td>
+--- 58,62 ----
+      <tr>
+        <td align="center" valign="middle" width="450">
+!         <img src="recipe_photo.php?id=<?php echo $recipe_id; ?>" border="0" />
+        </td>
+        <td>
+
+
+
+From nobody at sheep.berlios.de  Fri Sep 30 20:26:44 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 30 Sep 2005 20:26:44 +0200
+Subject: [Krecipesweb-devel] krecipesweb/inc print.css,NONE,1.1
+Message-ID: <200509301826.j8UIQi925817@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv25349/inc
+
+Added Files:
+	print.css 
+Log Message:
+added
+
+--- NEW FILE: print.css ---
+body {
+    background-color : #ffffff;
+  }
+
+
+ul {
+    color : black;
+    font-family : Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    font-size : 90%;
+    list-style-type : circle;
+  }
+
+
+ol {
+    color : black;
+    font-family : Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    font-size : 90%;
+    list-style-type : square;
+  }
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Trebuchet MS",
+Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax, sans-serif;
+  }
+
+
+h1 {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+  }
+
+
+h2 {
+    color: #000000;
+    font-size: 130%;
+    font-weight: normal;
+    padding-bottom: 0px;
+  }
+
+
+h3 {
+    color: #000000;
+    font-size: 100%;
+    font-weight: bold;
+    padding-bottom: 0px;
+  }
+
+
+.index_header {
+    font-size : 130%;
+    font-weight: bold;
+  }
+
+
+.right {
+    text-align: right;
+  }
+
+
+.left {
+    text-align: left;
+  }
+
+
+.center {
+    text-align: center;
+  }
+
+
+.nav {
+    color : #000000;
+    font-family : Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    font-size : 100%;
+    text-align : center;
+    text-decoration : none;
+  }
+
+
+.title {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 80%;
+    font-family: Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+  }
+
+
+.small {
+    color: #000000;
+    font-size: 60%;
+    font-family: Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+  }
+
+
+.footer {
+    color: #555555;
+    font-size: 60%;
+    font-family: Verdana, "Lucida
+Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    text-align: center;
+  }
+
+
+a {
+    color: black;
+    text-decoration: none;
+  }
+
+
+a:link {
+    text-decoration: none;
+  }
+
+
+a:visited {
+    text-decoration: none;
+  }
+
+
+a:active {
+    text-decoration: none;
+  }
+
+
+a:hover {
+    color: #ff0033;
+    text-decoration: underline;
+  }
+
+

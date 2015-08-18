@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb print_recipe.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-October/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20print_recipe.php%2C1.2%2C1.3&In-Reply-To=%3C200510011505.j91F5E922691%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb print_recipe.php,1.2,1.3</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20print_recipe.php%2C1.2%2C1.3&In-Reply-To=%3C200510011505.j91F5E922691%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb print_recipe.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Oct  1 17:05:14 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[Krecipesweb-devel] krecipesweb/inc metatags.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[Krecipesweb-devel] krecipesweb/lang en.php,1.1.1.1,1.2 nb.php,1.1.1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv11590
+
+Modified Files:
+	print_recipe.php 
+Log Message:
+added support for print stylesheet
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** print_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+--- print_recipe.php	1 Oct 2005 15:05:11 -0000	1.3
+***************
+*** 17,32 ****
+  ?&gt;
+  
+- &lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;
+  
+- function printPage() {
+- if (window.print) {
+- agree = confirm('This page contains sensitive information that \nwe recommend you print a
+- copy of at this time. \n\nOK to print now?');
+- if (agree) window.print(); 
+-    }
+- }
+- &lt;/script&gt;
+  &lt;/head&gt;
+! &lt;body OnLoad=&quot;printPage()&quot;&gt;
+  &lt;?php
+  require('inc/top_table.php');
+--- 17,23 ----
+  ?&gt;
+  
+  
+  &lt;/head&gt;
+! &lt;body&gt;
+  &lt;?php
+  require('inc/top_table.php');
+***************
+*** 144,147 ****
+--- 135,139 ----
+  &lt;?php
+  //$url = $_SERVER[''HTTP_REFERER''];
++ echo &quot;$lng_pfrom&lt;br /&gt;&quot;;
+  echo
+  &quot;<A HREF="http://">http://</A>&quot;.$HTTP_SERVER_VARS['HTTP_HOST'].&quot;&quot;.dirname($HTTP_SERVER_VARS['PHP_SELF']).&quot;/&quot;;
+***************
+*** 149,152 ****
+--- 141,147 ----
+  &lt;/p&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
++ &lt;tr&gt;&lt;td width=&quot;100%&quot; colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;FORM&gt;
++ &lt;INPUT TYPE=&quot;button&quot; value=&quot;&lt;?php echo &quot;$lng_print&quot;; ?&gt;&quot; onClick=&quot;window.print()&quot;&gt;
++ &lt;/FORM&gt;&lt;/td&gt;&lt;/tr&gt;
+  
+  &lt;? //Include footer
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[Krecipesweb-devel] krecipesweb/inc metatags.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[Krecipesweb-devel] krecipesweb/lang en.php,1.1.1.1,1.2 nb.php,1.1.1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

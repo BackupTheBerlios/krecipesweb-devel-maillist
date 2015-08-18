@@ -1,0 +1,2145 @@
+From nobody at sheep.berlios.de  Sat Dec  3 20:56:52 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 20:56:52 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.2,NONE
+Message-ID: <200512031956.jB3JuqN12718@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv317
+
+Removed Files:
+	send_friend.php 
+Log Message:
+
+
+--- send_friend.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sat Dec  3 23:21:03 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 23:21:03 +0100
+Subject: [Krecipesweb-devel] krecipesweb view_recipe.php,1.4,1.5
+Message-ID: <200512032221.jB3ML3N16416@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30113
+
+Modified Files:
+	view_recipe.php 
+Log Message:
+added bottombox...
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** view_recipe.php	29 Nov 2005 19:59:02 -0000	1.4
+--- view_recipe.php	3 Dec 2005 22:21:01 -0000	1.5
+***************
+*** 167,182 ****
+  <tr align="center">
+    <td width="100%" colspan="2" align="center">
+!   <p>&nbsp;</p>
+!   
+!   <?php echo "
+!   <a href=\"print_recipe.php?id=$recipe_id\" class=\"printrecipe\">
+!   <img src=\"img/print.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+!   $lng_print</a>";
+! ?>
+! <br />
+! <?php echo "
+!   <a href=\"send_friend.php?id=$recipe_id\" class=\"sendrecipe\">
+!   <img src=\"img/send.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+!   $lng_sendfriend</a>";
+  ?>
+    </td>
+--- 167,172 ----
+  <tr align="center">
+    <td width="100%" colspan="2" align="center">
+! <?php
+! require "view_recipe_bbox.php";
+  ?>
+    </td>
+
+
+
+From nobody at sheep.berlios.de  Sat Dec  3 23:21:30 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 23:21:30 +0100
+Subject: [Krecipesweb-devel] krecipesweb view_recipe_bbox.php,NONE,1.1
+Message-ID: <200512032221.jB3MLUN16420@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30163
+
+Added Files:
+	view_recipe_bbox.php 
+Log Message:
+added
+
+--- NEW FILE: view_recipe_bbox.php ---
+<p>&nbsp;</p>
+<table width="100%" class="bbox_border">
+<tbody>
+    <tr>
+      <td width="50%" class="bbox1" align="middle">
+<DIV class="bbox_head"><?php echo $lng_sendfriend;
+?></DIV>
+<FORM action="send_friend.php" method="POST" target="_blank">
+<INPUT type="hidden" name="send_id" value="<?php echo $recipe_id; ?>">
+<INPUT type="text" name="sendrname" size="20" value="Your name" onFocus="if (this.value=='Your name') this.value='';" onBlur="if (this.value=='') this.value='Your name';">&nbsp;&nbsp;
+<INPUT type="text" name="sendermail" size="20" value="Your e-mail" onFocus="if (this.value=='Your e-mail') this.value='';" onBlur="if (this.value=='') this.value='Your e-mail';"><br/>
+<INPUT type="text" name="friendname" size="20" value="Your friends name" onFocus="if (this.value=='Your friends name') this.value='';" onBlur="if (this.value=='') this.value='Your friends name';">&nbsp;&nbsp;
+<INPUT type="text" name="friendmail" size="20" value="Your friends e-mail" onFocus="if (this.value=='Your friends e-mail') this.value='';" onBlur="if (this.value=='') this.value='Your friends e-mail';"><br>
+<INPUT type="submit" name="submit" value="  Send  " src="img/send.gif">
+<INPUT type="reset" name="reset" value="  Clear form  ">
+</FORM>
+</td>
+      <td width="50%" class="bbox2" align="left" valign="top">
+<DIV class="bbox_head">Page Functions</DIV>
+
+<?php echo "
+  <a href=\"print_recipe.php?id=$recipe_id\" class=\"printrecipe\">
+  <img src=\"img/print.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+  $lng_print</a>";
+?><br>
+<A href="search.php"><IMG src="img/search.png" alt="Search" width="16" height="16" align="bottom" border="0">
+Search for recipes</A>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+  
+
+
+
+From nobody at sheep.berlios.de  Sat Dec  3 23:21:53 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 23:21:53 +0100
+Subject: [Krecipesweb-devel] krecipesweb settings.php,1.1,1.2
+Message-ID: <200512032221.jB3MLrN16433@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30192
+
+Modified Files:
+	settings.php 
+Log Message:
+updated beta notice
+
+Index: settings.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/settings.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** settings.php	20 Nov 2005 13:52:05 -0000	1.1
+--- settings.php	3 Dec 2005 22:21:50 -0000	1.2
+***************
+*** 7,11 ****
+  #
+  ##########################################################################################
+! $frontend_ver =  '0.1';
+  
+  
+--- 7,11 ----
+  #
+  ##########################################################################################
+! $frontend_ver =  '0.1b';
+  
+  
+
+
+
+From nobody at sheep.berlios.de  Sat Dec  3 23:22:25 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 23:22:25 +0100
+Subject: [Krecipesweb-devel] krecipesweb/img search.png,NONE,1.1
+Message-ID: <200512032222.jB3MMPN16465@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/img
+In directory sheep:/tmp/cvs-serv30284/img
+
+Added Files:
+	search.png 
+Log Message:
+added
+
+--- NEW FILE: search.png ---
+(This appears to be a binary file; contents omitted.)
+
+
+
+From nobody at sheep.berlios.de  Sat Dec  3 23:22:54 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 3 Dec 2005 23:22:54 +0100
+Subject: [Krecipesweb-devel] krecipesweb/inc main.css,1.1.1.1,1.2
+Message-ID: <200512032222.jB3MMsN16476@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv30356/inc
+
+Modified Files:
+	main.css 
+Log Message:
+edited for bbox
+
+Index: main.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/main.css,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** main.css	27 Sep 2005 21:39:37 -0000	1.1.1.1
+--- main.css	3 Dec 2005 22:22:52 -0000	1.2
+***************
+*** 1,2 ****
+--- 1,4 ----
++ 
++ 
+  body {
+      background-color : #eeeeee;
+***************
+*** 6,11 ****
+  ul {
+      color : black;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+--- 8,12 ----
+  ul {
+      color : black;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+***************
+*** 15,20 ****
+  ol {
+      color : black;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+--- 16,20 ----
+  ol {
+      color : black;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+***************
+*** 23,28 ****
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet MS",
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax, sans-serif;
+    }
+  
+--- 23,27 ----
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet MS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax, sans-serif;
+    }
+  
+***************
+*** 74,79 ****
+  .nav {
+      color : #000000;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+--- 73,77 ----
+  .nav {
+      color : #000000;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+***************
+*** 87,92 ****
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 85,89 ----
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 95,100 ****
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 92,96 ----
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 103,108 ****
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+--- 99,103 ----
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+***************
+*** 133,135 ****
+      color: #ff0033;
+      text-decoration: underline;
+!   }
+\ No newline at end of file
+--- 128,186 ----
+      color: #ff0033;
+      text-decoration: underline;
+!   }
+! 
+! 
+! .bbox1 {
+!     padding-right : 20px;
+!     border-right-color : #000000;
+!     border-right-style : solid;
+!     border-right-width : 1px;
+!   }
+! 
+! 
+! .bbox2 {
+!     padding-left : 20px;
+!     border-left-color : #000000;
+!     border-left-style : solid;
+!     border-left-width : 1px;
+!   }
+! 
+! 
+! .bbox_border {
+!     border-bottom-color : #000000;
+!     border-bottom-style : solid;
+!     border-bottom-width : 1px;
+!     border-left-color : #000000;
+!     border-left-style : solid;
+!     border-left-width : 1px;
+!     border-right-color : #000000;
+!     border-right-style : solid;
+!     border-right-width : 1px;
+!     border-top-color : #000000;
+!     border-top-style : solid;
+!     border-top-width : 1px;
+!   }
+! 
+! 
+! .bbox_head {
+!     font-size : 110%;
+!     font-weight : bold;
+!     text-align : center;
+!   }
+! 
+! 
+! input {
+!     border-bottom-color : #000000;
+!     border-bottom-style : solid;
+!     border-bottom-width : 1px;
+!     border-left-color : #000000;
+!     border-left-style : solid;
+!     border-left-width : 1px;
+!     border-right-color : #000000;
+!     border-right-style : solid;
+!     border-right-width : 1px;
+!     border-top-color : #000000;
+!     border-top-style : solid;
+!     border-top-width : 1px;
+!   }
+! 
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 00:19:43 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 00:19:43 +0100
+Subject: [Krecipesweb-devel] krecipesweb settings.php,1.2,1.3
+Message-ID: <200512032319.jB3NJhN18174@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv2042
+
+Modified Files:
+	settings.php 
+Log Message:
+updated beta notice
+
+Index: settings.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/settings.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** settings.php	3 Dec 2005 22:21:50 -0000	1.2
+--- settings.php	3 Dec 2005 23:19:41 -0000	1.3
+***************
+*** 7,11 ****
+  #
+  ##########################################################################################
+! $frontend_ver =  '0.1b';
+  
+  
+--- 7,11 ----
+  #
+  ##########################################################################################
+! $frontend_ver =  '0.2b';
+  
+  
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 00:20:16 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 00:20:16 +0100
+Subject: [Krecipesweb-devel] krecipesweb search_results.php,1.1.1.1,1.2
+Message-ID: <200512032320.jB3NKGN18195@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv2106
+
+Modified Files:
+	search_results.php 
+Log Message:
+commented out debug info
+
+Index: search_results.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/search_results.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** search_results.php	27 Sep 2005 21:39:35 -0000	1.1.1.1
+--- search_results.php	3 Dec 2005 23:20:14 -0000	1.2
+***************
+*** 108,112 ****
+  
+  	//run query
+! 	echo "(DEBUG) Running query: $command<br><br>";
+  	$result = mysql_query($command) or die(mysql_error());
+  	while ($row = mysql_fetch_array($result, MYSQL_NUM))
+--- 108,112 ----
+  
+  	//run query
+! 	//echo "(DEBUG) Running query: $command<br><br>";
+  	$result = mysql_query($command) or die(mysql_error());
+  	while ($row = mysql_fetch_array($result, MYSQL_NUM))
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 19:26:37 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 19:26:37 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.3,1.4 view_recipe_bbox.php,1.1,1.2 view_recipe.php,1.5,1.6
+Message-ID: <200512041826.jB4IQbN23700@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14161
+
+Modified Files:
+	view_recipe_bbox.php view_recipe.php 
+Added Files:
+	send_friend.php 
+Log Message:
+finishing send friend feature
+
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** view_recipe_bbox.php	3 Dec 2005 22:21:27 -0000	1.1
+--- view_recipe_bbox.php	4 Dec 2005 18:26:33 -0000	1.2
+***************
+*** 6,21 ****
+  <DIV class="bbox_head"><?php echo $lng_sendfriend;
+  ?></DIV>
+! <FORM action="send_friend.php" method="POST" target="_blank">
+  <INPUT type="hidden" name="send_id" value="<?php echo $recipe_id; ?>">
+! <INPUT type="text" name="sendrname" size="20" value="Your name" onFocus="if (this.value=='Your name') this.value='';" onBlur="if (this.value=='') this.value='Your name';">&nbsp;&nbsp;
+! <INPUT type="text" name="sendermail" size="20" value="Your e-mail" onFocus="if (this.value=='Your e-mail') this.value='';" onBlur="if (this.value=='') this.value='Your e-mail';"><br/>
+! <INPUT type="text" name="friendname" size="20" value="Your friends name" onFocus="if (this.value=='Your friends name') this.value='';" onBlur="if (this.value=='') this.value='Your friends name';">&nbsp;&nbsp;
+! <INPUT type="text" name="friendmail" size="20" value="Your friends e-mail" onFocus="if (this.value=='Your friends e-mail') this.value='';" onBlur="if (this.value=='') this.value='Your friends e-mail';"><br>
+! <INPUT type="submit" name="submit" value="  Send  " src="img/send.gif">
+! <INPUT type="reset" name="reset" value="  Clear form  ">
+  </FORM>
+  </td>
+        <td width="50%" class="bbox2" align="left" valign="top">
+! <DIV class="bbox_head">Page Functions</DIV>
+  
+  <?php echo "
+--- 6,21 ----
+  <DIV class="bbox_head"><?php echo $lng_sendfriend;
+  ?></DIV>
+! <FORM action="send_friend.php" method="POST" name='friendform' onSubmit="return validate()">
+  <INPUT type="hidden" name="send_id" value="<?php echo $recipe_id; ?>">
+! <INPUT type="text" name='sendername' size="20" value="<?php echo $lng_yourn ?>" onFocus="if (this.value=='<?php echo $lng_yourn ?>') this.value='';" onBlur="if (this.value=='') this.value='<?php echo $lng_yourn ?>';">&nbsp;&nbsp;
+! <INPUT type="text" name="sendermail" size="20" value="<?php echo $lng_yourm ?>" onFocus="if (this.value=='<?php echo $lng_yourm ?>') this.value='';" onBlur="if (this.value=='') this.value='<?php echo $lng_yourm ?>';"><br/>
+! <INPUT type="text" name="friendname" size="20" value="<?php echo $lng_yourfn ?>" onFocus="if (this.value=='<?php echo $lng_yourfn ?>') this.value='';" onBlur="if (this.value=='') this.value='<?php echo $lng_yourfn ?>';">&nbsp;&nbsp;
+! <INPUT type="text" name="friendmail" size="20" value="<?php echo $lng_yourfm ?>" onFocus="if (this.value=='<?php echo $lng_yourfm ?>') this.value='';" onBlur="if (this.value=='') this.value='<?php echo $lng_yourfm ?>';"><br>
+! <INPUT type="submit" name="submit" value="  <?php echo  $lng_submit   ?>  ">
+! <INPUT type="reset" name="reset" value="  <?php echo   $lng_reset  ?>  ">
+  </FORM>
+  </td>
+        <td width="50%" class="bbox2" align="left" valign="top">
+! <DIV class="bbox_head"><?php echo   $lng_pfunctions  ?></DIV>
+  
+  <?php echo "
+***************
+*** 25,29 ****
+  ?><br>
+  <A href="search.php"><IMG src="img/search.png" alt="Search" width="16" height="16" align="bottom" border="0">
+! Search for recipes</A>
+  </td>
+      </tr>
+--- 25,29 ----
+  ?><br>
+  <A href="search.php"><IMG src="img/search.png" alt="Search" width="16" height="16" align="bottom" border="0">
+! <?php echo   $lng_rec_search  ?></A>
+  </td>
+      </tr>
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** view_recipe.php	3 Dec 2005 22:21:01 -0000	1.5
+--- view_recipe.php	4 Dec 2005 18:26:33 -0000	1.6
+***************
+*** 16,20 ****
+  require('inc/metatags.php');
+  ?>
+! 
+  <script type="text/javascript">
+  //Funtion to open print window
+--- 16,43 ----
+  require('inc/metatags.php');
+  ?>
+! <SCRIPT LANGUAGE="JavaScript">
+!     <!-- Hide code from non-js browsers
+!     function validate()
+!     {
+!         formObj = document.friendform;
+!         if ((formObj.sendername.value == "") ||
+!             (formObj.sendername.value  == "Your name") ||
+! 	    (formObj.sendermail.value  == "") ||
+! 	    (formObj.sendermail.value  == "Your e-mail") ||
+!             (formObj.friendname.value  == "") ||
+!             (formObj.friendname.value  == "Your friends name") ||
+!             (formObj.friendmail.value  == ""))
+!             (formObj.friendmail.value  == "Your friends e-mail"))
+!         {
+!             alert("You have not filled in all required fields.");
+!             return false;
+!         }
+!         else {
+!             alert('<? echo "ok"; ?>');
+!             return true;
+!         }
+!     }
+!     // end hiding -->
+! </SCRIPT>
+  <script type="text/javascript">
+  //Funtion to open print window
+***************
+*** 28,39 ****
+          window.open(this.href, "",
+  "top=40,left=40,width=<?php echo "$pwidth"?>,height=<?php echo "$pheight"?>,scrollbars");
+-         return false;
+-       }
+-     }
+- if (links[i].className.match("sendrecipe")) {
+-       links[i].onclick=function() {
+-         // Below - to open a full-sized window, just use: window.open(this.href);
+-         window.open(this.href, "",
+- "top=40,left=40,width=500,height=600,scrollbars");
+          return false;
+        }
+--- 51,54 ----
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 19:26:59 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 19:26:59 +0100
+Subject: [Krecipesweb-devel] krecipesweb/inc main.css,1.2,1.3
+Message-ID: <200512041826.jB4IQxN23709@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv14287/inc
+
+Modified Files:
+	main.css 
+Log Message:
+
+
+Index: main.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/main.css,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** main.css	3 Dec 2005 22:22:52 -0000	1.2
+--- main.css	4 Dec 2005 18:26:56 -0000	1.3
+***************
+*** 183,186 ****
+--- 183,187 ----
+      border-top-style : solid;
+      border-top-width : 1px;
++     font-size : 60%;
+    }
+  
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 19:27:22 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 19:27:22 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.4,1.5 nb.php,1.4,1.5
+Message-ID: <200512041827.jB4IRMN23739@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv14500/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+finishing send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** en.php	20 Nov 2005 13:52:05 -0000	1.4
+--- en.php	4 Dec 2005 18:27:20 -0000	1.5
+***************
+*** 8,12 ****
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: English Language File
+! #  last modified     	: 17.09.2005
+  #
+  ##########################################################################################
+--- 8,12 ----
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: English Language File
+! #  last modified     	: 03.12.2005
+  #
+  ##########################################################################################
+***************
+*** 43,46 ****
+--- 43,54 ----
+  $no_cat = "No Categories";
+  
++ #view_recipe_bbox.php
++ $lng_yourn="Your name";
++ $lng_yourm="Your e-mail";
++ $lng_yourfn="Your friends name";
++ $lng_yourfm="Your friends e-mail";
++ $lng_pfunctions="Page Functions";
++ 
++ 
+  #menu.php
+  $lng_menu_catlist = "Category Listing";
+***************
+*** 57,61 ****
+  $lng_intext = "Instructions contains the text";
+  $lng_submit = "Submit";
+! $lng_reset = "Reset";
+  
+  #search_results.php
+--- 65,69 ----
+  $lng_intext = "Instructions contains the text";
+  $lng_submit = "Submit";
+! $lng_reset = "Clear form";
+  
+  #search_results.php
+***************
+*** 64,67 ****
+--- 72,79 ----
+  $lng_res = "Results";
+  $lng_nores = "No recipes found.";
++ 
++ #send_friend.php
++ 
++ 
+  
+  # Error messages
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** nb.php	20 Nov 2005 13:52:05 -0000	1.4
+--- nb.php	4 Dec 2005 18:27:20 -0000	1.5
+***************
+*** 65,68 ****
+--- 65,71 ----
+  $lng_nores = "Ingen oppskrifter funnet.";
+  
++ #send_friend.php
++ 
++ 
+  # Error messages
+  $no_db_listings = "Ingen oppfringer i Krecipes databasen!";
+
+
+
+From nobody at sheep.berlios.de  Sun Dec  4 20:13:13 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 4 Dec 2005 20:13:13 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.4,1.5
+Message-ID: <200512041913.jB4JDDN25071@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv3787
+
+Modified Files:
+	send_friend.php 
+Log Message:
+working on send friend feature
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** send_friend.php	4 Dec 2005 18:26:33 -0000	1.4
+--- send_friend.php	4 Dec 2005 19:13:10 -0000	1.5
+***************
+*** 8,12 ****
+  $friendmail = $_POST["friendmail"];
+  
+! $link=".$url.view_recipe.php?id=$recipe_id";
+  
+  if(empty($sendername) || empty($friendname)) {
+--- 8,14 ----
+  $friendmail = $_POST["friendmail"];
+  
+! $link="$urlm$recipe_id";
+! $bestwishes="Regards";
+! $subject="Message from $friendname: A recipe for you";
+  
+  if(empty($sendername) || empty($friendname)) {
+***************
+*** 25,40 ****
+  	else {
+  
+! $mailbody="Your friend $sendername have sent you a link to";
+! $mailbody.="a recipe at $site_title.";
+  $mailbody.="Visit the link below to see the recipe:\n";
+  $mailbody.=$link;
+! $mailbody.="\n$bestwishes,\n$sendername\n";
+! $mailbody.="\n-------------------------------------------------------\n";
+! $mailbody.="Sent from:";
+  $mailbody.="$site_title - $admin_mail";
+  
+  $mailheaders="From: $sendername<$sendermail>\n";
+  
+! mail($friendmail,$mailsubject,$mailbody,$mailheaders);
+  
+  header("Location: view_recipe.php?id=$recipe_id&sendrec=ok");
+--- 27,41 ----
+  	else {
+  
+! $mailbody="Your friend $sendername have sent you a link to\n";
+! $mailbody.="a recipe at $site_title.\n";
+  $mailbody.="Visit the link below to see the recipe:\n";
+  $mailbody.=$link;
+! $mailbody.="\n\n$bestwishes,\n$sendername\n";
+! $mailbody.="\n\nSent from:\n";
+  $mailbody.="$site_title - $admin_mail";
+  
+  $mailheaders="From: $sendername<$sendermail>\n";
+  
+! mail($friendmail,$subject,$mailbody,$mailheaders);
+  
+  header("Location: view_recipe.php?id=$recipe_id&sendrec=ok");
+
+
+
+From nobody at sheep.berlios.de  Mon Dec  5 18:57:32 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Mon, 5 Dec 2005 18:57:32 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.5,1.6
+Message-ID: <200512051757.jB5HvWN14200@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv23281/lang
+
+Modified Files:
+	en.php 
+Log Message:
+working on send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** en.php	4 Dec 2005 18:27:20 -0000	1.5
+--- en.php	5 Dec 2005 17:57:17 -0000	1.6
+***************
+*** 74,78 ****
+  
+  #send_friend.php
+! 
+  
+  
+--- 74,85 ----
+  
+  #send_friend.php
+! $lng_wishes="Regards";
+! $lng_subject="Message from $friendname: A recipe for you";
+! $lng_message1="Your friend $sendername have sent you a link to";
+! $lng_message2="a recipe at";
+! $lng_message3="Visit the link below to see the recipe";
+! $lng_message4="Sent from";
+! $lng_from="From";
+! $lng_error55="The recipe id was not found!<br />Failed to send!";
+  
+  
+
+
+
+From nobody at sheep.berlios.de  Mon Dec  5 18:57:33 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Mon, 5 Dec 2005 18:57:33 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.5,1.6 view_recipe_bbox.php,1.2,1.3
+Message-ID: <200512051757.jB5HvXN14204@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv23281
+
+Modified Files:
+	send_friend.php view_recipe_bbox.php 
+Log Message:
+working on send friend feature
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** send_friend.php	4 Dec 2005 19:13:10 -0000	1.5
+--- send_friend.php	5 Dec 2005 17:57:30 -0000	1.6
+***************
+*** 9,14 ****
+  
+  $link="$urlm$recipe_id";
+! $bestwishes="Regards";
+! $subject="Message from $friendname: A recipe for you";
+  
+  if(empty($sendername) || empty($friendname)) {
+--- 9,13 ----
+  
+  $link="$urlm$recipe_id";
+! $subject="$lng_subject";
+  
+  if(empty($sendername) || empty($friendname)) {
+***************
+*** 22,39 ****
+  	}
+  	elseif(empty($recipe_id)) {
+! 	echo "The recipe id was not found!<br />Failed to send!";
+  	exit;
+  	}
+  	else {
+  
+! $mailbody="Your friend $sendername have sent you a link to\n";
+! $mailbody.="a recipe at $site_title.\n";
+! $mailbody.="Visit the link below to see the recipe:\n";
+  $mailbody.=$link;
+! $mailbody.="\n\n$bestwishes,\n$sendername\n";
+! $mailbody.="\n\nSent from:\n";
+  $mailbody.="$site_title - $admin_mail";
+  
+! $mailheaders="From: $sendername<$sendermail>\n";
+  
+  mail($friendmail,$subject,$mailbody,$mailheaders);
+--- 21,38 ----
+  	}
+  	elseif(empty($recipe_id)) {
+! 	echo "$lng_error55";
+  	exit;
+  	}
+  	else {
+  
+! $mailbody="$lng_message1\n";
+! $mailbody.="$lng_message2 $site_title.\n";
+! $mailbody.="$lng_message3:\n";
+  $mailbody.=$link;
+! $mailbody.="\n\n$lng_wishes,\n$sendername\n";
+! $mailbody.="\n\n$lng_message4:\n";
+  $mailbody.="$site_title - $admin_mail";
+  
+! $mailheaders="$lng_from: $sendername<$sendermail>\n";
+  
+  mail($friendmail,$subject,$mailbody,$mailheaders);
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** view_recipe_bbox.php	4 Dec 2005 18:26:33 -0000	1.2
+--- view_recipe_bbox.php	5 Dec 2005 17:57:30 -0000	1.3
+***************
+*** 1,3 ****
+--- 1,10 ----
+  <p>&nbsp;</p>
++ <table width="100%">
++   <tbody>
++     <tr>
++       <td class="errorbox">fdgdfg</td>
++     </tr>
++   </tbody>
++ </table>
+  <table width="100%" class="bbox_border">
+  <tbody>
+
+
+
+From nobody at sheep.berlios.de  Mon Dec  5 18:58:19 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Mon, 5 Dec 2005 18:58:19 +0100
+Subject: [Krecipesweb-devel] krecipesweb/inc main.css,1.3,1.4
+Message-ID: <200512051758.jB5HwJN14228@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv23793/inc
+
+Modified Files:
+	main.css 
+Log Message:
+working on send friend feature
+
+Index: main.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/main.css,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** main.css	4 Dec 2005 18:26:56 -0000	1.3
+--- main.css	5 Dec 2005 17:58:17 -0000	1.4
+***************
+*** 8,12 ****
+  ul {
+      color : black;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+--- 8,13 ----
+  ul {
+      color : black;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+***************
+*** 16,20 ****
+  ol {
+      color : black;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+--- 17,22 ----
+  ol {
+      color : black;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+***************
+*** 23,27 ****
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet MS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax, sans-serif;
+    }
+  
+--- 25,31 ----
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet
+! MS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax,
+! sans-serif;
+    }
+  
+***************
+*** 73,77 ****
+  .nav {
+      color : #000000;
+!     font-family : Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+--- 77,82 ----
+  .nav {
+      color : #000000;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+***************
+*** 85,89 ****
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 90,95 ----
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 92,96 ****
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 98,103 ----
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 99,103 ****
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana, "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+--- 106,111 ----
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+***************
+*** 184,187 ****
+--- 192,212 ----
+      border-top-width : 1px;
+      font-size : 60%;
++   }
++ 
++ 
++ .errorbox {
++     background-color : #ffb6c1;
++     border-bottom-color : #ff0000;
++     border-bottom-style : solid;
++     border-bottom-width : 1px;
++     border-left-color : #ff0000;
++     border-left-style : solid;
++     border-left-width : 1px;
++     border-right-color : #ff0000;
++     border-right-style : solid;
++     border-right-width : 1px;
++     border-top-color : #ff0000;
++     border-top-style : solid;
++     border-top-width : 1px;
+    }
+  
+
+
+
+From nobody at sheep.berlios.de  Tue Dec  6 22:08:12 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Tue, 6 Dec 2005 22:08:12 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.6,1.7
+Message-ID: <200512062108.jB6L8CN12893@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv26747/lang
+
+Modified Files:
+	en.php 
+Log Message:
+finishing send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** en.php	5 Dec 2005 17:57:17 -0000	1.6
+--- en.php	6 Dec 2005 21:08:10 -0000	1.7
+***************
+*** 75,81 ****
+  #send_friend.php
+  $lng_wishes="Regards";
+! $lng_subject="Message from $friendname: A recipe for you";
+! $lng_message1="Your friend $sendername have sent you a link to";
+! $lng_message2="a recipe at";
+  $lng_message3="Visit the link below to see the recipe";
+  $lng_message4="Sent from";
+--- 75,82 ----
+  #send_friend.php
+  $lng_wishes="Regards";
+! $lng_subject="A recipe for you from ";
+! $lng_message1_1="Your friend ";
+! $lng_message1_2=" have sent you a link to";
+! $lng_message2="a recipe at ";
+  $lng_message3="Visit the link below to see the recipe";
+  $lng_message4="Sent from";
+
+
+
+From nobody at sheep.berlios.de  Tue Dec  6 22:08:13 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Tue, 6 Dec 2005 22:08:13 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.6,1.7 view_recipe_bbox.php,1.3,1.4
+Message-ID: <200512062108.jB6L8DN12897@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv26747
+
+Modified Files:
+	send_friend.php view_recipe_bbox.php 
+Log Message:
+finishing send friend feature
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** send_friend.php	5 Dec 2005 17:57:30 -0000	1.6
+--- send_friend.php	6 Dec 2005 21:08:10 -0000	1.7
+***************
+*** 1,4 ****
+--- 1,6 ----
+  <?php
+  require "config.php";
++ require('lang/'."$site_lang".'.php');
++ 
+  
+  $recipe_id = $_POST["send_id"];
+***************
+*** 10,22 ****
+  $link="$urlm$recipe_id";
+  $subject="$lng_subject";
+  
+  if(empty($sendername) || empty($friendname)) {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=1");
+  	}
+  	elseif(!preg_match('/^[\.0-9a-z_-]{1,}@[\.0-9a-z-]{1,}\.[a-z]{1,}$/si',$sendermail) && $sendermail != "") {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=2");
+  	}
+  	elseif(!preg_match('/^[\.0-9a-z_-]{1,}@[\.0-9a-z-]{1,}\.[a-z]{1,}$/si',$friendmail) && $friendmail != "") {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=3");
+  	}
+  	elseif(empty($recipe_id)) {
+--- 12,25 ----
+  $link="$urlm$recipe_id";
+  $subject="$lng_subject";
++ $subject.="$sendername";
+  
+  if(empty($sendername) || empty($friendname)) {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=1&e=1");
+  	}
+  	elseif(!preg_match('/^[\.0-9a-z_-]{1,}@[\.0-9a-z-]{1,}\.[a-z]{1,}$/si',$sendermail) && $sendermail != "") {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=2&e=1");
+  	}
+  	elseif(!preg_match('/^[\.0-9a-z_-]{1,}@[\.0-9a-z-]{1,}\.[a-z]{1,}$/si',$friendmail) && $friendmail != "") {
+! 	header("Location: view_recipe.php?id=$recipe_id&error=3&e=1");
+  	}
+  	elseif(empty($recipe_id)) {
+***************
+*** 26,36 ****
+  	else {
+  
+! $mailbody="$lng_message1\n";
+! $mailbody.="$lng_message2 $site_title.\n";
+! $mailbody.="$lng_message3:\n";
+  $mailbody.=$link;
+! $mailbody.="\n\n$lng_wishes,\n$sendername\n";
+! $mailbody.="\n\n$lng_message4:\n";
+! $mailbody.="$site_title - $admin_mail";
+  
+  $mailheaders="$lng_from: $sendername<$sendermail>\n";
+--- 29,53 ----
+  	else {
+  
+! $mailbody=$lng_message1_1;
+! $mailbody.=$sendername;
+! $mailbody.=$lng_message1_2;
+! $mailbody.="\n";
+! $mailbody.=$lng_message2;
+! $mailbody.=$site_title;
+! $mailbody.=".\n";
+! $mailbody.=$lng_message3;
+! $mailbody.=":\n";
+  $mailbody.=$link;
+! $mailbody.="\n\n";
+! $mailbody.=$lng_wishes;
+! $mailbody.="\n";
+! $mailbody.=$sendername;
+! $mailbody.="\n\n\n";
+! $mailbody.=$lng_message4;
+! $mailbody.=":\n";
+! $mailbody.=$site_title;
+! $mailbody.=" - ";
+! $mailbody.=$admin_mail;
+! 
+  
+  $mailheaders="$lng_from: $sendername<$sendermail>\n";
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** view_recipe_bbox.php	5 Dec 2005 17:57:30 -0000	1.3
+--- view_recipe_bbox.php	6 Dec 2005 21:08:10 -0000	1.4
+***************
+*** 1,10 ****
+  <p>&nbsp;</p>
+! <table width="100%">
+!   <tbody>
+!     <tr>
+!       <td class="errorbox">fdgdfg</td>
+!     </tr>
+!   </tbody>
+! </table>
+  <table width="100%" class="bbox_border">
+  <tbody>
+--- 1,18 ----
+  <p>&nbsp;</p>
+! <?php
+! //$e = $_GET["e"];
+! 
+! //if ($e = "e") {
+! //echo "<table width=\"100%\"><tbody><tr>";
+! 
+! //  echo "<td class=\"errorbox\">fdgdfg</td>";
+!     
+! // echo "</tr></tbody></table>"; 
+! 
+! 
+! //} else {
+! //echo "<br />";
+! //}
+! ?>
+  <table width="100%" class="bbox_border">
+  <tbody>
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 15:02:44 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 15:02:44 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.7,1.8
+Message-ID: <200512101402.jBAE2ik21028@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv20880/lang
+
+Modified Files:
+	en.php 
+Log Message:
+finishing send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -C2 -d -r1.7 -r1.8
+*** en.php	6 Dec 2005 21:08:10 -0000	1.7
+--- en.php	10 Dec 2005 14:02:39 -0000	1.8
+***************
+*** 37,40 ****
+--- 37,49 ----
+  $lng_pfrom = "This recipe is printed from:";
+  $lng_sendfriend = "Send to a friend";
++ $lng_error = "Error";
++ $lng_error_friend_fmail = "Sorry, the e-mail address
++ you entered for your friend is invalid.<br /> Please try again, making certain
++ you have entered it correctly.";
++ $lng_error_friend_smail = "Sorry, the e-mail address you entered for yourself
++ is invalid.<br /> Please try again, making certain
++ you have entered it correctly.";
++ $lng_error_friend_name = "Sorry, you have to fill both your own and your
++ friends name.<br />";
+  
+  #view_recip_functions.php
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 15:02:44 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 15:02:44 +0100
+Subject: [Krecipesweb-devel] krecipesweb view_recipe_bbox.php,1.4,1.5 view_recipe.php,1.6,1.7
+Message-ID: <200512101402.jBAE2ik21032@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv20880
+
+Modified Files:
+	view_recipe_bbox.php view_recipe.php 
+Log Message:
+finishing send friend feature
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** view_recipe_bbox.php	6 Dec 2005 21:08:10 -0000	1.4
+--- view_recipe_bbox.php	10 Dec 2005 14:02:42 -0000	1.5
+***************
+*** 1,17 ****
+  <p>&nbsp;</p>
+  <?php
+- //$e = $_GET["e"];
+  
+! //if ($e = "e") {
+! //echo "<table width=\"100%\"><tbody><tr>";
+  
+! //  echo "<td class=\"errorbox\">fdgdfg</td>";
+!     
+! // echo "</tr></tbody></table>"; 
+  
+  
+! //} else {
+! //echo "<br />";
+! //}
+  ?>
+  <table width="100%" class="bbox_border">
+--- 1,26 ----
+  <p>&nbsp;</p>
+  <?php
+  
+! if ($e == 1)
+!  switch ($serror)
+! {
+! case "1":
+!  echo "<p class='errorbox' align='middle'><b>$lng_error:</b><br />
+! $lng_error_friend_name</p>";
+! break;
+  
+! case "2":
+!  echo "<p class='errorbox' align='middle'><b>$lng_error:</b><br />
+! $lng_error_friend_smail</p>";
+! break;
+  
++ case "3":
++  echo "<p class='errorbox' align='middle'><b>$lng_error:</b><br />
++ $lng_error_friend_fmail</p>";
++ break;
+  
+! default:
+! break;
+! }
+  ?>
+  <table width="100%" class="bbox_border">
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** view_recipe.php	4 Dec 2005 18:26:33 -0000	1.6
+--- view_recipe.php	10 Dec 2005 14:02:42 -0000	1.7
+***************
+*** 7,10 ****
+--- 7,13 ----
+  $recipe_id = $_GET["id"];
+  
++ $e = $_GET["e"];
++ $serror = $_GET["error"];
++ 
+  if ( $recipe_id=="" ) die("$no_recipe_chosen");
+  
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 15:14:36 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 15:14:36 +0100
+Subject: [Krecipesweb-devel] krecipesweb view_recipe_bbox.php,1.5,1.6 view_recipe.php,1.7,1.8
+Message-ID: <200512101414.jBAEEak21343@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv27782
+
+Modified Files:
+	view_recipe_bbox.php view_recipe.php 
+Log Message:
+finishing send friend feature
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** view_recipe_bbox.php	10 Dec 2005 14:02:42 -0000	1.5
+--- view_recipe_bbox.php	10 Dec 2005 14:14:34 -0000	1.6
+***************
+*** 24,27 ****
+--- 24,33 ----
+  }
+  ?>
++ <?php
++ if ($sendrec == "ok")
++ 	echo "<p class='okbox' align='middle'><b>$lng_ok:</b><br
++ />$lng_send_friend_ok</p>";
++ 
++ ?>
+  <table width="100%" class="bbox_border">
+  <tbody>
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -C2 -d -r1.7 -r1.8
+*** view_recipe.php	10 Dec 2005 14:02:42 -0000	1.7
+--- view_recipe.php	10 Dec 2005 14:14:34 -0000	1.8
+***************
+*** 9,12 ****
+--- 9,13 ----
+  $e = $_GET["e"];
+  $serror = $_GET["error"];
++ $sendrec = $_GET["sendrec"];
+  
+  if ( $recipe_id=="" ) die("$no_recipe_chosen");
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 15:14:36 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 15:14:36 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.8,1.9
+Message-ID: <200512101414.jBAEEak21342@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv27782/lang
+
+Modified Files:
+	en.php 
+Log Message:
+finishing send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.8
+retrieving revision 1.9
+diff -C2 -d -r1.8 -r1.9
+*** en.php	10 Dec 2005 14:02:39 -0000	1.8
+--- en.php	10 Dec 2005 14:14:31 -0000	1.9
+***************
+*** 38,41 ****
+--- 38,42 ----
+  $lng_sendfriend = "Send to a friend";
+  $lng_error = "Error";
++ $lng_ok = "Success";
+  $lng_error_friend_fmail = "Sorry, the e-mail address
+  you entered for your friend is invalid.<br /> Please try again, making certain
+***************
+*** 46,49 ****
+--- 47,51 ----
+  $lng_error_friend_name = "Sorry, you have to fill both your own and your
+  friends name.<br />";
++ $lng_send_friend_ok = "E-mail sent successfully to your friend.";
+  
+  #view_recip_functions.php
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 19:15:21 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 19:15:21 +0100
+Subject: [Krecipesweb-devel] krecipesweb/inc main.css,1.4,1.5
+Message-ID: <200512101815.jBAIFLk00279@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv7407/inc
+
+Modified Files:
+	main.css 
+Log Message:
+finishing send friend feature
+
+Index: main.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/main.css,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** main.css	5 Dec 2005 17:58:17 -0000	1.4
+--- main.css	10 Dec 2005 18:15:17 -0000	1.5
+***************
+*** 8,13 ****
+  ul {
+      color : black;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+--- 8,13 ----
+  ul {
+      color : black;
+!     font-family :
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+***************
+*** 17,22 ****
+  ol {
+      color : black;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+--- 17,22 ----
+  ol {
+      color : black;
+!     font-family :
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : square;
+***************
+*** 25,31 ****
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet
+! MS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax,
+! sans-serif;
+    }
+  
+--- 25,31 ----
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family:
+! "TrebuchetMS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",
+! Syntax,sans-serif;
+    }
+  
+***************
+*** 77,82 ****
+  .nav {
+      color : #000000;
+!     font-family : Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+--- 77,82 ----
+  .nav {
+      color : #000000;
+!     font-family :
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+***************
+*** 90,95 ****
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 90,95 ----
+      text-decoration: none;
+      font-size: 80%;
+!     font-family:
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 98,103 ****
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 98,103 ----
+      color: #000000;
+      font-size: 60%;
+!     font-family:
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+***************
+*** 106,111 ****
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana,
+! "LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+--- 106,111 ----
+      color: #555555;
+      font-size: 60%;
+!     font-family:
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+***************
+*** 207,210 ****
+--- 207,227 ----
+      border-right-width : 1px;
+      border-top-color : #ff0000;
++     border-top-style : solid;
++     border-top-width : 1px;
++   }
++ 
++ 
++ .okbox {
++     background-color : #c0ffc0;
++     border-bottom-color : #00ff00;
++     border-bottom-style : solid;
++     border-bottom-width : 1px;
++     border-left-color : #00ff00;
++     border-left-style : solid;
++     border-left-width : 1px;
++     border-right-color : #00ff00;
++     border-right-style : solid;
++     border-right-width : 1px;
++     border-top-color : #00ff00;
+      border-top-style : solid;
+      border-top-width : 1px;
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 19:15:21 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 19:15:21 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.9,1.10 nb.php,1.5,1.6
+Message-ID: <200512101815.jBAIFLk00283@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv7407/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+finishing send friend feature
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.9
+retrieving revision 1.10
+diff -C2 -d -r1.9 -r1.10
+*** en.php	10 Dec 2005 14:14:31 -0000	1.9
+--- en.php	10 Dec 2005 18:15:19 -0000	1.10
+***************
+*** 95,99 ****
+  $lng_error55="The recipe id was not found!<br />Failed to send!";
+  
+- 
+  # Error messages
+  $no_db_listings = "No listings in Krecipes database!";
+--- 95,98 ----
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** nb.php	4 Dec 2005 18:27:20 -0000	1.5
+--- nb.php	10 Dec 2005 18:15:19 -0000	1.6
+***************
+*** 3,12 ****
+  #
+  #  project           	: Krecipes WebFrontend
+! #  filename          	: lang_en.php.php
+  #  version           	: 0.01
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+! #  purpose           	: English Language File
+! #  last modified     	: 17.09.2005
+  #
+  ##########################################################################################
+--- 3,12 ----
+  #
+  #  project           	: Krecipes WebFrontend
+! #  filename          	: lang_nb.php
+  #  version           	: 0.01
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+! #  purpose           	: Norwegian Bokmaal Language File
+! #  last modified     	: 10.12.2005
+  #
+  ##########################################################################################
+***************
+*** 37,40 ****
+--- 37,53 ----
+  $lng_pfrom = "Denne oppskriften er skrevet ut fra:";
+  $lng_sendfriend = "Send til en venn";
++ $lng_error = "Feilmelding";
++ $lng_ok = "Vellykket";
++ $lng_error_friend_fmail = "Beklager, e-post adressen
++ du oppga til din venn er ikke en gyldig e-post adresse.<br /> Vennligst
++ pr&#248;v igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig
++ format.";
++ $lng_error_friend_smail = "Beklager, e-post adressen
++ du oppga til deg selv er ikke en gyldig e-post adresse.<br /> Vennligst
++ pr&#248;v
++ igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig format.";
++ $lng_error_friend_name = "Beklager, du m&#229; skrive inn b&#229;de ditt eget
++ navn og navnet til din venn.<br />";
++ $lng_send_friend_ok = "E-posten ble vellykket sendt til din venn.";
+  
+  #view_recip_functions.php
+***************
+*** 43,55 ****
+  $no_cat = "Ingen kategorier";
+  
+  #menu.php
+  $lng_menu_catlist = "Kategori liste";
+! $lng_menu_search ="Sk";
+  
+  #search.php
+! $lng_rec_search = "Oppskrift sk";
+  $lng_title = "Tittel";
+  $lng_yields = "Mengde";
+! $lng_exactly = "nyaktig";
+  $lng_atleast = "minumun";
+  $lng_atmost = "ikke mer enn";
+--- 56,76 ----
+  $no_cat = "Ingen kategorier";
+  
++ #view_recipe_bbox.php
++ $lng_yourn="Ditt navn";
++ $lng_yourm="Din e-post";
++ $lng_yourfn="Navnet til din venn";
++ $lng_yourfm="E-posten til din venn";
++ $lng_pfunctions="Funksjoner";
++ 
++ 
+  #menu.php
+  $lng_menu_catlist = "Kategori liste";
+! $lng_menu_search ="S&#248;k";
+  
+  #search.php
+! $lng_rec_search = "Oppskrift s&#248;k";
+  $lng_title = "Tittel";
+  $lng_yields = "Mengde";
+! $lng_exactly = "n&#248;yaktig";
+  $lng_atleast = "minumun";
+  $lng_atmost = "ikke mer enn";
+***************
+*** 57,74 ****
+  $lng_intext = "Instruksjonen inneholder teksten";
+  $lng_submit = "Send inn";
+! $lng_reset = "Tm";
+  
+  #search_results.php
+! $lng_sres = "Skeresultat";
+! $lng_rsres = "Skeresultat - Oppskrifter";
+  $lng_res = "Resultat";
+  $lng_nores = "Ingen oppskrifter funnet.";
+  
+  #send_friend.php
+! 
+  
+  # Error messages
+! $no_db_listings = "Ingen oppfringer i Krecipes databasen!";
+  $no_recipe_chosen = "Ingen oppskrift valgt.";
+! $no_cat_listings ="Ingen oppfringer i denne kategorien.";
+  ?>
+--- 78,103 ----
+  $lng_intext = "Instruksjonen inneholder teksten";
+  $lng_submit = "Send inn";
+! $lng_reset = "T&#248;m";
+  
+  #search_results.php
+! $lng_sres = "S&#248;keresultat";
+! $lng_rsres = "S&#248;keresultat - Oppskrifter";
+  $lng_res = "Resultat";
+  $lng_nores = "Ingen oppskrifter funnet.";
+  
+  #send_friend.php
+! $lng_wishes="Vennlig hilsen";
+! $lng_subject="En oppskrift til deg fra ";
+! $lng_message1_1="Din venn ";
+! $lng_message1_2=" har sendt deg en lenke til";
+! $lng_message2="en oppskrift hos ";
+! $lng_message3="Bes&#248;k lenken under for &#229; se oppskriften";
+! $lng_message4="Sendt fra";
+! $lng_from="Fra";
+! $lng_error55="Oppskrift-id ikke funnet!<br />Sendingen feilet!";
+  
+  # Error messages
+! $no_db_listings = "Ingen oppf&#248;ringer i Krecipes databasen!";
+  $no_recipe_chosen = "Ingen oppskrift valgt.";
+! $no_cat_listings ="Ingen oppf&#248;ringer i denne kategorien.";
+  ?>
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 22:53:35 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 22:53:35 +0100
+Subject: [Krecipesweb-devel] krecipesweb config.php,1.5,1.6 send_friend.php,1.7,1.8
+Message-ID: <200512102153.jBALrZk06632@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv32296
+
+Modified Files:
+	config.php send_friend.php 
+Log Message:
+ready for 0.2b
+
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** config.php	20 Nov 2005 13:52:05 -0000	1.5
+--- config.php	10 Dec 2005 21:53:33 -0000	1.6
+***************
+*** 4,12 ****
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: config.php
+- #  version           	: 0.01
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 18.11.2005
+  #
+  ##########################################################################################
+--- 4,11 ----
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: config.php
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 03.12.2005
+  #
+  ##########################################################################################
+***************
+*** 21,29 ****
+  $site_title = 'Krecipes Cookbook';
+  //Site language (see the 'lang' subdir for more languages)
+! $site_lang = 'en';
+  //Main table width (use % (i.e. 100%) if you want the width in percent)
+  $mtable_width = "800";
+  
+! //Pop-up window for print view
+  //height
+  $pheight ="700";
+--- 20,36 ----
+  $site_title = 'Krecipes Cookbook';
+  //Site language (see the 'lang' subdir for more languages)
+! $site_lang = 'nb';
+  //Main table width (use % (i.e. 100%) if you want the width in percent)
+  $mtable_width = "800";
++ //URL to where the Frontend is located
++ $url="http://localhost/krecipes/cvs/krecipesweb/";
++ //URL to the view_recipe.php file
++ $urlm="http://localhost/krecipes/cvs/krecipesweb/view_recipe.php?id=";
+  
+! //Webmasters e-mail
+! $admin_mail="webmaster at yoursite.org";
+! 
+! 
+! #Pop-up window for print view
+  //height
+  $pheight ="700";
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -C2 -d -r1.7 -r1.8
+*** send_friend.php	6 Dec 2005 21:08:10 -0000	1.7
+--- send_friend.php	10 Dec 2005 21:53:33 -0000	1.8
+***************
+*** 10,14 ****
+  $friendmail = $_POST["friendmail"];
+  
+! $link="$urlm$recipe_id";
+  $subject="$lng_subject";
+  $subject.="$sendername";
+--- 10,16 ----
+  $friendmail = $_POST["friendmail"];
+  
+! $link="$url";
+! $link.="view_recipe.php?id=";
+! $link.="$recipe_id";
+  $subject="$lng_subject";
+  $subject.="$sendername";
+
+
+
+From nobody at sheep.berlios.de  Sat Dec 10 22:53:35 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 10 Dec 2005 22:53:35 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang nb.php,1.6,1.7
+Message-ID: <200512102153.jBALrZk06636@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv32296/lang
+
+Modified Files:
+	nb.php 
+Log Message:
+ready for 0.2b
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** nb.php	10 Dec 2005 18:15:19 -0000	1.6
+--- nb.php	10 Dec 2005 21:53:33 -0000	1.7
+***************
+*** 4,8 ****
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: lang_nb.php
+! #  version           	: 0.01
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+--- 4,8 ----
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: lang_nb.php
+! #  version           	: see CVS
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+***************
+*** 16,23 ****
+  
+  #index.php
+! $lng_index_catlist = "Kategori liste";
+  
+  #footer.php
+! $lng_frontend_ver = "Krecipes Vev grensesnitt versjon";
+  $lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
+  
+--- 16,23 ----
+  
+  #index.php
+! $lng_index_catlist = "Kategorier";
+  
+  #footer.php
+! $lng_frontend_ver = "Krecipes Vev-grensesnitt versjon";
+  $lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
+  
+***************
+*** 25,34 ****
+  $lng_cat_cat = "Kategori";
+  $lng_cat_recipes = "Oppskrifter";
+! $lng_cat_subc = "Under kategorier";
+  
+  #view_recipe.php/print_recipe.php
+  $lng_recipe_author = "Forfatter";
+  $lng_recipe_yield = "Mengde";
+! $lng_recipe_prep = "Tilberedelses tid";
+  $lng_recipe_cat = "Kategorier";
+  $lng_cat_ingred = "Ingredienser";
+--- 25,34 ----
+  $lng_cat_cat = "Kategori";
+  $lng_cat_recipes = "Oppskrifter";
+! $lng_cat_subc = "Underkategorier";
+  
+  #view_recipe.php/print_recipe.php
+  $lng_recipe_author = "Forfatter";
+  $lng_recipe_yield = "Mengde";
+! $lng_recipe_prep = "Tilberedelsestid";
+  $lng_recipe_cat = "Kategorier";
+  $lng_cat_ingred = "Ingredienser";
+***************
+*** 73,77 ****
+  $lng_yields = "Mengde";
+  $lng_exactly = "n&#248;yaktig";
+! $lng_atleast = "minumun";
+  $lng_atmost = "ikke mer enn";
+  $lng_anycat = "I hvilken som helst av disse kategoriene";
+--- 73,77 ----
+  $lng_yields = "Mengde";
+  $lng_exactly = "n&#248;yaktig";
+! $lng_atleast = "minimun";
+  $lng_atmost = "ikke mer enn";
+  $lng_anycat = "I hvilken som helst av disse kategoriene";
+
+
+
+From nobody at sheep.berlios.de  Sun Dec 11 16:01:43 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 11 Dec 2005 16:01:43 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.10,1.11 nb.php,1.7,1.8
+Message-ID: <200512111501.jBBF1hk06801@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv14257/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.10
+retrieving revision 1.11
+diff -C2 -d -r1.10 -r1.11
+*** en.php	10 Dec 2005 18:15:19 -0000	1.10
+--- en.php	11 Dec 2005 15:01:40 -0000	1.11
+***************
+*** 4,12 ****
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: lang_en.php.php
+- #  version           	: 0.01
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: English Language File
+! #  last modified     	: 03.12.2005
+  #
+  ##########################################################################################
+--- 4,11 ----
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: lang_en.php.php
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: English Language File
+! #  last modified     	: 10.12.2005
+  #
+  ##########################################################################################
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -C2 -d -r1.7 -r1.8
+*** nb.php	10 Dec 2005 21:53:33 -0000	1.7
+--- nb.php	11 Dec 2005 15:01:40 -0000	1.8
+***************
+*** 4,8 ****
+  #  project           	: Krecipes WebFrontend
+  #  filename          	: lang_nb.php
+- #  version           	: see CVS
+  #  last modified by  	: Nils Kristian Tomren
+  #  e-mail            	: project at nilsk.net
+--- 4,7 ----
+
+
+
+From nobody at sheep.berlios.de  Sun Dec 11 16:01:43 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 11 Dec 2005 16:01:43 +0100
+Subject: [Krecipesweb-devel] krecipesweb INSTALL,1.1,1.2 README,1.3,1.4
+Message-ID: <200512111501.jBBF1hk06805@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14257
+
+Modified Files:
+	INSTALL README 
+Log Message:
+
+
+Index: INSTALL
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/INSTALL,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** INSTALL	1 Oct 2005 15:32:19 -0000	1.1
+--- INSTALL	11 Dec 2005 15:01:41 -0000	1.2
+***************
+*** 12,15 ****
+--- 12,19 ----
+         for $dbhost, $dbuser, $dbpass and $dbname to fit your
+         environment.  Here,  "$dbhost" means the MySQL server.
++        Then edit the site settings below in the same file with the values for
++        $site_title, $site_lang, $url, $admin_mail and $mtable_width
++        ($mtable_width is optional).
++        And then the rest of the values in config.php
+      4. Open the file <www.your-host.com>/<your-install-dir>/index.php in your
+         browser. Krecipes Web Frontend should now display the categories in your
+
+Index: README
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/README,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** README	1 Oct 2005 15:32:42 -0000	1.3
+--- README	11 Dec 2005 15:01:41 -0000	1.4
+***************
+*** 4,8 ****
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.1-alpha
+    -----------------
+    http://krecipesweb.sourceforge.net/
+--- 4,8 ----
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.2-beta
+    -----------------
+    http://krecipesweb.sourceforge.net/
+***************
+*** 36,41 ****
+        - Display the categories & recipes
+        - Multilangual (curently only english & norwegian)
+!       - Got a print page for easing print layout
+!       - Started full css implementation
+        More will come...
+  
+--- 36,42 ----
+        - Display the categories & recipes
+        - Multilangual (curently only english & norwegian)
+!       - Got a print page for easing print layout (improved in 0.2b)
+!       - Full css implementation (improved in 0.2b)
+!       - 'Send to a friend' feature
+        More will come...
+  
+
+
+

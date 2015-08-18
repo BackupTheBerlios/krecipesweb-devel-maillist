@@ -1,0 +1,1008 @@
+From nobody at sheep.berlios.de  Sat Oct  1 17:05:14 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 17:05:14 +0200
+Subject: [Krecipesweb-devel] krecipesweb print_recipe.php,1.2,1.3
+Message-ID: <200510011505.j91F5E922691@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv11590
+
+Modified Files:
+	print_recipe.php 
+Log Message:
+added support for print stylesheet
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** print_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+--- print_recipe.php	1 Oct 2005 15:05:11 -0000	1.3
+***************
+*** 17,32 ****
+  ?>
+  
+- <SCRIPT LANGUAGE="JavaScript">
+  
+- function printPage() {
+- if (window.print) {
+- agree = confirm('This page contains sensitive information that \nwe recommend you print a
+- copy of at this time. \n\nOK to print now?');
+- if (agree) window.print(); 
+-    }
+- }
+- </script>
+  </head>
+! <body OnLoad="printPage()">
+  <?php
+  require('inc/top_table.php');
+--- 17,23 ----
+  ?>
+  
+  
+  </head>
+! <body>
+  <?php
+  require('inc/top_table.php');
+***************
+*** 144,147 ****
+--- 135,139 ----
+  <?php
+  //$url = $_SERVER[''HTTP_REFERER''];
++ echo "$lng_pfrom<br />";
+  echo
+  "http://".$HTTP_SERVER_VARS['HTTP_HOST']."".dirname($HTTP_SERVER_VARS['PHP_SELF'])."/";
+***************
+*** 149,152 ****
+--- 141,147 ----
+  </p>  </td>
+  </tr>
++ <tr><td width="100%" colspan="2" align="center"><FORM>
++ <INPUT TYPE="button" value="<?php echo "$lng_print"; ?>" onClick="window.print()">
++ </FORM></td></tr>
+  
+  <? //Include footer
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 17:05:13 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 17:05:13 +0200
+Subject: [Krecipesweb-devel] krecipesweb/inc metatags.php,1.2,1.3
+Message-ID: <200510011505.j91F5D922687@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv11590/inc
+
+Modified Files:
+	metatags.php 
+Log Message:
+added support for print stylesheet
+
+Index: metatags.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/metatags.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** metatags.php	29 Sep 2005 19:04:43 -0000	1.2
+--- metatags.php	1 Oct 2005 15:05:11 -0000	1.3
+***************
+*** 3,5 ****
+  <?php echo "$lng_metatag"; ?>
+  <link REL="SHORTCUT ICON" HREF="img/favicon.ico">
+! <link rel="stylesheet" type="text/css" href="inc/main.css" />
+\ No newline at end of file
+--- 3,10 ----
+  <?php echo "$lng_metatag"; ?>
+  <link REL="SHORTCUT ICON" HREF="img/favicon.ico">
+! <?php
+! if ( basename($_SERVER["PHP_SELF"]) == "print_recipe.php" ){
+! print '<link rel="stylesheet" type="text/css" href="inc/print.css" />';
+! } else {
+! print '<link rel="stylesheet" type="text/css" href="inc/main.css" />'; }
+! ?>
+\ No newline at end of file
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 17:07:24 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 17:07:24 +0200
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.1.1.1,1.2 nb.php,1.1.1.1,1.2
+Message-ID: <200510011507.j91F7O923092@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv11835/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** en.php	27 Sep 2005 21:39:38 -0000	1.1.1.1
+--- en.php	1 Oct 2005 15:07:22 -0000	1.2
+***************
+*** 27,31 ****
+  $lng_cat_subc = "Subcategories";
+  
+! #view_recipe.php
+  $lng_recipe_author = "Author";
+  $lng_recipe_yield = "Yield";
+--- 27,31 ----
+  $lng_cat_subc = "Subcategories";
+  
+! #view_recipe.php/print_recipe.php
+  $lng_recipe_author = "Author";
+  $lng_recipe_yield = "Yield";
+***************
+*** 35,38 ****
+--- 35,39 ----
+  $lng_cat_instr = "Instructions";
+  $lng_print = "Print Recipe";
++ $lng_pfrom = "This recipe is printed from:";
+  
+  #view_recip_functions.php
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** nb.php	27 Sep 2005 21:39:38 -0000	1.1.1.1
+--- nb.php	1 Oct 2005 15:07:22 -0000	1.2
+***************
+*** 27,31 ****
+  $lng_cat_subc = "Under kategorier";
+  
+! #view_recipe.php
+  $lng_recipe_author = "Forfatter";
+  $lng_recipe_yield = "Mengde";
+--- 27,31 ----
+  $lng_cat_subc = "Under kategorier";
+  
+! #view_recipe.php/print_recipe.php
+  $lng_recipe_author = "Forfatter";
+  $lng_recipe_yield = "Mengde";
+***************
+*** 35,38 ****
+--- 35,39 ----
+  $lng_cat_instr = "Instruksjoner";
+  $lng_print = "Skriv ut oppskriften";
++ $lng_pfrom = "Denne oppskriften er skrevet ut fra:";
+  
+  #view_recip_functions.php
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 17:32:21 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 17:32:21 +0200
+Subject: [Krecipesweb-devel] krecipesweb INSTALL,NONE,1.1
+Message-ID: <200510011532.j91FWL923712@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14000
+
+Added Files:
+	INSTALL 
+Log Message:
+added
+
+--- NEW FILE: INSTALL ---
+Quick Install
+
+    1. Untar or unzip the distribution (be sure to unzip the subdirectories):
+       tar -xzvf krecipesweb_x.x.x.tar.gz in your webserver's document root.
+       If you don't have direct access to your document root, put the files in
+       a directory on your local machine, and, after step 3, transfer the
+       directory on your web server using, for example, ftp.
+    2. Ensure that all the scripts have the appropriate owner (if PHP is running in
+       safe mode, having some scripts with an owner different from the
+       owner of other scripts will be a problem).
+    3. Open the file config.php in your favorite editor and change the values
+       for $dbhost, $dbuser, $dbpass and $dbname to fit your
+       environment.  Here,  "$dbhost" means the MySQL server.
+    4. Open the file <www.your-host.com>/<your-install-dir>/index.php in your
+       browser. Krecipes Web Frontend should now display the categories in your
+       database.
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 17:32:44 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 17:32:44 +0200
+Subject: [Krecipesweb-devel] krecipesweb README,1.2,1.3
+Message-ID: <200510011532.j91FWi923723@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14044
+
+Modified Files:
+	README 
+Log Message:
+updated for alpha release
+
+Index: README
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/README,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** README	27 Sep 2005 21:50:17 -0000	1.2
+--- README	1 Oct 2005 15:32:42 -0000	1.3
+***************
+*** 4,8 ****
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.1-beta
+    -----------------
+    http://krecipesweb.sourceforge.net/
+--- 4,8 ----
+    A set of PHP scripts to display the Krecipes MySQL database on the web.
+  
+!   Version 0.1-alpha
+    -----------------
+    http://krecipesweb.sourceforge.net/
+***************
+*** 25,32 ****
+  
+    Requirements:
+!     php 4.1.0 or later
+!     MySQL 3.23.32 or later
+!     Krecipes MySQL database version 0.85 or later
+!     a web-browser could be useful... ;-)
+  
+  
+--- 25,32 ----
+  
+    Requirements:
+!     - php 4.1.0 or later
+!     - MySQL 3.23.32 or later
+!     - Krecipes MySQL database version 0.85 or later
+!     - a web-browser could be useful... ;-)
+  
+  
+***************
+*** 34,45 ****
+      Krecipes Web Frontend is intended to display the Krecipes MySQL database on the WWW.
+      Currently it can:
+!       -
+!       -
+!       -
+!       -
+!       -
+!       -
+!       -
+!       -
+  
+  
+--- 34,43 ----
+      Krecipes Web Frontend is intended to display the Krecipes MySQL database on the WWW.
+      Currently it can:
+!       - Display the categories & recipes
+!       - Multilangual (curently only english & norwegian)
+!       - Got a print page for easing print layout
+!       - Started full css implementation
+!       More will come...
+! 
+  
+  
+***************
+*** 51,58 ****
+  
+    Installation:
+!     Please see the install.txt file.
+  
+    ChangeLog:
+!     Please see 'What is & Features' at http://krecipesweb.berlios.de.
+  
+    Documentation:
+--- 49,56 ----
+  
+    Installation:
+!     Please see the INSTALL file.
+  
+    ChangeLog:
+!     Please see 'Features & Requests' at http://krecipesweb.berlios.de.
+  
+    Documentation:
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 23:25:52 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 23:25:52 +0200
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.2,1.3 nb.php,1.2,1.3
+Message-ID: <200510012125.j91LPq900349@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv29718/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** en.php	1 Oct 2005 15:07:22 -0000	1.2
+--- en.php	1 Oct 2005 21:25:49 -0000	1.3
+***************
+*** 20,24 ****
+  #footer.php
+  $lng_frontend_ver = "Krecipes Web Frontend version";
+! $lng_gen_by = "Generated by";
+  
+  #view_cat.php
+--- 20,24 ----
+  #footer.php
+  $lng_frontend_ver = "Krecipes Web Frontend version";
+! $lng_gen_by = "Recipes generated by Krecipes.";
+  
+  #view_cat.php
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** nb.php	1 Oct 2005 15:07:22 -0000	1.2
+--- nb.php	1 Oct 2005 21:25:49 -0000	1.3
+***************
+*** 20,24 ****
+  #footer.php
+  $lng_frontend_ver = "Krecipes Vev grensesnitt versjon";
+! $lng_gen_by = "Opprettet av";
+  
+  #view_cat.php
+--- 20,24 ----
+  #footer.php
+  $lng_frontend_ver = "Krecipes Vev grensesnitt versjon";
+! $lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
+  
+  #view_cat.php
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 23:25:52 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 23:25:52 +0200
+Subject: [Krecipesweb-devel] krecipesweb footer.php,1.1.1.1,1.2 print_recipe.php,1.3,1.4
+Message-ID: <200510012125.j91LPq900348@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv29718
+
+Modified Files:
+	footer.php print_recipe.php 
+Log Message:
+
+
+Index: footer.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/footer.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** footer.php	27 Sep 2005 21:39:33 -0000	1.1.1.1
+--- footer.php	1 Oct 2005 21:25:49 -0000	1.2
+***************
+*** 7,14 ****
+  <p><br /></p>
+  <?php
+  echo "
+  $lng_frontend_ver $frontend_ver <br />
+! $lng_gen_by $generated_by
+  ";
+  ?>
+  </td>
+--- 7,16 ----
+  <p><br /></p>
+  <?php
++ ##### REMOVING THIS PHP SECTION WILL BE AN COPYRIGHT INFRINGEMENT #####
+  echo "
+  $lng_frontend_ver $frontend_ver <br />
+! $lng_gen_by
+  ";
++ ################## END INFRINGEMENT SECTION ###########################
+  ?>
+  </td>
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** print_recipe.php	1 Oct 2005 15:05:11 -0000	1.3
+--- print_recipe.php	1 Oct 2005 21:25:49 -0000	1.4
+***************
+*** 19,28 ****
+  
+  </head>
+! <body>
+! <?php
+! require('inc/top_table.php');
+! ?>
+! 
+! 
+      <tr>
+        <td align="center" colspan="2" width="100%"><h1><?php echo "$recipe_title";
+--- 19,27 ----
+  
+  </head>
+! <body onload="window.print();">
+! <div align="center">
+! 	<table class="ptable" cellspacing="2" cellpadding="2">
+!   <tbody>
+! 	  <tr><td>
+      <tr>
+        <td align="center" colspan="2" width="100%"><h1><?php echo "$recipe_title";
+***************
+*** 141,147 ****
+  </p>  </td>
+  </tr>
+! <tr><td width="100%" colspan="2" align="center"><FORM>
+! <INPUT TYPE="button" value="<?php echo "$lng_print"; ?>" onClick="window.print()">
+! </FORM></td></tr>
+  
+  <? //Include footer
+--- 140,144 ----
+  </p>  </td>
+  </tr>
+! 
+  
+  <? //Include footer
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 23:26:05 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 23:26:05 +0200
+Subject: [Krecipesweb-devel] krecipesweb/inc print.css,1.1,1.2
+Message-ID: <200510012126.j91LQ5900366@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv29776/inc
+
+Modified Files:
+	print.css 
+Log Message:
+
+
+Index: print.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/print.css,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** print.css	30 Sep 2005 18:26:41 -0000	1.1
+--- print.css	1 Oct 2005 21:26:03 -0000	1.2
+***************
+*** 1,4 ****
+--- 1,19 ----
++ 
++ 
+  body {
+      background-color : #ffffff;
++     border-bottom-color : #000000;
++     border-bottom-style : solid;
++     border-bottom-width : 1px;
++     border-left-color : #000000;
++     border-left-style : solid;
++     border-left-width : 1px;
++     border-right-color : #000000;
++     border-right-style : solid;
++     border-right-width : 1px;
++     border-top-color : #000000;
++     border-top-style : solid;
++     border-top-width : 1px;
++     width : 650px;
+    }
+  
+***************
+*** 6,11 ****
+  ul {
+      color : black;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 90%;
+      list-style-type : circle;
+--- 21,27 ----
+  ul {
+      color : black;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+      font-size : 90%;
+      list-style-type : circle;
+***************
+*** 15,21 ****
+  ol {
+      color : black;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+!     font-size : 90%;
+      list-style-type : square;
+    }
+--- 31,38 ----
+  ol {
+      color : black;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+!     font-size : 100%;
+      list-style-type : square;
+    }
+***************
+*** 23,28 ****
+  
+  h1, h2, h3, h4, h5, h6 {
+!     font-family: "Trebuchet MS",
+! Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb", Syntax, sans-serif;
+    }
+  
+--- 40,46 ----
+  
+  h1, h2, h3, h4, h5, h6 {
+!    
+! font-family:"TrebuchetMS",Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",
+! Syntax,sans-serif;
+    }
+  
+***************
+*** 74,79 ****
+  .nav {
+      color : #000000;
+!     font-family : Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      font-size : 100%;
+      text-align : center;
+--- 92,98 ----
+  .nav {
+      color : #000000;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+      font-size : 100%;
+      text-align : center;
+***************
+*** 87,92 ****
+      text-decoration: none;
+      font-size: 80%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 106,112 ----
+      text-decoration: none;
+      font-size: 80%;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+    }
+  
+***************
+*** 95,100 ****
+      color: #000000;
+      font-size: 60%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+    }
+  
+--- 115,121 ----
+      color: #000000;
+      font-size: 60%;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+    }
+  
+***************
+*** 103,108 ****
+      color: #555555;
+      font-size: 60%;
+!     font-family: Verdana, "Lucida
+! Sans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif;
+      text-align: center;
+    }
+--- 124,130 ----
+      color: #555555;
+      font-size: 60%;
+!    
+! font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+! ;
+      text-align: center;
+    }
+***************
+*** 133,135 ****
+      color: #ff0033;
+      text-decoration: underline;
+!   }
+\ No newline at end of file
+--- 155,158 ----
+      color: #ff0033;
+      text-decoration: underline;
+!   }
+! 
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  1 23:43:31 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 1 Oct 2005 23:43:31 +0200
+Subject: [Krecipesweb-devel] krecipesweb index.php,1.1.1.1,1.2
+Message-ID: <200510012143.j91LhV900789@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30820
+
+Modified Files:
+	index.php 
+Log Message:
+
+
+Index: index.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/index.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** index.php	27 Sep 2005 21:39:33 -0000	1.1.1.1
+--- index.php	1 Oct 2005 21:43:29 -0000	1.2
+***************
+*** 57,60 ****
+--- 57,61 ----
+  
+  ?>
++ <!-- include footer -->
+  <?
+  require ('footer.php');
+
+
+
+From nobody at sheep.berlios.de  Sun Oct  2 14:32:50 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 2 Oct 2005 14:32:50 +0200
+Subject: [Krecipesweb-devel] krecipesweb CHANGELOG,NONE,1.1
+Message-ID: <200510021232.j92CWn921875@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv4624
+
+Added Files:
+	CHANGELOG 
+Log Message:
+added
+
+--- NEW FILE: CHANGELOG ---
+Krecipes Web Frontend ChangeLog
+-------------------------------
+
+
+
+From nobody at sheep.berlios.de  Fri Oct  7 14:55:28 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 7 Oct 2005 14:55:28 +0200
+Subject: [Krecipesweb-devel] krecipesweb/inc print.css,1.2,1.3
+Message-ID: <200510071255.j97CtS931914@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv19027/inc
+
+Modified Files:
+	print.css 
+Log Message:
+
+
+Index: print.css
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/print.css,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** print.css	1 Oct 2005 21:26:03 -0000	1.2
+--- print.css	7 Oct 2005 12:55:25 -0000	1.3
+***************
+*** 69,78 ****
+  
+  
+- .index_header {
+-     font-size : 130%;
+-     font-weight: bold;
+-   }
+- 
+- 
+  .right {
+      text-align: right;
+--- 69,72 ----
+***************
+*** 90,104 ****
+  
+  
+- .nav {
+-     color : #000000;
+-    
+- font-family:Verdana,"LucidaSans",Arial,Geneva,Helvetica,Helv,"MyriadWeb",Syntax,sans-serif
+- ;
+-     font-size : 100%;
+-     text-align : center;
+-     text-decoration : none;
+-   }
+- 
+- 
+  .title {
+      color: #000000;
+--- 84,87 ----
+***************
+*** 131,158 ****
+  
+  
+! a {
+!     color: black;
+!     text-decoration: none;
+!   }
+! 
+! 
+! a:link {
+!     text-decoration: none;
+!   }
+! 
+! 
+! a:visited {
+!     text-decoration: none;
+!   }
+! 
+! 
+! a:active {
+!     text-decoration: none;
+!   }
+! 
+! 
+! a:hover {
+!     color: #ff0033;
+!     text-decoration: underline;
+    }
+  
+--- 114,120 ----
+  
+  
+! .bcopy {
+!     color : #818181;
+!     font-size : 80%;
+    }
+  
+
+
+
+From nobody at sheep.berlios.de  Fri Oct  7 14:55:28 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 7 Oct 2005 14:55:28 +0200
+Subject: [Krecipesweb-devel] krecipesweb config.php,1.1.1.1,1.2 index.php,1.2,1.3 print_recipe.php,1.4,1.5
+Message-ID: <200510071255.j97CtS931918@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv19027
+
+Modified Files:
+	config.php index.php print_recipe.php 
+Log Message:
+
+
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** config.php	27 Sep 2005 21:39:33 -0000	1.1.1.1
+--- config.php	7 Oct 2005 12:55:26 -0000	1.2
+***************
+*** 30,34 ****
+  //and width
+  $pwidth = "825";
+! //Copyright notice at bottom of print page
+  $print_copy = "&copy; 2005 recipe.com";
+  
+--- 30,34 ----
+  //and width
+  $pwidth = "825";
+! //Your copyright notice at bottom of print page
+  $print_copy = "&copy; 2005 recipe.com";
+  
+
+Index: index.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/index.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** index.php	1 Oct 2005 21:43:29 -0000	1.2
+--- index.php	7 Oct 2005 12:55:26 -0000	1.3
+***************
+*** 1,3 ****
+! <?
+  
+  require('config.php');
+--- 1,3 ----
+! <?php
+  
+  require('config.php');
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** print_recipe.php	1 Oct 2005 21:25:49 -0000	1.4
+--- print_recipe.php	7 Oct 2005 12:55:26 -0000	1.5
+***************
+*** 130,135 ****
+    
+  <tr align="center">
+!   <td width="100%" colspan="2" align="center">
+! <p><br /><br />  <?php echo " $print_copy  "; ?><br />
+  <?php
+  //$url = $_SERVER[''HTTP_REFERER''];
+--- 130,135 ----
+    
+  <tr align="center">
+!   <td class="bcopy" width="100%" colspan="2" align="center">
+! <p><br /><br /><br /><br />  <?php echo " $print_copy  "; ?><br />
+  <?php
+  //$url = $_SERVER[''HTTP_REFERER''];
+
+
+
+From nobody at sheep.berlios.de  Fri Oct  7 14:57:23 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 7 Oct 2005 14:57:23 +0200
+Subject: [Krecipesweb-devel] krecipesweb config.php,1.2,1.3
+Message-ID: <200510071257.j97CvN931982@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv19240
+
+Modified Files:
+	config.php 
+Log Message:
+
+
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** config.php	7 Oct 2005 12:55:26 -0000	1.2
+--- config.php	7 Oct 2005 12:57:21 -0000	1.3
+***************
+*** 8,12 ****
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 17.09.2005
+  #
+  ##########################################################################################
+--- 8,12 ----
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 10.10.2005
+  #
+  ##########################################################################################
+***************
+*** 15,23 ****
+  $dbuser = 'root';
+  $dbpass = '';
+! $dbname = 'KrecipesWeb';
+  
+  #SITE SETTINGS
+  //Site title
+! $site_title = 'Krecipes Kokebok';
+  //Site language (see the 'lang' subdir for more languages)
+  $site_lang = 'en';
+--- 15,23 ----
+  $dbuser = 'root';
+  $dbpass = '';
+! $dbname = 'Krecipes';
+  
+  #SITE SETTINGS
+  //Site title
+! $site_title = 'Krecipes Cookbook';
+  //Site language (see the 'lang' subdir for more languages)
+  $site_lang = 'en';
+
+
+
+From nobody at sheep.berlios.de  Thu Oct 27 22:25:41 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Thu, 27 Oct 2005 22:25:41 +0200
+Subject: [Krecipesweb-devel] krecipesweb CHANGELOG,1.1,1.2 print_recipe.php,1.5,1.6
+Message-ID: <200510272025.j9RKPfw15144@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv2317
+
+Modified Files:
+	CHANGELOG print_recipe.php 
+Log Message:
+
+
+Index: CHANGELOG
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/CHANGELOG,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** CHANGELOG	2 Oct 2005 12:32:47 -0000	1.1
+--- CHANGELOG	27 Oct 2005 20:25:39 -0000	1.2
+***************
+*** 5,7 ****
+  From 0.1a to 0.1b
+  - Removed print button on printpage (prints automatic when window loads)
+! - Some layout changes
+\ No newline at end of file
+--- 5,8 ----
+  From 0.1a to 0.1b
+  - Removed print button on printpage (prints automatic when window loads)
+! - Some layout changes
+! - 
+\ No newline at end of file
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** print_recipe.php	7 Oct 2005 12:55:26 -0000	1.5
+--- print_recipe.php	27 Oct 2005 20:25:39 -0000	1.6
+***************
+*** 142,146 ****
+  
+  
+! <? //Include footer
+! require ('footer.php');
+! ?>
+\ No newline at end of file
+--- 142,163 ----
+  
+  
+! </td></tr>
+! 
+! 
+! <tr align="center">
+! <td colspan="2" class="footer">
+! <p><br /></p>
+! 
+! </td>
+! </tr>
+! 
+! 
+! <?php
+! require('inc/bottom_table.php');
+! ?>
+! 
+! <?php
+! mysql_close($conn);
+! ?>
+! </body>
+! </html>
+\ No newline at end of file
+
+
+

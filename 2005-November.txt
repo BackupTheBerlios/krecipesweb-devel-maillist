@@ -1,0 +1,843 @@
+From nobody at sheep.berlios.de  Fri Nov 18 17:30:08 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 18 Nov 2005 17:30:08 +0100
+Subject: [Krecipesweb-devel] krecipesweb config.php,1.3,1.4
+Message-ID: <200511181630.jAIGU8N10382@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30904
+
+Modified Files:
+	config.php 
+Log Message:
+
+
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** config.php	7 Oct 2005 12:57:21 -0000	1.3
+--- config.php	18 Nov 2005 16:30:06 -0000	1.4
+***************
+*** 12,18 ****
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'localhost';
+! $dbuser = 'root';
+! $dbpass = '';
+  $dbname = 'Krecipes';
+  
+--- 12,18 ----
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'HOSTNAME';
+! $dbuser = 'DB_USER';
+! $dbpass = 'DB_PASS';
+  $dbname = 'Krecipes';
+  
+***************
+*** 29,33 ****
+  $pheight ="700";
+  //and width
+! $pwidth = "825";
+  //Your copyright notice at bottom of print page
+  $print_copy = "&copy; 2005 recipe.com";
+--- 29,33 ----
+  $pheight ="700";
+  //and width
+! $pwidth = "800";
+  //Your copyright notice at bottom of print page
+  $print_copy = "&copy; 2005 recipe.com";
+
+
+
+From nobody at sheep.berlios.de  Fri Nov 18 17:30:40 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Fri, 18 Nov 2005 17:30:40 +0100
+Subject: [Krecipesweb-devel] krecipesweb print_recipe.php,1.6,1.7
+Message-ID: <200511181630.jAIGUeN10446@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30994
+
+Modified Files:
+	print_recipe.php 
+Log Message:
+update
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** print_recipe.php	27 Oct 2005 20:25:39 -0000	1.6
+--- print_recipe.php	18 Nov 2005 16:30:38 -0000	1.7
+***************
+*** 12,16 ****
+  ?> 
+  <head>
+! 	<title><?php echo "$site_title" ?> -> <?php echo "$recipe_title"; ?></title>
+  <?php
+  require('inc/metatags.php');
+--- 12,16 ----
+  ?> 
+  <head>
+! <title><?php echo "$site_title" ?> -> <?php echo "$recipe_title"; ?></title>
+  <?php
+  require('inc/metatags.php');
+
+
+
+From nobody at sheep.berlios.de  Sat Nov 19 20:13:43 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 19 Nov 2005 20:13:43 +0100
+Subject: [Krecipesweb-devel] krecipesweb CHANGELOG,1.2,NONE
+Message-ID: <200511191913.jAJJDhN27118@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv5606
+
+Removed Files:
+	CHANGELOG 
+Log Message:
+
+
+--- CHANGELOG DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Nov 20 14:52:07 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 20 Nov 2005 14:52:07 +0100
+Subject: [Krecipesweb-devel] krecipesweb/lang en.php,1.3,1.4 nb.php,1.3,1.4
+Message-ID: <200511201352.jAKDq7N26534@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/lang
+In directory sheep:/tmp/cvs-serv32130/lang
+
+Modified Files:
+	en.php nb.php 
+Log Message:
+
+
+Index: en.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/en.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** en.php	1 Oct 2005 21:25:49 -0000	1.3
+--- en.php	20 Nov 2005 13:52:05 -0000	1.4
+***************
+*** 36,39 ****
+--- 36,40 ----
+  $lng_print = "Print Recipe";
+  $lng_pfrom = "This recipe is printed from:";
++ $lng_sendfriend = "Send to a friend";
+  
+  #view_recip_functions.php
+
+Index: nb.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/lang/nb.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** nb.php	1 Oct 2005 21:25:49 -0000	1.3
+--- nb.php	20 Nov 2005 13:52:05 -0000	1.4
+***************
+*** 36,39 ****
+--- 36,40 ----
+  $lng_print = "Skriv ut oppskriften";
+  $lng_pfrom = "Denne oppskriften er skrevet ut fra:";
++ $lng_sendfriend = "Send til en venn";
+  
+  #view_recip_functions.php
+***************
+*** 44,54 ****
+  #menu.php
+  $lng_menu_catlist = "Kategori liste";
+! $lng_menu_search ="S?k";
+  
+  #search.php
+! $lng_rec_search = "Oppskrift s?k";
+  $lng_title = "Tittel";
+  $lng_yields = "Mengde";
+! $lng_exactly = "n?yaktig";
+  $lng_atleast = "minumun";
+  $lng_atmost = "ikke mer enn";
+--- 45,55 ----
+  #menu.php
+  $lng_menu_catlist = "Kategori liste";
+! $lng_menu_search ="Sk";
+  
+  #search.php
+! $lng_rec_search = "Oppskrift sk";
+  $lng_title = "Tittel";
+  $lng_yields = "Mengde";
+! $lng_exactly = "nyaktig";
+  $lng_atleast = "minumun";
+  $lng_atmost = "ikke mer enn";
+***************
+*** 56,70 ****
+  $lng_intext = "Instruksjonen inneholder teksten";
+  $lng_submit = "Send inn";
+! $lng_reset = "T?m";
+  
+  #search_results.php
+! $lng_sres = "S?keresultat";
+! $lng_rsres = "S?keresultat - Oppskrifter";
+  $lng_res = "Resultat";
+  $lng_nores = "Ingen oppskrifter funnet.";
+  
+  # Error messages
+! $no_db_listings = "Ingen oppf?ringer i Krecipes databasen!";
+  $no_recipe_chosen = "Ingen oppskrift valgt.";
+! $no_cat_listings ="Ingen oppf?ringer i denne kategorien.";
+  ?>
+--- 57,71 ----
+  $lng_intext = "Instruksjonen inneholder teksten";
+  $lng_submit = "Send inn";
+! $lng_reset = "Tm";
+  
+  #search_results.php
+! $lng_sres = "Skeresultat";
+! $lng_rsres = "Skeresultat - Oppskrifter";
+  $lng_res = "Resultat";
+  $lng_nores = "Ingen oppskrifter funnet.";
+  
+  # Error messages
+! $no_db_listings = "Ingen oppfringer i Krecipes databasen!";
+  $no_recipe_chosen = "Ingen oppskrift valgt.";
+! $no_cat_listings ="Ingen oppfringer i denne kategorien.";
+  ?>
+
+
+
+From nobody at sheep.berlios.de  Sun Nov 20 14:52:07 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 20 Nov 2005 14:52:07 +0100
+Subject: [Krecipesweb-devel] krecipesweb/inc top_table.php,1.1.1.1,1.2
+Message-ID: <200511201352.jAKDq7N26530@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/inc
+In directory sheep:/tmp/cvs-serv32130/inc
+
+Modified Files:
+	top_table.php 
+Log Message:
+
+
+Index: top_table.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/inc/top_table.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** top_table.php	27 Sep 2005 21:39:38 -0000	1.1.1.1
+--- top_table.php	20 Nov 2005 13:52:04 -0000	1.2
+***************
+*** 1,2 ****
+--- 1,3 ----
++ 
+  <div align="center">
+  	<table cellspacing="2" cellpadding="2" width="<?php echo "$mtable_width"; ?>">
+
+
+
+From nobody at sheep.berlios.de  Sun Nov 20 14:52:07 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 20 Nov 2005 14:52:07 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,NONE,1.1 settings.php,NONE,1.1 config.php,1.4,1.5 view_recipe.php,1.2,1.3
+Message-ID: <200511201352.jAKDq7N26538@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv32130
+
+Modified Files:
+	config.php view_recipe.php 
+Added Files:
+	send_friend.php settings.php 
+Log Message:
+
+
+--- NEW FILE: send_friend.php ---
+<?
+include("config.php");
+
+if(!isset($_GET['js']) || $_GET['js'] == ""){
+	$link = $url.$_GET['id'];
+}
+else if($_GET['js'] == "on"){
+	$link = $_GET['id'];
+}
+
+$link = str_replace(" ","+", $link); // get rid of spaces
+
+if(!isset($_POST['action']) || $_POST['action'] == ""){
+	if(!isset($link)){
+		print "No Link Specified";
+	}
+	else{
+		printpage("","","","");
+	} 
+} 
+else if($_POST['action'] == "submit"){
+
+	$send = true;
+
+	function is_valid_email($sender_mail) { 
+		if(ereg("([[:alnum:]\.\-]+)(\@[[:alnum:]\.\-]+\.+)", $sender_mail)) {
+			return 0;
+	    }
+		else{
+			return 1;
+	    } 
+	}
+	
+	$sender_mail = $_POST['sender_mail'];
+	$friend_mail = $_POST['friend_mail'];
+	$sender_name = $_POST['sender_name'];
+	$optional_message = $_POST['optional_message'];
+	$link = $_POST['link'];
+	$js = $_POST['js'];
+	$id = $_POST['id'];
+
+	$s_emailvalid = is_valid_email($sender_mail);  // check email
+	$f_emailvalid = is_valid_email($friend_mail);  // check email
+
+	$emsg = "There were errors in your form:<br><br>\n";
+
+	if ($sender_name == ""){
+		$emsg .= "Please enter your name<br>\n";
+		$send = false;
+	}
+	if ($sender_mail == "" || $s_emailvalid == 1){
+		$emsg .= "Please enter your valid email address<br>\n";
+		$send = false;
+	}
+	if ($friend_mail == "" || $f_emailvalid == 1){
+		$emsg .= "Please enter your friends valid email address<br>\n";
+		$send = false;
+	}
+
+	if($send){		
+		$recipient = "$friend_mail";
+		$message .= "$sender_name wanted to share the following link with you:\n$link\n\n";
+		if($optional_message != ""){
+			$message .= "They added this message:\n$optional_message\n\n";
+		}
+		$headers = "From: $sender_name <$sender_mail>\r\nReply-To: $sender_mail\r\n";
+		mail ($recipient, $send_subject, $message, $headers);
+
+		if($auto_responder == "yes"){
+			$recipient2 = "$sender_name <$sender_mail>";
+			$subject2 = "$thankyousubject";
+			$message2 = "$thankyoumessage\n\n$your_website\n$admin_mail\n\n Note: This is an automated response, please do not reply to this\n\n";
+			$headers2 = "From: $your_website <$admin_email>\r\nReply-To: $admin_mail\r\n";
+			mail ($recipient2, $subject2, $message2, $headers2);
+		}
+		printthanks($sender_name,$friend_mail,$link);
+		exit;
+	}
+	else if(!$send){
+			printpage($sender_name,$sender_mail,$friend_mail,$emsg);
+	}
+}
+else{
+	printpage("","","","");
+}
+
+function printpage($sender_name,$sender_mail,$friend_mail,$errors){
+include("config.php");
+
+global $link, $id, $js;
+		?>
+
+<html>
+<head>
+<META NAME="Title" CONTENT="<? echo $title; ?>">
+<title>Send <? echo $link; ?> to a friend!</title>
+</head>
+<body>
+
+<form method="post" action="send_friend.php">
+  <input type="hidden" name="link" value="<? echo $link; ?>">
+   <input type="hidden" name="id" value="<? echo $id; ?>">
+    <input type="hidden" name="js" value="<? echo $js; ?>">
+  <input type="hidden" name="action" value="submit">
+  <font color="red"><b><? echo $errors; ?></b></font><p>
+  <table width="600" border="0" cellspacing="0" cellpadding="5">
+    <tr>
+      <td colspan="2" width="625"><font size="3"><b><? echo $title; ?></b></font></td>
+    </tr>
+    <tr>
+      <td colspan="2" width="625"><? echo $suggest_exp; ?><br><small><? echo $link; ?></small></td>
+    </tr>
+    <tr>
+      <td width="232"><? echo $yourname; ?>&nbsp;</td>
+      <td width="381"><input type="text" value="<? echo $sender_name; ?>" name="sender_name" size="40"></td>
+    </tr>
+    <tr>
+      <td width="232"><? echo $yourmail; ?></td>
+      <td width="381"><input type="text" value="<? echo $sender_mail; ?>" name="sender_mail" size="40"></td>
+    </tr>
+    <tr>
+      <td width="232"><? echo $recipientmail; ?></td>
+      <td width="381"><input type="text" value="<? echo $friend_mail; ?>" name="friend_mail" size="40"></td>
+    </tr>
+    <tr>
+      <td width="232"><? echo $yourmessage; ?></td>
+      <td width="381"><textarea name="optional_message" cols="45" rows="8"></textarea></td>
+    </tr>
+    <tr>
+      <td width="232">&nbsp;</td>
+      <td width="381">
+        <div align="left">
+          <input type="submit" name="submit" value="<? echo $submitbutton; ?>">
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
+
+
+<?
+
+
+}
+
+function printthanks($sender_name,$friend_mail,$link){
+include("config.php");
+	?>
+
+<html>
+<head>
+<META NAME="Title" CONTENT="<? echo $title; ?>">
+<title>Thanks for sending <? echo $link; ?> to a friend!</title>
+</head>
+<body topmargin="20" leftmargin="20">
+Thank you <? echo $sender_name; ?> for sending..<br><? echo $link; ?> to a friend!
+<p>
+<center>
+<A HREF="javascript:window.close();">Close window</A>
+</center>
+</body>
+</html>
+
+<?
+
+}
+
+?>
+--- NEW FILE: settings.php ---
+<?php
+##########################################################################################
+#  End Configuration
+##########################################################################################
+#
+#  !!! DO NOT EDIT ANYTHING BEHIND THIS LINE !!!
+#
+##########################################################################################
+$frontend_ver =  '0.1';
+
+
+
+
+?>
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** config.php	18 Nov 2005 16:30:06 -0000	1.4
+--- config.php	20 Nov 2005 13:52:05 -0000	1.5
+***************
+*** 8,19 ****
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 10.10.2005
+  #
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'HOSTNAME';
+! $dbuser = 'DB_USER';
+! $dbpass = 'DB_PASS';
+! $dbname = 'Krecipes';
+  
+  #SITE SETTINGS
+--- 8,19 ----
+  #  e-mail            	: project at nilsk.net
+  #  purpose           	: Configuration File
+! #  last modified     	: 18.11.2005
+  #
+  ##########################################################################################
+  # DATABASE SETTINGS
+! $dbhost = 'localhost';
+! $dbuser = 'root';
+! $dbpass = '';
+! $dbname = 'KrecipesWeb';
+  
+  #SITE SETTINGS
+***************
+*** 33,51 ****
+  $print_copy = "&copy; 2005 recipe.com";
+  
+- ##########################################################################################
+- #  End Configuration
+- ##########################################################################################
+- #
+- #  !!! DO NOT EDIT ANYTHING BEHIND THIS LINE !!!
+- #
+- ##########################################################################################
+- $frontend_ver =  '0.1b';
+- 
+- 
+- 
+- 
+- 
+  
+  
+  
+  ?>
+--- 33,39 ----
+  $print_copy = "&copy; 2005 recipe.com";
+  
+  
+  
+  
++ include 'settings.php';
+  ?>
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** view_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+--- view_recipe.php	20 Nov 2005 13:52:05 -0000	1.3
+***************
+*** 10,14 ****
+  
+  require('view_recipe_functions.php');
+! ?> 
+  <head>
+  	<title><?php echo "$site_title" ?> -> <?php echo "$recipe_title"; ?></title>
+--- 10,14 ----
+  
+  require('view_recipe_functions.php');
+! ?>
+  <head>
+  	<title><?php echo "$site_title" ?> -> <?php echo "$recipe_title"; ?></title>
+***************
+*** 23,27 ****
+    var links=document.getElementsByTagName("a");
+    for (var i=0; i < links.length; i++) {
+!     if (links[i].className.match("popup")) {
+        links[i].onclick=function() {
+          // Below - to open a full-sized window, just use: window.open(this.href);
+--- 23,35 ----
+    var links=document.getElementsByTagName("a");
+    for (var i=0; i < links.length; i++) {
+!     if (links[i].className.match("printrecipe")) {
+!       links[i].onclick=function() {
+!         // Below - to open a full-sized window, just use: window.open(this.href);
+!         window.open(this.href, "",
+! "top=40,left=40,width=<?php echo "$pwidth"?>,height=<?php echo "$pheight"?>,scrollbars");
+!         return false;
+!       }
+!     }
+! if (links[i].className.match("sendrecipe")) {
+        links[i].onclick=function() {
+          // Below - to open a full-sized window, just use: window.open(this.href);
+***************
+*** 162,170 ****
+    
+    <?php echo "
+!   <a href=\"print_recipe.php?id=$recipe_id\" class=\"popup\">
+!   <img src=\"img/printer.gif\" width=\"31\" height=\"23\" align=\"bottom\" border=\"0\" />
+    $lng_print</a>";
+  ?>
+! 
+    </td>
+  </tr>
+--- 170,183 ----
+    
+    <?php echo "
+!   <a href=\"print_recipe.php?id=$recipe_id\" class=\"printrecipe\">
+!   <img src=\"img/print.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+    $lng_print</a>";
+  ?>
+! <br />
+! <?php echo "
+!   <a href=\"send_friend.php?id=$PHP_SELF\" class=\"sendrecipe\">
+!   <img src=\"img/send.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+!   $lng_sendfriend</a>";
+! ?>
+    </td>
+  </tr>
+
+
+
+From nobody at sheep.berlios.de  Sun Nov 20 14:52:06 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sun, 20 Nov 2005 14:52:06 +0100
+Subject: [Krecipesweb-devel] krecipesweb/img print.gif,NONE,1.1 send.gif,NONE,1.1 printer.gif,1.1.1.1,NONE
+Message-ID: <200511201352.jAKDq6N26526@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb/img
+In directory sheep:/tmp/cvs-serv32130/img
+
+Added Files:
+	print.gif send.gif 
+Removed Files:
+	printer.gif 
+Log Message:
+
+
+--- NEW FILE: print.gif ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: send.gif ---
+(This appears to be a binary file; contents omitted.)
+
+--- printer.gif DELETED ---
+
+
+
+From project at nilsk.net  Sun Nov 20 14:58:50 2005
+From: project at nilsk.net (Nils Kristian Tomren)
+Date: Sun, 20 Nov 2005 14:58:50 +0100
+Subject: [Krecipesweb-devel] zxc
+Message-ID: <200511201458.50700.project@nilsk.net>
+
+zczxczxc
+
+
+From nobody at sheep.berlios.de  Tue Nov 29 20:59:04 2005
+From: nobody at sheep.berlios.de (nilsk)
+Date: Tue, 29 Nov 2005 20:59:04 +0100
+Subject: [Krecipesweb-devel] krecipesweb send_friend.php,1.1,1.2 view_recipe.php,1.3,1.4
+Message-ID: <200511291959.jATJx4N01390@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv4146
+
+Modified Files:
+	send_friend.php view_recipe.php 
+Log Message:
+empty
+
+Index: send_friend.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/send_friend.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** send_friend.php	20 Nov 2005 13:52:05 -0000	1.1
+--- send_friend.php	29 Nov 2005 19:59:02 -0000	1.2
+***************
+*** 2,13 ****
+  include("config.php");
+  
+! if(!isset($_GET['js']) || $_GET['js'] == ""){
+! 	$link = $url.$_GET['id'];
+! }
+! else if($_GET['js'] == "on"){
+! 	$link = $_GET['id'];
+! }
+! 
+! $link = str_replace(" ","+", $link); // get rid of spaces
+  
+  if(!isset($_POST['action']) || $_POST['action'] == ""){
+--- 2,6 ----
+  include("config.php");
+  
+! $link = $_GET["id"];
+  
+  if(!isset($_POST['action']) || $_POST['action'] == ""){
+***************
+*** 37,41 ****
+  	$optional_message = $_POST['optional_message'];
+  	$link = $_POST['link'];
+- 	$js = $_POST['js'];
+  	$id = $_POST['id'];
+  
+--- 30,33 ----
+***************
+*** 67,77 ****
+  		mail ($recipient, $send_subject, $message, $headers);
+  
+- 		if($auto_responder == "yes"){
+- 			$recipient2 = "$sender_name <$sender_mail>";
+- 			$subject2 = "$thankyousubject";
+- 			$message2 = "$thankyoumessage\n\n$your_website\n$admin_mail\n\n Note: This is an automated response, please do not reply to this\n\n";
+- 			$headers2 = "From: $your_website <$admin_email>\r\nReply-To: $admin_mail\r\n";
+- 			mail ($recipient2, $subject2, $message2, $headers2);
+- 		}
+  		printthanks($sender_name,$friend_mail,$link);
+  		exit;
+--- 59,62 ----
+***************
+*** 88,98 ****
+  include("config.php");
+  
+! global $link, $id, $js;
+! 		?>
+  
+  <html>
+  <head>
+! <META NAME="Title" CONTENT="<? echo $title; ?>">
+! <title>Send <? echo $link; ?> to a friend!</title>
+  </head>
+  <body>
+--- 73,84 ----
+  include("config.php");
+  
+! ?>
+  
+  <html>
+  <head>
+! <title>Send recipe to a friend!</title>
+! <?php
+! require('inc/metatags.php');
+! ?>
+  </head>
+  <body>
+***************
+*** 101,133 ****
+    <input type="hidden" name="link" value="<? echo $link; ?>">
+     <input type="hidden" name="id" value="<? echo $id; ?>">
+-     <input type="hidden" name="js" value="<? echo $js; ?>">
+    <input type="hidden" name="action" value="submit">
+    <font color="red"><b><? echo $errors; ?></b></font><p>
+!   <table width="600" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+!       <td colspan="2" width="625"><font size="3"><b><? echo $title; ?></b></font></td>
+      </tr>
+      <tr>
+!       <td colspan="2" width="625"><? echo $suggest_exp; ?><br><small><? echo $link; ?></small></td>
+      </tr>
+      <tr>
+!       <td width="232"><? echo $yourname; ?>&nbsp;</td>
+!       <td width="381"><input type="text" value="<? echo $sender_name; ?>" name="sender_name" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="232"><? echo $yourmail; ?></td>
+!       <td width="381"><input type="text" value="<? echo $sender_mail; ?>" name="sender_mail" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="232"><? echo $recipientmail; ?></td>
+!       <td width="381"><input type="text" value="<? echo $friend_mail; ?>" name="friend_mail" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="232"><? echo $yourmessage; ?></td>
+!       <td width="381"><textarea name="optional_message" cols="45" rows="8"></textarea></td>
+      </tr>
+      <tr>
+!       <td width="232">&nbsp;</td>
+!       <td width="381">
+          <div align="left">
+            <input type="submit" name="submit" value="<? echo $submitbutton; ?>">
+--- 87,118 ----
+    <input type="hidden" name="link" value="<? echo $link; ?>">
+     <input type="hidden" name="id" value="<? echo $id; ?>">
+    <input type="hidden" name="action" value="submit">
+    <font color="red"><b><? echo $errors; ?></b></font><p>
+!   <table width="100%" border="1"  cellspacing="0" cellpadding="5">
+      <tr>
+!       <td colspan="2" width="100%"><font size="3"><b><? echo $lng_friend_title; ?></b></font></td>
+      </tr>
+      <tr>
+!       <td colspan="2" width="100%"><? echo $suggest_exp; ?><br><small><? echo $link; ?></small></td>
+      </tr>
+      <tr>
+!       <td width="230"><? echo $yourname; ?>&nbsp;</td>
+!       <td><input type="text" value="<? echo $sender_name; ?>" name="sender_name" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="230"><? echo $yourmail; ?></td>
+!       <td><input type="text" value="<? echo $sender_mail; ?>" name="sender_mail" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="230"><? echo $recipientmail; ?></td>
+!       <td><input type="text" value="<? echo $friend_mail; ?>" name="friend_mail" size="40"></td>
+      </tr>
+      <tr>
+!       <td width="230"><? echo $yourmessage; ?></td>
+!       <td><textarea name="optional_message" cols="45" rows="8"></textarea></td>
+      </tr>
+      <tr>
+!       <td width="230">&nbsp;</td>
+!       <td>
+          <div align="left">
+            <input type="submit" name="submit" value="<? echo $submitbutton; ?>">
+***************
+*** 153,161 ****
+  <html>
+  <head>
+! <META NAME="Title" CONTENT="<? echo $title; ?>">
+! <title>Thanks for sending <? echo $link; ?> to a friend!</title>
+  </head>
+  <body topmargin="20" leftmargin="20">
+! Thank you <? echo $sender_name; ?> for sending..<br><? echo $link; ?> to a friend!
+  <p>
+  <center>
+--- 138,148 ----
+  <html>
+  <head>
+! <title>Thanks for sending this recipe to a friend!</title>
+! <?php
+! require('inc/metatags.php');
+! ?>
+  </head>
+  <body topmargin="20" leftmargin="20">
+! Thank you <? echo $sender_name; ?> for sending..<br>this recipe to a friend!
+  <p>
+  <center>
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** view_recipe.php	20 Nov 2005 13:52:05 -0000	1.3
+--- view_recipe.php	29 Nov 2005 19:59:02 -0000	1.4
+***************
+*** 35,39 ****
+          // Below - to open a full-sized window, just use: window.open(this.href);
+          window.open(this.href, "",
+! "top=40,left=40,width=<?php echo "$pwidth"?>,height=<?php echo "$pheight"?>,scrollbars");
+          return false;
+        }
+--- 35,39 ----
+          // Below - to open a full-sized window, just use: window.open(this.href);
+          window.open(this.href, "",
+! "top=40,left=40,width=500,height=600,scrollbars");
+          return false;
+        }
+***************
+*** 176,180 ****
+  <br />
+  <?php echo "
+!   <a href=\"send_friend.php?id=$PHP_SELF\" class=\"sendrecipe\">
+    <img src=\"img/send.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+    $lng_sendfriend</a>";
+--- 176,180 ----
+  <br />
+  <?php echo "
+!   <a href=\"send_friend.php?id=$recipe_id\" class=\"sendrecipe\">
+    <img src=\"img/send.gif\" width=\"15\" height=\"14\" align=\"bottom\" border=\"0\" />
+    $lng_sendfriend</a>";
+
+
+

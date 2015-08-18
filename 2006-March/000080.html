@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r46 - trunk/krecipesweb/inc
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-March/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r46%20-%20trunk/krecipesweb/inc&In-Reply-To=%3C200603051620.k25GKj2V009485%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000079.html">
+   <LINK REL="Next"  HREF="000082.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r46 - trunk/krecipesweb/inc</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r46%20-%20trunk/krecipesweb/inc&In-Reply-To=%3C200603051620.k25GKj2V009485%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r46 - trunk/krecipesweb/inc">nilsk at berlios.de
+       </A><BR>
+    <I>Sun Mar  5 17:20:45 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000079.html">[Krecipesweb-devel] r45 - trunk/krecipesweb/img
+</A></li>
+        <LI>Next message: <A HREF="000082.html">[Krecipesweb-devel] r47 - trunk/krecipesweb/lang
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#80">[ date ]</a>
+              <a href="thread.html#80">[ thread ]</a>
+              <a href="subject.html#80">[ subject ]</a>
+              <a href="author.html#80">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-03-05 17:20:33 +0100 (Sun, 05 Mar 2006)
+New Revision: 46
+
+Added:
+   trunk/krecipesweb/inc/bottom_table.php
+   trunk/krecipesweb/inc/index.htm
+   trunk/krecipesweb/inc/main.css
+   trunk/krecipesweb/inc/menu.php
+   trunk/krecipesweb/inc/metatags.php
+   trunk/krecipesweb/inc/print.css
+   trunk/krecipesweb/inc/top_table.php
+Log:
+
+
+Added: trunk/krecipesweb/inc/bottom_table.php
+===================================================================
+--- trunk/krecipesweb/inc/bottom_table.php	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/bottom_table.php	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,4 @@
++&lt;/tbody&gt;
++&lt;/table&gt;
++
++&lt;/div&gt;
+\ No newline at end of file
+
+Added: trunk/krecipesweb/inc/index.htm
+===================================================================
+--- trunk/krecipesweb/inc/index.htm	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/index.htm	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,12 @@
++&lt;html&gt;
++
++&lt;head&gt;
++  &lt;title&gt;&lt;/title&gt;
++  &lt;meta name=&quot;GENERATOR&quot; content=&quot;Quanta Plus&quot;&gt;
++  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-15&quot;&gt;
++&lt;/head&gt;
++&lt;body&gt;
++_
++
++&lt;/body&gt;
++&lt;/html&gt;
+
+Added: trunk/krecipesweb/inc/main.css
+===================================================================
+--- trunk/krecipesweb/inc/main.css	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/main.css	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,229 @@
++
++
++body {
++    background-color : #eeeeee;
++  }
++
++
++ul {
++    color : black;
++    font-family :
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++    font-size : 90%;
++    list-style-type : circle;
++  }
++
++
++ol {
++    color : black;
++    font-family :
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++    font-size : 90%;
++    list-style-type : square;
++  }
++
++
++h1, h2, h3, h4, h5, h6 {
++    font-family:
++&quot;TrebuchetMS&quot;,Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,
++Syntax,sans-serif;
++  }
++
++
++h1 {
++    color: #000000;
++    font-weight: bold;
++    text-align: center;
++  }
++
++
++h2 {
++    color: #000000;
++    font-size: 130%;
++    font-weight: normal;
++    padding-bottom: 0px;
++  }
++
++
++h3 {
++    color: #000000;
++    font-size: 100%;
++    font-weight: bold;
++    padding-bottom: 0px;
++  }
++
++
++.index_header {
++    font-size : 130%;
++    font-weight: bold;
++  }
++
++
++.right {
++    text-align: right;
++  }
++
++
++.left {
++    text-align: left;
++  }
++
++
++.center {
++    text-align: center;
++  }
++
++
++.nav {
++    color : #000000;
++    font-family :
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++    font-size : 100%;
++    text-align : center;
++    text-decoration : none;
++  }
++
++
++.title {
++    color: #000000;
++    font-weight: bold;
++    text-decoration: none;
++    font-size: 80%;
++    font-family:
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++  }
++
++
++.small {
++    color: #000000;
++    font-size: 60%;
++    font-family:
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++  }
++
++
++.footer {
++    color: #555555;
++    font-size: 60%;
++    font-family:
++Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif;
++    text-align: center;
++  }
++
++
++a {
++    color: black;
++    text-decoration: none;
++  }
++
++
++a:link {
++    text-decoration: none;
++  }
++
++
++a:visited {
++    text-decoration: none;
++  }
++
++
++a:active {
++    text-decoration: none;
++  }
++
++
++a:hover {
++    color: #ff0033;
++    text-decoration: underline;
++  }
++
++
++.bbox1 {
++    padding-right : 20px;
++    border-right-color : #000000;
++    border-right-style : solid;
++    border-right-width : 1px;
++  }
++
++
++.bbox2 {
++    padding-left : 20px;
++    border-left-color : #000000;
++    border-left-style : solid;
++    border-left-width : 1px;
++  }
++
++
++.bbox_border {
++    border-bottom-color : #000000;
++    border-bottom-style : solid;
++    border-bottom-width : 1px;
++    border-left-color : #000000;
++    border-left-style : solid;
++    border-left-width : 1px;
++    border-right-color : #000000;
++    border-right-style : solid;
++    border-right-width : 1px;
++    border-top-color : #000000;
++    border-top-style : solid;
++    border-top-width : 1px;
++  }
++
++
++.bbox_head {
++    font-size : 110%;
++    font-weight : bold;
++    text-align : center;
++  }
++
++
++input {
++    border-bottom-color : #000000;
++    border-bottom-style : solid;
++    border-bottom-width : 1px;
++    border-left-color : #000000;
++    border-left-style : solid;
++    border-left-width : 1px;
++    border-right-color : #000000;
++    border-right-style : solid;
++    border-right-width : 1px;
++    border-top-color : #000000;
++    border-top-style : solid;
++    border-top-width : 1px;
++    font-size : 60%;
++  }
++
++
++.errorbox {
++    background-color : #ffb6c1;
++    border-bottom-color : #ff0000;
++    border-bottom-style : solid;
++    border-bottom-width : 1px;
++    border-left-color : #ff0000;
++    border-left-style : solid;
++    border-left-width : 1px;
++    border-right-color : #ff0000;
++    border-right-style : solid;
++    border-right-width : 1px;
++    border-top-color : #ff0000;
++    border-top-style : solid;
++    border-top-width : 1px;
++  }
++
++
++.okbox {
++    background-color : #c0ffc0;
++    border-bottom-color : #00ff00;
++    border-bottom-style : solid;
++    border-bottom-width : 1px;
++    border-left-color : #00ff00;
++    border-left-style : solid;
++    border-left-width : 1px;
++    border-right-color : #00ff00;
++    border-right-style : solid;
++    border-right-width : 1px;
++    border-top-color : #00ff00;
++    border-top-style : solid;
++    border-top-width : 1px;
++  }
++
+
+Added: trunk/krecipesweb/inc/menu.php
+===================================================================
+--- trunk/krecipesweb/inc/menu.php	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/menu.php	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,19 @@
++
++&lt;div class=&quot;nav&quot;&gt;
++&lt;u&gt;&lt;strong&gt;Menu:&lt;/strong&gt;&lt;/u&gt; 
++  &lt;?php if ( basename($_SERVER[&quot;PHP_SELF&quot;]) != &quot;index.php&quot; ){print '&lt;a
++href=&quot;index.php&quot;&gt;';} else { print ''; } ?&gt;
++&lt;?php echo &quot;$lng_menu_catlist&quot;; ?&gt;
++  &lt;?php if ( basename($_SERVER[&quot;PHP_SELF&quot;]) != &quot;index.php&quot; ){print '&lt;/a&gt;';} else { print
++''; } ?&gt;
++
++-
++ 
++  &lt;?php if ( basename($_SERVER[&quot;PHP_SELF&quot;]) != &quot;search.php&quot; ){print '&lt;a
++href=&quot;search.php&quot;&gt;';} else { print ''; } ?&gt;
++  &lt;?php echo &quot;$lng_menu_search&quot;; ?&gt;
++
++  &lt;?php if ( basename($_SERVER[&quot;PHP_SELF&quot;]) != &quot;search.php&quot; ){print '&lt;/a&gt;';} else { print
++''; } ?&gt;
++
++&lt;/div&gt;
+
+Added: trunk/krecipesweb/inc/metatags.php
+===================================================================
+--- trunk/krecipesweb/inc/metatags.php	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/metatags.php	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,10 @@
++&lt;meta name=&quot;MSSmartTagsPreventParsing&quot; content=&quot;true&quot;&gt;
++&lt;meta name=&quot;GENERATOR&quot; content=&quot;Quanta Plus&quot; /&gt;
++&lt;?php echo &quot;$lng_metatag&quot;; ?&gt;
++&lt;link REL=&quot;SHORTCUT ICON&quot; HREF=&quot;img/favicon.ico&quot;&gt;
++&lt;?php
++if ( basename($_SERVER[&quot;PHP_SELF&quot;]) == &quot;print_recipe.php&quot; ){
++print '&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;inc/print.css&quot; /&gt;';
++} else {
++print '&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;inc/main.css&quot; /&gt;'; }
++?&gt;
+\ No newline at end of file
+
+Added: trunk/krecipesweb/inc/print.css
+===================================================================
+--- trunk/krecipesweb/inc/print.css	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/print.css	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,120 @@
++
++
++body {
++    background-color : #ffffff;
++    border-bottom-color : #000000;
++    border-bottom-style : solid;
++    border-bottom-width : 1px;
++    border-left-color : #000000;
++    border-left-style : solid;
++    border-left-width : 1px;
++    border-right-color : #000000;
++    border-right-style : solid;
++    border-right-width : 1px;
++    border-top-color : #000000;
++    border-top-style : solid;
++    border-top-width : 1px;
++    width : 650px;
++  }
++
++
++ul {
++    color : black;
++   
++font-family:Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif
++;
++    font-size : 90%;
++    list-style-type : circle;
++  }
++
++
++ol {
++    color : black;
++   
++font-family:Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif
++;
++    font-size : 100%;
++    list-style-type : square;
++  }
++
++
++h1, h2, h3, h4, h5, h6 {
++   
++font-family:&quot;TrebuchetMS&quot;,Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,
++Syntax,sans-serif;
++  }
++
++
++h1 {
++    color: #000000;
++    font-weight: bold;
++    text-align: center;
++  }
++
++
++h2 {
++    color: #000000;
++    font-size: 130%;
++    font-weight: normal;
++    padding-bottom: 0px;
++  }
++
++
++h3 {
++    color: #000000;
++    font-size: 100%;
++    font-weight: bold;
++    padding-bottom: 0px;
++  }
++
++
++.right {
++    text-align: right;
++  }
++
++
++.left {
++    text-align: left;
++  }
++
++
++.center {
++    text-align: center;
++  }
++
++
++.title {
++    color: #000000;
++    font-weight: bold;
++    text-decoration: none;
++    font-size: 80%;
++   
++font-family:Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif
++;
++  }
++
++
++.small {
++    color: #000000;
++    font-size: 60%;
++   
++font-family:Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif
++;
++  }
++
++
++.footer {
++    color: #555555;
++    font-size: 60%;
++   
++font-family:Verdana,&quot;LucidaSans&quot;,Arial,Geneva,Helvetica,Helv,&quot;MyriadWeb&quot;,Syntax,sans-serif
++;
++    text-align: center;
++  }
++
++
++.bcopy {
++    color : #818181;
++    font-size : 80%;
++  }
++
+
+Added: trunk/krecipesweb/inc/top_table.php
+===================================================================
+--- trunk/krecipesweb/inc/top_table.php	2006-03-05 16:20:08 UTC (rev 45)
++++ trunk/krecipesweb/inc/top_table.php	2006-03-05 16:20:33 UTC (rev 46)
+@@ -0,0 +1,5 @@
++
++&lt;div align=&quot;center&quot;&gt;
++	&lt;table cellspacing=&quot;2&quot; cellpadding=&quot;2&quot; width=&quot;800&quot;&gt;
++  &lt;tbody&gt;
++	  &lt;tr&gt;&lt;td&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000079.html">[Krecipesweb-devel] r45 - trunk/krecipesweb/img
+</A></li>
+	<LI>Next message: <A HREF="000082.html">[Krecipesweb-devel] r47 - trunk/krecipesweb/lang
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#80">[ date ]</a>
+              <a href="thread.html#80">[ thread ]</a>
+              <a href="subject.html#80">[ subject ]</a>
+              <a href="author.html#80">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

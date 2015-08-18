@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r22 - in trunk/krecipesweb: . inc
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r22%20-%20in%20trunk/krecipesweb%3A%20.%20inc&In-Reply-To=%3C200602241828.k1OIS4ln028500%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000056.html">
+   <LINK REL="Next"  HREF="000058.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r22 - in trunk/krecipesweb: . inc</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r22%20-%20in%20trunk/krecipesweb%3A%20.%20inc&In-Reply-To=%3C200602241828.k1OIS4ln028500%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r22 - in trunk/krecipesweb: . inc">nilsk at berlios.de
+       </A><BR>
+    <I>Fri Feb 24 19:28:04 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000056.html">[Krecipesweb-devel] r21 - trunk/krecipesweb
+</A></li>
+        <LI>Next message: <A HREF="000058.html">[Krecipesweb-devel] r23 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-02-24 19:27:59 +0100 (Fri, 24 Feb 2006)
+New Revision: 22
+
+Modified:
+   trunk/krecipesweb/config.php
+   trunk/krecipesweb/inc/top_table.php
+   trunk/krecipesweb/view_recipe.php
+Log:
+removed table width variables from config.php
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/config.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -21,7 +21,7 @@
+ //Site language (see the 'lang' subdir for more languages)
+ $site_lang = 'en';
+ //Main table width (use % (i.e. 100%) if you want the width in percent)
+-$mtable_width = &quot;800&quot;;
++//$mtable_width = &quot;800&quot;;
+ //URL to where the Frontend is located
+ $url=&quot;<A HREF="http://localhost/krecipes/cvs/krecipesweb/">http://localhost/krecipes/cvs/krecipesweb/</A>&quot;;
+ //URL to the view_recipe.php file
+@@ -33,9 +33,9 @@
+ 
+ #Pop-up window for print view
+ //height
+-$pheight =&quot;700&quot;;
++//$pheight =&quot;700&quot;;
+ //and width
+-$pwidth = &quot;800&quot;;
++//$pwidth = &quot;800&quot;;
+ //Your copyright notice at bottom of print page
+ $print_copy = &quot;&copy; 2005 recipe.com&quot;;
+ 
+
+Modified: trunk/krecipesweb/inc/top_table.php
+===================================================================
+--- trunk/krecipesweb/inc/top_table.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/inc/top_table.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -1,5 +1,5 @@
+ 
+ &lt;div align=&quot;center&quot;&gt;
+-	&lt;table cellspacing=&quot;2&quot; cellpadding=&quot;2&quot; width=&quot;&lt;?php echo &quot;$mtable_width&quot;; ?&gt;&quot;&gt;
++	&lt;table cellspacing=&quot;2&quot; cellpadding=&quot;2&quot; width=&quot;800&quot;&gt;
+   &lt;tbody&gt;
+ 	  &lt;tr&gt;&lt;td&gt;
+
+Modified: trunk/krecipesweb/view_recipe.php
+===================================================================
+--- trunk/krecipesweb/view_recipe.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/view_recipe.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -53,7 +53,7 @@
+       links[i].onclick=function() {
+         // Below - to open a full-sized window, just use: window.open(this.href);
+         window.open(this.href, &quot;&quot;,
+-&quot;top=40,left=40,width=&lt;?php echo &quot;$pwidth&quot;?&gt;,height=&lt;?php echo &quot;$pheight&quot;?&gt;,scrollbars&quot;);
++&quot;top=40,left=40,width=800,height=700,scrollbars&quot;);
+         return false;
+       }
+     }
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000056.html">[Krecipesweb-devel] r21 - trunk/krecipesweb
+</A></li>
+	<LI>Next message: <A HREF="000058.html">[Krecipesweb-devel] r23 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#57">[ date ]</a>
+              <a href="thread.html#57">[ thread ]</a>
+              <a href="subject.html#57">[ subject ]</a>
+              <a href="author.html#57">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

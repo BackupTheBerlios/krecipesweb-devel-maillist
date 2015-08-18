@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r39 - trunk/krecipesweb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-March/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r39%20-%20trunk/krecipesweb&In-Reply-To=%3C200603041809.k24I9F0o029194%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000073.html">
+   <LINK REL="Next"  HREF="000075.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r39 - trunk/krecipesweb</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r39%20-%20trunk/krecipesweb&In-Reply-To=%3C200603041809.k24I9F0o029194%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r39 - trunk/krecipesweb">nilsk at berlios.de
+       </A><BR>
+    <I>Sat Mar  4 19:09:15 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000073.html">[Krecipesweb-devel] r38 - trunk/krecipesweb
+</A></li>
+        <LI>Next message: <A HREF="000075.html">[Krecipesweb-devel] r40 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-03-04 19:08:56 +0100 (Sat, 04 Mar 2006)
+New Revision: 39
+
+Modified:
+   trunk/krecipesweb/view_recipe_bbox.php
+Log:
+
+
+Modified: trunk/krecipesweb/view_recipe_bbox.php
+===================================================================
+--- trunk/krecipesweb/view_recipe_bbox.php	2006-03-04 18:08:13 UTC (rev 38)
++++ trunk/krecipesweb/view_recipe_bbox.php	2006-03-04 18:08:56 UTC (rev 39)
+@@ -38,9 +38,9 @@
+ &lt;FORM action=&quot;send_friend.php&quot; method=&quot;POST&quot; name='friendform' onSubmit=&quot;return validate()&quot;&gt;
+ &lt;INPUT type=&quot;hidden&quot; name=&quot;send_id&quot; value=&quot;&lt;?php echo $recipe_id; ?&gt;&quot;&gt;
+ &lt;INPUT type=&quot;text&quot; name='sendername' size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourn ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourn ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourn ?&gt;';&quot;&gt;&nbsp;&nbsp;
+-&lt;INPUT type=&quot;text&quot; name=&quot;sendermail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourm ?&gt;';&quot;&gt;&lt;br/&gt;
++&lt;INPUT type=&quot;text&quot; name=&quot;sendermail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourm ?&gt;';&quot;&gt;&lt;br /&gt;
+ &lt;INPUT type=&quot;text&quot; name=&quot;friendname&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourfn ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourfn ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourfn ?&gt;';&quot;&gt;&nbsp;&nbsp;
+-&lt;INPUT type=&quot;text&quot; name=&quot;friendmail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourfm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourfm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourfm ?&gt;';&quot;&gt;&lt;br&gt;
++&lt;INPUT type=&quot;text&quot; name=&quot;friendmail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourfm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourfm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourfm ?&gt;';&quot;&gt;&lt;br /&gt;
+ &lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;  &lt;?php echo  $lng_submit   ?&gt;  &quot;&gt;
+ &lt;INPUT type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;  &lt;?php echo   $lng_reset  ?&gt;  &quot;&gt;
+ &lt;/FORM&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000073.html">[Krecipesweb-devel] r38 - trunk/krecipesweb
+</A></li>
+	<LI>Next message: <A HREF="000075.html">[Krecipesweb-devel] r40 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

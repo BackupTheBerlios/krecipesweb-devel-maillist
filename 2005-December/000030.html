@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb view_recipe_bbox.php,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-December/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20view_recipe_bbox.php%2CNONE%2C1.1&In-Reply-To=%3C200512032221.jB3MLUN16420%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000031.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb view_recipe_bbox.php,NONE,1.1</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20view_recipe_bbox.php%2CNONE%2C1.1&In-Reply-To=%3C200512032221.jB3MLUN16420%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb view_recipe_bbox.php,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Dec  3 23:21:30 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[Krecipesweb-devel] krecipesweb view_recipe.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000031.html">[Krecipesweb-devel] krecipesweb settings.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv30163
+
+Added Files:
+	view_recipe_bbox.php 
+Log Message:
+added
+
+--- NEW FILE: view_recipe_bbox.php ---
+&lt;p&gt;&nbsp;&lt;/p&gt;
+&lt;table width=&quot;100%&quot; class=&quot;bbox_border&quot;&gt;
+&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td width=&quot;50%&quot; class=&quot;bbox1&quot; align=&quot;middle&quot;&gt;
+&lt;DIV class=&quot;bbox_head&quot;&gt;&lt;?php echo $lng_sendfriend;
+?&gt;&lt;/DIV&gt;
+&lt;FORM action=&quot;send_friend.php&quot; method=&quot;POST&quot; target=&quot;_blank&quot;&gt;
+&lt;INPUT type=&quot;hidden&quot; name=&quot;send_id&quot; value=&quot;&lt;?php echo $recipe_id; ?&gt;&quot;&gt;
+&lt;INPUT type=&quot;text&quot; name=&quot;sendrname&quot; size=&quot;20&quot; value=&quot;Your name&quot; onFocus=&quot;if (this.value=='Your name') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your name';&quot;&gt;&nbsp;&nbsp;
+&lt;INPUT type=&quot;text&quot; name=&quot;sendermail&quot; size=&quot;20&quot; value=&quot;Your e-mail&quot; onFocus=&quot;if (this.value=='Your e-mail') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your e-mail';&quot;&gt;&lt;br/&gt;
+&lt;INPUT type=&quot;text&quot; name=&quot;friendname&quot; size=&quot;20&quot; value=&quot;Your friends name&quot; onFocus=&quot;if (this.value=='Your friends name') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your friends name';&quot;&gt;&nbsp;&nbsp;
+&lt;INPUT type=&quot;text&quot; name=&quot;friendmail&quot; size=&quot;20&quot; value=&quot;Your friends e-mail&quot; onFocus=&quot;if (this.value=='Your friends e-mail') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your friends e-mail';&quot;&gt;&lt;br&gt;
+&lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;  Send  &quot; src=&quot;img/send.gif&quot;&gt;
+&lt;INPUT type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;  Clear form  &quot;&gt;
+&lt;/FORM&gt;
+&lt;/td&gt;
+      &lt;td width=&quot;50%&quot; class=&quot;bbox2&quot; align=&quot;left&quot; valign=&quot;top&quot;&gt;
+&lt;DIV class=&quot;bbox_head&quot;&gt;Page Functions&lt;/DIV&gt;
+
+&lt;?php echo &quot;
+  &lt;a href=\&quot;print_recipe.php?id=$recipe_id\&quot; class=\&quot;printrecipe\&quot;&gt;
+  &lt;img src=\&quot;img/print.gif\&quot; width=\&quot;15\&quot; height=\&quot;14\&quot; align=\&quot;bottom\&quot; border=\&quot;0\&quot; /&gt;
+  $lng_print&lt;/a&gt;&quot;;
+?&gt;&lt;br&gt;
+&lt;A href=&quot;search.php&quot;&gt;&lt;IMG src=&quot;img/search.png&quot; alt=&quot;Search&quot; width=&quot;16&quot; height=&quot;16&quot; align=&quot;bottom&quot; border=&quot;0&quot;&gt;
+Search for recipes&lt;/A&gt;
+&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[Krecipesweb-devel] krecipesweb view_recipe.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000031.html">[Krecipesweb-devel] krecipesweb settings.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

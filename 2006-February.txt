@@ -1,0 +1,1917 @@
+From nobody at sheep.berlios.de  Sat Feb 11 14:53:12 2006
+From: nobody at sheep.berlios.de (nilsk)
+Date: Sat, 11 Feb 2006 14:53:12 +0100
+Subject: [Krecipesweb-devel] krecipesweb config.php,1.6,1.7 README,1.4,1.5
+Message-ID: <200602111353.k1BDrCE26167@bat.berlios.de>
+
+Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv10991
+
+Modified Files:
+	config.php README 
+Log Message:
+empty
+
+Index: config.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/config.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** config.php	10 Dec 2005 21:53:33 -0000	1.6
+--- config.php	11 Feb 2006 13:53:08 -0000	1.7
+***************
+*** 20,24 ****
+  $site_title = 'Krecipes Cookbook';
+  //Site language (see the 'lang' subdir for more languages)
+! $site_lang = 'nb';
+  //Main table width (use % (i.e. 100%) if you want the width in percent)
+  $mtable_width = "800";
+--- 20,24 ----
+  $site_title = 'Krecipes Cookbook';
+  //Site language (see the 'lang' subdir for more languages)
+! $site_lang = 'en';
+  //Main table width (use % (i.e. 100%) if you want the width in percent)
+  $mtable_width = "800";
+
+Index: README
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/README,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** README	11 Dec 2005 15:01:41 -0000	1.4
+--- README	11 Feb 2006 13:53:08 -0000	1.5
+***************
+*** 8,13 ****
+    http://krecipesweb.sourceforge.net/
+  
+!     Copyright (C) 2005-      Jason Kivlighn <fungmeista at gmail.com>
+!                              Nils Kristian Tomren <project at nilsk.net>
+  
+      This program is free software; you can redistribute it and/or modify
+--- 8,13 ----
+    http://krecipesweb.sourceforge.net/
+  
+!     Copyright (C) 2005-2006      Jason Kivlighn <fungmeista at gmail.com>
+!                                  Nils Kristian Tomren <project at nilsk.net>
+  
+      This program is free software; you can redistribute it and/or modify
+
+
+
+From nilsk at berlios.de  Wed Feb 22 13:42:27 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Wed, 22 Feb 2006 13:42:27 +0100
+Subject: [Krecipesweb-devel] r21 - trunk/krecipesweb
+Message-ID: <200602221242.k1MCgRb5006111@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-22 13:42:24 +0100 (Wed, 22 Feb 2006)
+New Revision: 21
+
+Modified:
+   trunk/krecipesweb/config.php
+Log:
+
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-21 17:31:31 UTC (rev 20)
++++ trunk/krecipesweb/config.php	2006-02-22 12:42:24 UTC (rev 21)
+@@ -1,5 +1,5 @@
+ <?php
+-##########################################################################################
++####################################################################################
+ #
+ #  project           	: Krecipes WebFrontend
+ #  filename          	: config.php
+@@ -8,7 +8,7 @@
+ #  purpose           	: Configuration File
+ #  last modified     	: 03.12.2005
+ #
+-##########################################################################################
++####################################################################################
+ # DATABASE SETTINGS
+ $dbhost = 'localhost';
+ $dbuser = 'root';
+
+
+
+From nilsk at berlios.de  Fri Feb 24 19:28:04 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Fri, 24 Feb 2006 19:28:04 +0100
+Subject: [Krecipesweb-devel] r22 - in trunk/krecipesweb: . inc
+Message-ID: <200602241828.k1OIS4ln028500@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-24 19:27:59 +0100 (Fri, 24 Feb 2006)
+New Revision: 22
+
+Modified:
+   trunk/krecipesweb/config.php
+   trunk/krecipesweb/inc/top_table.php
+   trunk/krecipesweb/view_recipe.php
+Log:
+removed table width variables from config.php
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/config.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -21,7 +21,7 @@
+ //Site language (see the 'lang' subdir for more languages)
+ $site_lang = 'en';
+ //Main table width (use % (i.e. 100%) if you want the width in percent)
+-$mtable_width = "800";
++//$mtable_width = "800";
+ //URL to where the Frontend is located
+ $url="http://localhost/krecipes/cvs/krecipesweb/";
+ //URL to the view_recipe.php file
+@@ -33,9 +33,9 @@
+ 
+ #Pop-up window for print view
+ //height
+-$pheight ="700";
++//$pheight ="700";
+ //and width
+-$pwidth = "800";
++//$pwidth = "800";
+ //Your copyright notice at bottom of print page
+ $print_copy = "&copy; 2005 recipe.com";
+ 
+
+Modified: trunk/krecipesweb/inc/top_table.php
+===================================================================
+--- trunk/krecipesweb/inc/top_table.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/inc/top_table.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -1,5 +1,5 @@
+ 
+ <div align="center">
+-	<table cellspacing="2" cellpadding="2" width="<?php echo "$mtable_width"; ?>">
++	<table cellspacing="2" cellpadding="2" width="800">
+   <tbody>
+ 	  <tr><td>
+
+Modified: trunk/krecipesweb/view_recipe.php
+===================================================================
+--- trunk/krecipesweb/view_recipe.php	2006-02-22 12:42:24 UTC (rev 21)
++++ trunk/krecipesweb/view_recipe.php	2006-02-24 18:27:59 UTC (rev 22)
+@@ -53,7 +53,7 @@
+       links[i].onclick=function() {
+         // Below - to open a full-sized window, just use: window.open(this.href);
+         window.open(this.href, "",
+-"top=40,left=40,width=<?php echo "$pwidth"?>,height=<?php echo "$pheight"?>,scrollbars");
++"top=40,left=40,width=800,height=700,scrollbars");
+         return false;
+       }
+     }
+
+
+
+From nilsk at berlios.de  Fri Feb 24 19:29:24 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Fri, 24 Feb 2006 19:29:24 +0100
+Subject: [Krecipesweb-devel] r23 - trunk/krecipesweb
+Message-ID: <200602241829.k1OITOBb029436@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-24 19:29:18 +0100 (Fri, 24 Feb 2006)
+New Revision: 23
+
+Modified:
+   trunk/krecipesweb/config.php
+Log:
+removed table width variables from config.php
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-24 18:27:59 UTC (rev 22)
++++ trunk/krecipesweb/config.php	2006-02-24 18:29:18 UTC (rev 23)
+@@ -20,8 +20,6 @@
+ $site_title = 'Krecipes Cookbook';
+ //Site language (see the 'lang' subdir for more languages)
+ $site_lang = 'en';
+-//Main table width (use % (i.e. 100%) if you want the width in percent)
+-//$mtable_width = "800";
+ //URL to where the Frontend is located
+ $url="http://localhost/krecipes/cvs/krecipesweb/";
+ //URL to the view_recipe.php file
+@@ -30,12 +28,6 @@
+ //Webmasters e-mail
+ $admin_mail="webmaster at yoursite.org";
+ 
+-
+-#Pop-up window for print view
+-//height
+-//$pheight ="700";
+-//and width
+-//$pwidth = "800";
+ //Your copyright notice at bottom of print page
+ $print_copy = "&copy; 2005 recipe.com";
+ 
+
+
+
+From nilsk at berlios.de  Sun Feb 26 17:52:24 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 17:52:24 +0100
+Subject: [Krecipesweb-devel] r24 - trunk/krecipesweb/lang
+Message-ID: <200602261652.k1QGqOvh001314@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 17:52:22 +0100 (Sun, 26 Feb 2006)
+New Revision: 24
+
+Removed:
+   trunk/krecipesweb/lang/en.php
+   trunk/krecipesweb/lang/nb.php
+Log:
+
+
+Deleted: trunk/krecipesweb/lang/en.php
+===================================================================
+--- trunk/krecipesweb/lang/en.php	2006-02-24 18:29:18 UTC (rev 23)
++++ trunk/krecipesweb/lang/en.php	2006-02-26 16:52:22 UTC (rev 24)
+@@ -1,100 +0,0 @@
+-<?php
+-##########################################################################################
+-#
+-#  project           	: Krecipes WebFrontend
+-#  filename          	: lang_en.php.php
+-#  last modified by  	: Nils Kristian Tomren
+-#  e-mail            	: project at nilsk.net
+-#  purpose           	: English Language File
+-#  last modified     	: 10.12.2005
+-#
+-##########################################################################################
+-
+-$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
+-charset=iso-8859-15\" />";
+-
+-#index.php
+-$lng_index_catlist = "Category Listing";
+-
+-#footer.php
+-$lng_frontend_ver = "Krecipes Web Frontend version";
+-$lng_gen_by = "Recipes generated by Krecipes.";
+-
+-#view_cat.php
+-$lng_cat_cat = "Category";
+-$lng_cat_recipes = "Recipes";
+-$lng_cat_subc = "Subcategories";
+-
+-#view_recipe.php/print_recipe.php
+-$lng_recipe_author = "Author";
+-$lng_recipe_yield = "Yield";
+-$lng_recipe_prep = "Prep time";
+-$lng_recipe_cat = "Categories";
+-$lng_cat_ingred = "Ingredients";
+-$lng_cat_instr = "Instructions";
+-$lng_print = "Print Recipe";
+-$lng_pfrom = "This recipe is printed from:";
+-$lng_sendfriend = "Send to a friend";
+-$lng_error = "Error";
+-$lng_ok = "Success";
+-$lng_error_friend_fmail = "Sorry, the e-mail address
+-you entered for your friend is invalid.<br /> Please try again, making certain
+-you have entered it correctly.";
+-$lng_error_friend_smail = "Sorry, the e-mail address you entered for yourself
+-is invalid.<br /> Please try again, making certain
+-you have entered it correctly.";
+-$lng_error_friend_name = "Sorry, you have to fill both your own and your
+-friends name.<br />";
+-$lng_send_friend_ok = "E-mail sent successfully to your friend.";
+-
+-#view_recip_functions.php
+-$no_exist_recipe = "Recipe does not exist.";
+-$no_author = "No Authors";
+-$no_cat = "No Categories";
+-
+-#view_recipe_bbox.php
+-$lng_yourn="Your name";
+-$lng_yourm="Your e-mail";
+-$lng_yourfn="Your friends name";
+-$lng_yourfm="Your friends e-mail";
+-$lng_pfunctions="Page Functions";
+-
+-
+-#menu.php
+-$lng_menu_catlist = "Category Listing";
+-$lng_menu_search ="Search";
+-
+-#search.php
+-$lng_rec_search = "Recipe Search";
+-$lng_title = "Title";
+-$lng_yields = "Yields";
+-$lng_exactly = "exactly";
+-$lng_atleast = "at least";
+-$lng_atmost = "at most";
+-$lng_anycat = "In any of the following categories";
+-$lng_intext = "Instructions contains the text";
+-$lng_submit = "Submit";
+-$lng_reset = "Clear form";
+-
+-#search_results.php
+-$lng_sres = "Search Results";
+-$lng_rsres = "Recipe Search Results";
+-$lng_res = "Results";
+-$lng_nores = "No recipes found.";
+-
+-#send_friend.php
+-$lng_wishes="Regards";
+-$lng_subject="A recipe for you from ";
+-$lng_message1_1="Your friend ";
+-$lng_message1_2=" have sent you a link to";
+-$lng_message2="a recipe at ";
+-$lng_message3="Visit the link below to see the recipe";
+-$lng_message4="Sent from";
+-$lng_from="From";
+-$lng_error55="The recipe id was not found!<br />Failed to send!";
+-
+-# Error messages
+-$no_db_listings = "No listings in Krecipes database!";
+-$no_recipe_chosen = "No recipe chosen";
+-$no_cat_listings ="No listings in this category";
+-?>
+\ No newline at end of file
+
+Deleted: trunk/krecipesweb/lang/nb.php
+===================================================================
+--- trunk/krecipesweb/lang/nb.php	2006-02-24 18:29:18 UTC (rev 23)
++++ trunk/krecipesweb/lang/nb.php	2006-02-26 16:52:22 UTC (rev 24)
+@@ -1,102 +0,0 @@
+-<?php
+-##########################################################################################
+-#
+-#  project           	: Krecipes WebFrontend
+-#  filename          	: lang_nb.php
+-#  last modified by  	: Nils Kristian Tomren
+-#  e-mail            	: project at nilsk.net
+-#  purpose           	: Norwegian Bokmaal Language File
+-#  last modified     	: 10.12.2005
+-#
+-##########################################################################################
+-
+-$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
+-charset=iso-8859-15\" />";
+-
+-#index.php
+-$lng_index_catlist = "Kategorier";
+-
+-#footer.php
+-$lng_frontend_ver = "Krecipes Vev-grensesnitt versjon";
+-$lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
+-
+-#view_cat.php
+-$lng_cat_cat = "Kategori";
+-$lng_cat_recipes = "Oppskrifter";
+-$lng_cat_subc = "Underkategorier";
+-
+-#view_recipe.php/print_recipe.php
+-$lng_recipe_author = "Forfatter";
+-$lng_recipe_yield = "Mengde";
+-$lng_recipe_prep = "Tilberedelsestid";
+-$lng_recipe_cat = "Kategorier";
+-$lng_cat_ingred = "Ingredienser";
+-$lng_cat_instr = "Instruksjoner";
+-$lng_print = "Skriv ut oppskriften";
+-$lng_pfrom = "Denne oppskriften er skrevet ut fra:";
+-$lng_sendfriend = "Send til en venn";
+-$lng_error = "Feilmelding";
+-$lng_ok = "Vellykket";
+-$lng_error_friend_fmail = "Beklager, e-post adressen
+-du oppga til din venn er ikke en gyldig e-post adresse.<br /> Vennligst
+-pr&#248;v igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig
+-format.";
+-$lng_error_friend_smail = "Beklager, e-post adressen
+-du oppga til deg selv er ikke en gyldig e-post adresse.<br /> Vennligst
+-pr&#248;v
+-igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig format.";
+-$lng_error_friend_name = "Beklager, du m&#229; skrive inn b&#229;de ditt eget
+-navn og navnet til din venn.<br />";
+-$lng_send_friend_ok = "E-posten ble vellykket sendt til din venn.";
+-
+-#view_recip_functions.php
+-$no_exist_recipe = "Oppskriften finnes ikke.";
+-$no_author = "Ingen forfattere";
+-$no_cat = "Ingen kategorier";
+-
+-#view_recipe_bbox.php
+-$lng_yourn="Ditt navn";
+-$lng_yourm="Din e-post";
+-$lng_yourfn="Navnet til din venn";
+-$lng_yourfm="E-posten til din venn";
+-$lng_pfunctions="Funksjoner";
+-
+-
+-#menu.php
+-$lng_menu_catlist = "Kategori liste";
+-$lng_menu_search ="S&#248;k";
+-
+-#search.php
+-$lng_rec_search = "Oppskrift s&#248;k";
+-$lng_title = "Tittel";
+-$lng_yields = "Mengde";
+-$lng_exactly = "n&#248;yaktig";
+-$lng_atleast = "minimun";
+-$lng_atmost = "ikke mer enn";
+-$lng_anycat = "I hvilken som helst av disse kategoriene";
+-$lng_intext = "Instruksjonen inneholder teksten";
+-$lng_submit = "Send inn";
+-$lng_reset = "T&#248;m";
+-
+-#search_results.php
+-$lng_sres = "S&#248;keresultat";
+-$lng_rsres = "S&#248;keresultat - Oppskrifter";
+-$lng_res = "Resultat";
+-$lng_nores = "Ingen oppskrifter funnet.";
+-
+-#send_friend.php
+-$lng_wishes="Vennlig hilsen";
+-$lng_subject="En oppskrift til deg fra ";
+-$lng_message1_1="Din venn ";
+-$lng_message1_2=" har sendt deg en lenke til";
+-$lng_message2="en oppskrift hos ";
+-$lng_message3="Bes&#248;k lenken under for &#229; se oppskriften";
+-$lng_message4="Sendt fra";
+-$lng_from="Fra";
+-$lng_error55="Oppskrift-id ikke funnet!<br />Sendingen feilet!";
+-
+-# Error messages
+-$no_db_listings = "Ingen oppf&#248;ringer i Krecipes databasen!";
+-$no_recipe_chosen = "Ingen oppskrift valgt.";
+-$no_cat_listings ="Ingen oppf&#248;ringer i denne kategorien.";
+-?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Sun Feb 26 17:52:48 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 17:52:48 +0100
+Subject: [Krecipesweb-devel] r25 - trunk/krecipesweb/lang
+Message-ID: <200602261652.k1QGqmOr001482@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 17:52:45 +0100 (Sun, 26 Feb 2006)
+New Revision: 25
+
+Added:
+   trunk/krecipesweb/lang/english.php
+   trunk/krecipesweb/lang/norwegian_nb.php
+Log:
+renamed language files
+
+Added: trunk/krecipesweb/lang/english.php
+===================================================================
+--- trunk/krecipesweb/lang/english.php	2006-02-26 16:52:22 UTC (rev 24)
++++ trunk/krecipesweb/lang/english.php	2006-02-26 16:52:45 UTC (rev 25)
+@@ -0,0 +1,100 @@
++<?php
++##########################################################################################
++#
++#  project           	: Krecipes WebFrontend
++#  filename          	: lang_en.php.php
++#  last modified by  	: Nils Kristian Tomren
++#  e-mail            	: project at nilsk.net
++#  purpose           	: English Language File
++#  last modified     	: 10.12.2005
++#
++##########################################################################################
++
++$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
++charset=iso-8859-15\" />";
++
++#index.php
++$lng_index_catlist = "Category Listing";
++
++#footer.php
++$lng_frontend_ver = "Krecipes Web Frontend version";
++$lng_gen_by = "Recipes generated by Krecipes.";
++
++#view_cat.php
++$lng_cat_cat = "Category";
++$lng_cat_recipes = "Recipes";
++$lng_cat_subc = "Subcategories";
++
++#view_recipe.php/print_recipe.php
++$lng_recipe_author = "Author";
++$lng_recipe_yield = "Yield";
++$lng_recipe_prep = "Prep time";
++$lng_recipe_cat = "Categories";
++$lng_cat_ingred = "Ingredients";
++$lng_cat_instr = "Instructions";
++$lng_print = "Print Recipe";
++$lng_pfrom = "This recipe is printed from:";
++$lng_sendfriend = "Send to a friend";
++$lng_error = "Error";
++$lng_ok = "Success";
++$lng_error_friend_fmail = "Sorry, the e-mail address
++you entered for your friend is invalid.<br /> Please try again, making certain
++you have entered it correctly.";
++$lng_error_friend_smail = "Sorry, the e-mail address you entered for yourself
++is invalid.<br /> Please try again, making certain
++you have entered it correctly.";
++$lng_error_friend_name = "Sorry, you have to fill both your own and your
++friends name.<br />";
++$lng_send_friend_ok = "E-mail sent successfully to your friend.";
++
++#view_recip_functions.php
++$no_exist_recipe = "Recipe does not exist.";
++$no_author = "No Authors";
++$no_cat = "No Categories";
++
++#view_recipe_bbox.php
++$lng_yourn="Your name";
++$lng_yourm="Your e-mail";
++$lng_yourfn="Your friends name";
++$lng_yourfm="Your friends e-mail";
++$lng_pfunctions="Page Functions";
++
++
++#menu.php
++$lng_menu_catlist = "Category Listing";
++$lng_menu_search ="Search";
++
++#search.php
++$lng_rec_search = "Recipe Search";
++$lng_title = "Title";
++$lng_yields = "Yields";
++$lng_exactly = "exactly";
++$lng_atleast = "at least";
++$lng_atmost = "at most";
++$lng_anycat = "In any of the following categories";
++$lng_intext = "Instructions contains the text";
++$lng_submit = "Submit";
++$lng_reset = "Clear form";
++
++#search_results.php
++$lng_sres = "Search Results";
++$lng_rsres = "Recipe Search Results";
++$lng_res = "Results";
++$lng_nores = "No recipes found.";
++
++#send_friend.php
++$lng_wishes="Regards";
++$lng_subject="A recipe for you from ";
++$lng_message1_1="Your friend ";
++$lng_message1_2=" have sent you a link to";
++$lng_message2="a recipe at ";
++$lng_message3="Visit the link below to see the recipe";
++$lng_message4="Sent from";
++$lng_from="From";
++$lng_error55="The recipe id was not found!<br />Failed to send!";
++
++# Error messages
++$no_db_listings = "No listings in Krecipes database!";
++$no_recipe_chosen = "No recipe chosen";
++$no_cat_listings ="No listings in this category";
++?>
+\ No newline at end of file
+
+Added: trunk/krecipesweb/lang/norwegian_nb.php
+===================================================================
+--- trunk/krecipesweb/lang/norwegian_nb.php	2006-02-26 16:52:22 UTC (rev 24)
++++ trunk/krecipesweb/lang/norwegian_nb.php	2006-02-26 16:52:45 UTC (rev 25)
+@@ -0,0 +1,102 @@
++<?php
++##########################################################################################
++#
++#  project           	: Krecipes WebFrontend
++#  filename          	: lang_nb.php
++#  last modified by  	: Nils Kristian Tomren
++#  e-mail            	: project at nilsk.net
++#  purpose           	: Norwegian Bokmaal Language File
++#  last modified     	: 10.12.2005
++#
++##########################################################################################
++
++$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
++charset=iso-8859-15\" />";
++
++#index.php
++$lng_index_catlist = "Kategorier";
++
++#footer.php
++$lng_frontend_ver = "Krecipes Vev-grensesnitt versjon";
++$lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
++
++#view_cat.php
++$lng_cat_cat = "Kategori";
++$lng_cat_recipes = "Oppskrifter";
++$lng_cat_subc = "Underkategorier";
++
++#view_recipe.php/print_recipe.php
++$lng_recipe_author = "Forfatter";
++$lng_recipe_yield = "Mengde";
++$lng_recipe_prep = "Tilberedelsestid";
++$lng_recipe_cat = "Kategorier";
++$lng_cat_ingred = "Ingredienser";
++$lng_cat_instr = "Instruksjoner";
++$lng_print = "Skriv ut oppskriften";
++$lng_pfrom = "Denne oppskriften er skrevet ut fra:";
++$lng_sendfriend = "Send til en venn";
++$lng_error = "Feilmelding";
++$lng_ok = "Vellykket";
++$lng_error_friend_fmail = "Beklager, e-post adressen
++du oppga til din venn er ikke en gyldig e-post adresse.<br /> Vennligst
++pr&#248;v igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig
++format.";
++$lng_error_friend_smail = "Beklager, e-post adressen
++du oppga til deg selv er ikke en gyldig e-post adresse.<br /> Vennligst
++pr&#248;v
++igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig format.";
++$lng_error_friend_name = "Beklager, du m&#229; skrive inn b&#229;de ditt eget
++navn og navnet til din venn.<br />";
++$lng_send_friend_ok = "E-posten ble vellykket sendt til din venn.";
++
++#view_recip_functions.php
++$no_exist_recipe = "Oppskriften finnes ikke.";
++$no_author = "Ingen forfattere";
++$no_cat = "Ingen kategorier";
++
++#view_recipe_bbox.php
++$lng_yourn="Ditt navn";
++$lng_yourm="Din e-post";
++$lng_yourfn="Navnet til din venn";
++$lng_yourfm="E-posten til din venn";
++$lng_pfunctions="Funksjoner";
++
++
++#menu.php
++$lng_menu_catlist = "Kategori liste";
++$lng_menu_search ="S&#248;k";
++
++#search.php
++$lng_rec_search = "Oppskrift s&#248;k";
++$lng_title = "Tittel";
++$lng_yields = "Mengde";
++$lng_exactly = "n&#248;yaktig";
++$lng_atleast = "minimun";
++$lng_atmost = "ikke mer enn";
++$lng_anycat = "I hvilken som helst av disse kategoriene";
++$lng_intext = "Instruksjonen inneholder teksten";
++$lng_submit = "Send inn";
++$lng_reset = "T&#248;m";
++
++#search_results.php
++$lng_sres = "S&#248;keresultat";
++$lng_rsres = "S&#248;keresultat - Oppskrifter";
++$lng_res = "Resultat";
++$lng_nores = "Ingen oppskrifter funnet.";
++
++#send_friend.php
++$lng_wishes="Vennlig hilsen";
++$lng_subject="En oppskrift til deg fra ";
++$lng_message1_1="Din venn ";
++$lng_message1_2=" har sendt deg en lenke til";
++$lng_message2="en oppskrift hos ";
++$lng_message3="Bes&#248;k lenken under for &#229; se oppskriften";
++$lng_message4="Sendt fra";
++$lng_from="Fra";
++$lng_error55="Oppskrift-id ikke funnet!<br />Sendingen feilet!";
++
++# Error messages
++$no_db_listings = "Ingen oppf&#248;ringer i Krecipes databasen!";
++$no_recipe_chosen = "Ingen oppskrift valgt.";
++$no_cat_listings ="Ingen oppf&#248;ringer i denne kategorien.";
++?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Sun Feb 26 17:56:05 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 17:56:05 +0100
+Subject: [Krecipesweb-devel] r26 - trunk/krecipesweb/lang
+Message-ID: <200602261656.k1QGu555003175@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 17:55:53 +0100 (Sun, 26 Feb 2006)
+New Revision: 26
+
+Added:
+   trunk/krecipesweb/lang/english/
+   trunk/krecipesweb/lang/norwegian_nb/
+Removed:
+   trunk/krecipesweb/lang/english.php
+   trunk/krecipesweb/lang/norwegian_nb.php
+Log:
+
+
+Deleted: trunk/krecipesweb/lang/english.php
+===================================================================
+--- trunk/krecipesweb/lang/english.php	2006-02-26 16:52:45 UTC (rev 25)
++++ trunk/krecipesweb/lang/english.php	2006-02-26 16:55:53 UTC (rev 26)
+@@ -1,100 +0,0 @@
+-<?php
+-##########################################################################################
+-#
+-#  project           	: Krecipes WebFrontend
+-#  filename          	: lang_en.php.php
+-#  last modified by  	: Nils Kristian Tomren
+-#  e-mail            	: project at nilsk.net
+-#  purpose           	: English Language File
+-#  last modified     	: 10.12.2005
+-#
+-##########################################################################################
+-
+-$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
+-charset=iso-8859-15\" />";
+-
+-#index.php
+-$lng_index_catlist = "Category Listing";
+-
+-#footer.php
+-$lng_frontend_ver = "Krecipes Web Frontend version";
+-$lng_gen_by = "Recipes generated by Krecipes.";
+-
+-#view_cat.php
+-$lng_cat_cat = "Category";
+-$lng_cat_recipes = "Recipes";
+-$lng_cat_subc = "Subcategories";
+-
+-#view_recipe.php/print_recipe.php
+-$lng_recipe_author = "Author";
+-$lng_recipe_yield = "Yield";
+-$lng_recipe_prep = "Prep time";
+-$lng_recipe_cat = "Categories";
+-$lng_cat_ingred = "Ingredients";
+-$lng_cat_instr = "Instructions";
+-$lng_print = "Print Recipe";
+-$lng_pfrom = "This recipe is printed from:";
+-$lng_sendfriend = "Send to a friend";
+-$lng_error = "Error";
+-$lng_ok = "Success";
+-$lng_error_friend_fmail = "Sorry, the e-mail address
+-you entered for your friend is invalid.<br /> Please try again, making certain
+-you have entered it correctly.";
+-$lng_error_friend_smail = "Sorry, the e-mail address you entered for yourself
+-is invalid.<br /> Please try again, making certain
+-you have entered it correctly.";
+-$lng_error_friend_name = "Sorry, you have to fill both your own and your
+-friends name.<br />";
+-$lng_send_friend_ok = "E-mail sent successfully to your friend.";
+-
+-#view_recip_functions.php
+-$no_exist_recipe = "Recipe does not exist.";
+-$no_author = "No Authors";
+-$no_cat = "No Categories";
+-
+-#view_recipe_bbox.php
+-$lng_yourn="Your name";
+-$lng_yourm="Your e-mail";
+-$lng_yourfn="Your friends name";
+-$lng_yourfm="Your friends e-mail";
+-$lng_pfunctions="Page Functions";
+-
+-
+-#menu.php
+-$lng_menu_catlist = "Category Listing";
+-$lng_menu_search ="Search";
+-
+-#search.php
+-$lng_rec_search = "Recipe Search";
+-$lng_title = "Title";
+-$lng_yields = "Yields";
+-$lng_exactly = "exactly";
+-$lng_atleast = "at least";
+-$lng_atmost = "at most";
+-$lng_anycat = "In any of the following categories";
+-$lng_intext = "Instructions contains the text";
+-$lng_submit = "Submit";
+-$lng_reset = "Clear form";
+-
+-#search_results.php
+-$lng_sres = "Search Results";
+-$lng_rsres = "Recipe Search Results";
+-$lng_res = "Results";
+-$lng_nores = "No recipes found.";
+-
+-#send_friend.php
+-$lng_wishes="Regards";
+-$lng_subject="A recipe for you from ";
+-$lng_message1_1="Your friend ";
+-$lng_message1_2=" have sent you a link to";
+-$lng_message2="a recipe at ";
+-$lng_message3="Visit the link below to see the recipe";
+-$lng_message4="Sent from";
+-$lng_from="From";
+-$lng_error55="The recipe id was not found!<br />Failed to send!";
+-
+-# Error messages
+-$no_db_listings = "No listings in Krecipes database!";
+-$no_recipe_chosen = "No recipe chosen";
+-$no_cat_listings ="No listings in this category";
+-?>
+\ No newline at end of file
+
+Deleted: trunk/krecipesweb/lang/norwegian_nb.php
+===================================================================
+--- trunk/krecipesweb/lang/norwegian_nb.php	2006-02-26 16:52:45 UTC (rev 25)
++++ trunk/krecipesweb/lang/norwegian_nb.php	2006-02-26 16:55:53 UTC (rev 26)
+@@ -1,102 +0,0 @@
+-<?php
+-##########################################################################################
+-#
+-#  project           	: Krecipes WebFrontend
+-#  filename          	: lang_nb.php
+-#  last modified by  	: Nils Kristian Tomren
+-#  e-mail            	: project at nilsk.net
+-#  purpose           	: Norwegian Bokmaal Language File
+-#  last modified     	: 10.12.2005
+-#
+-##########################################################################################
+-
+-$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
+-charset=iso-8859-15\" />";
+-
+-#index.php
+-$lng_index_catlist = "Kategorier";
+-
+-#footer.php
+-$lng_frontend_ver = "Krecipes Vev-grensesnitt versjon";
+-$lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
+-
+-#view_cat.php
+-$lng_cat_cat = "Kategori";
+-$lng_cat_recipes = "Oppskrifter";
+-$lng_cat_subc = "Underkategorier";
+-
+-#view_recipe.php/print_recipe.php
+-$lng_recipe_author = "Forfatter";
+-$lng_recipe_yield = "Mengde";
+-$lng_recipe_prep = "Tilberedelsestid";
+-$lng_recipe_cat = "Kategorier";
+-$lng_cat_ingred = "Ingredienser";
+-$lng_cat_instr = "Instruksjoner";
+-$lng_print = "Skriv ut oppskriften";
+-$lng_pfrom = "Denne oppskriften er skrevet ut fra:";
+-$lng_sendfriend = "Send til en venn";
+-$lng_error = "Feilmelding";
+-$lng_ok = "Vellykket";
+-$lng_error_friend_fmail = "Beklager, e-post adressen
+-du oppga til din venn er ikke en gyldig e-post adresse.<br /> Vennligst
+-pr&#248;v igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig
+-format.";
+-$lng_error_friend_smail = "Beklager, e-post adressen
+-du oppga til deg selv er ikke en gyldig e-post adresse.<br /> Vennligst
+-pr&#248;v
+-igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig format.";
+-$lng_error_friend_name = "Beklager, du m&#229; skrive inn b&#229;de ditt eget
+-navn og navnet til din venn.<br />";
+-$lng_send_friend_ok = "E-posten ble vellykket sendt til din venn.";
+-
+-#view_recip_functions.php
+-$no_exist_recipe = "Oppskriften finnes ikke.";
+-$no_author = "Ingen forfattere";
+-$no_cat = "Ingen kategorier";
+-
+-#view_recipe_bbox.php
+-$lng_yourn="Ditt navn";
+-$lng_yourm="Din e-post";
+-$lng_yourfn="Navnet til din venn";
+-$lng_yourfm="E-posten til din venn";
+-$lng_pfunctions="Funksjoner";
+-
+-
+-#menu.php
+-$lng_menu_catlist = "Kategori liste";
+-$lng_menu_search ="S&#248;k";
+-
+-#search.php
+-$lng_rec_search = "Oppskrift s&#248;k";
+-$lng_title = "Tittel";
+-$lng_yields = "Mengde";
+-$lng_exactly = "n&#248;yaktig";
+-$lng_atleast = "minimun";
+-$lng_atmost = "ikke mer enn";
+-$lng_anycat = "I hvilken som helst av disse kategoriene";
+-$lng_intext = "Instruksjonen inneholder teksten";
+-$lng_submit = "Send inn";
+-$lng_reset = "T&#248;m";
+-
+-#search_results.php
+-$lng_sres = "S&#248;keresultat";
+-$lng_rsres = "S&#248;keresultat - Oppskrifter";
+-$lng_res = "Resultat";
+-$lng_nores = "Ingen oppskrifter funnet.";
+-
+-#send_friend.php
+-$lng_wishes="Vennlig hilsen";
+-$lng_subject="En oppskrift til deg fra ";
+-$lng_message1_1="Din venn ";
+-$lng_message1_2=" har sendt deg en lenke til";
+-$lng_message2="en oppskrift hos ";
+-$lng_message3="Bes&#248;k lenken under for &#229; se oppskriften";
+-$lng_message4="Sendt fra";
+-$lng_from="Fra";
+-$lng_error55="Oppskrift-id ikke funnet!<br />Sendingen feilet!";
+-
+-# Error messages
+-$no_db_listings = "Ingen oppf&#248;ringer i Krecipes databasen!";
+-$no_recipe_chosen = "Ingen oppskrift valgt.";
+-$no_cat_listings ="Ingen oppf&#248;ringer i denne kategorien.";
+-?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Sun Feb 26 17:56:42 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 17:56:42 +0100
+Subject: [Krecipesweb-devel] r27 - in trunk/krecipesweb/lang: english norwegian_nb
+Message-ID: <200602261656.k1QGufPm003685@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 17:56:29 +0100 (Sun, 26 Feb 2006)
+New Revision: 27
+
+Added:
+   trunk/krecipesweb/lang/english/index.php
+   trunk/krecipesweb/lang/norwegian_nb/index.php
+Log:
+moved language files
+
+Added: trunk/krecipesweb/lang/english/index.php
+===================================================================
+--- trunk/krecipesweb/lang/english/index.php	2006-02-26 16:55:53 UTC (rev 26)
++++ trunk/krecipesweb/lang/english/index.php	2006-02-26 16:56:29 UTC (rev 27)
+@@ -0,0 +1,100 @@
++<?php
++##########################################################################################
++#
++#  project           	: Krecipes WebFrontend
++#  filename          	: lang_en.php.php
++#  last modified by  	: Nils Kristian Tomren
++#  e-mail            	: project at nilsk.net
++#  purpose           	: English Language File
++#  last modified     	: 10.12.2005
++#
++##########################################################################################
++
++$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
++charset=iso-8859-15\" />";
++
++#index.php
++$lng_index_catlist = "Category Listing";
++
++#footer.php
++$lng_frontend_ver = "Krecipes Web Frontend version";
++$lng_gen_by = "Recipes generated by Krecipes.";
++
++#view_cat.php
++$lng_cat_cat = "Category";
++$lng_cat_recipes = "Recipes";
++$lng_cat_subc = "Subcategories";
++
++#view_recipe.php/print_recipe.php
++$lng_recipe_author = "Author";
++$lng_recipe_yield = "Yield";
++$lng_recipe_prep = "Prep time";
++$lng_recipe_cat = "Categories";
++$lng_cat_ingred = "Ingredients";
++$lng_cat_instr = "Instructions";
++$lng_print = "Print Recipe";
++$lng_pfrom = "This recipe is printed from:";
++$lng_sendfriend = "Send to a friend";
++$lng_error = "Error";
++$lng_ok = "Success";
++$lng_error_friend_fmail = "Sorry, the e-mail address
++you entered for your friend is invalid.<br /> Please try again, making certain
++you have entered it correctly.";
++$lng_error_friend_smail = "Sorry, the e-mail address you entered for yourself
++is invalid.<br /> Please try again, making certain
++you have entered it correctly.";
++$lng_error_friend_name = "Sorry, you have to fill both your own and your
++friends name.<br />";
++$lng_send_friend_ok = "E-mail sent successfully to your friend.";
++
++#view_recip_functions.php
++$no_exist_recipe = "Recipe does not exist.";
++$no_author = "No Authors";
++$no_cat = "No Categories";
++
++#view_recipe_bbox.php
++$lng_yourn="Your name";
++$lng_yourm="Your e-mail";
++$lng_yourfn="Your friends name";
++$lng_yourfm="Your friends e-mail";
++$lng_pfunctions="Page Functions";
++
++
++#menu.php
++$lng_menu_catlist = "Category Listing";
++$lng_menu_search ="Search";
++
++#search.php
++$lng_rec_search = "Recipe Search";
++$lng_title = "Title";
++$lng_yields = "Yields";
++$lng_exactly = "exactly";
++$lng_atleast = "at least";
++$lng_atmost = "at most";
++$lng_anycat = "In any of the following categories";
++$lng_intext = "Instructions contains the text";
++$lng_submit = "Submit";
++$lng_reset = "Clear form";
++
++#search_results.php
++$lng_sres = "Search Results";
++$lng_rsres = "Recipe Search Results";
++$lng_res = "Results";
++$lng_nores = "No recipes found.";
++
++#send_friend.php
++$lng_wishes="Regards";
++$lng_subject="A recipe for you from ";
++$lng_message1_1="Your friend ";
++$lng_message1_2=" have sent you a link to";
++$lng_message2="a recipe at ";
++$lng_message3="Visit the link below to see the recipe";
++$lng_message4="Sent from";
++$lng_from="From";
++$lng_error55="The recipe id was not found!<br />Failed to send!";
++
++# Error messages
++$no_db_listings = "No listings in Krecipes database!";
++$no_recipe_chosen = "No recipe chosen";
++$no_cat_listings ="No listings in this category";
++?>
+\ No newline at end of file
+
+Added: trunk/krecipesweb/lang/norwegian_nb/index.php
+===================================================================
+--- trunk/krecipesweb/lang/norwegian_nb/index.php	2006-02-26 16:55:53 UTC (rev 26)
++++ trunk/krecipesweb/lang/norwegian_nb/index.php	2006-02-26 16:56:29 UTC (rev 27)
+@@ -0,0 +1,102 @@
++<?php
++##########################################################################################
++#
++#  project           	: Krecipes WebFrontend
++#  filename          	: lang_nb.php
++#  last modified by  	: Nils Kristian Tomren
++#  e-mail            	: project at nilsk.net
++#  purpose           	: Norwegian Bokmaal Language File
++#  last modified     	: 10.12.2005
++#
++##########################################################################################
++
++$lng_metatag = "<meta http-equiv=\"Content-Type\" content=\"text/html;
++charset=iso-8859-15\" />";
++
++#index.php
++$lng_index_catlist = "Kategorier";
++
++#footer.php
++$lng_frontend_ver = "Krecipes Vev-grensesnitt versjon";
++$lng_gen_by = "Oppskriftene er opprettet av Krecipes.";
++
++#view_cat.php
++$lng_cat_cat = "Kategori";
++$lng_cat_recipes = "Oppskrifter";
++$lng_cat_subc = "Underkategorier";
++
++#view_recipe.php/print_recipe.php
++$lng_recipe_author = "Forfatter";
++$lng_recipe_yield = "Mengde";
++$lng_recipe_prep = "Tilberedelsestid";
++$lng_recipe_cat = "Kategorier";
++$lng_cat_ingred = "Ingredienser";
++$lng_cat_instr = "Instruksjoner";
++$lng_print = "Skriv ut oppskriften";
++$lng_pfrom = "Denne oppskriften er skrevet ut fra:";
++$lng_sendfriend = "Send til en venn";
++$lng_error = "Feilmelding";
++$lng_ok = "Vellykket";
++$lng_error_friend_fmail = "Beklager, e-post adressen
++du oppga til din venn er ikke en gyldig e-post adresse.<br /> Vennligst
++pr&#248;v igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig
++format.";
++$lng_error_friend_smail = "Beklager, e-post adressen
++du oppga til deg selv er ikke en gyldig e-post adresse.<br /> Vennligst
++pr&#248;v
++igjen og v&#230;r sikker p&#229; at du skriver den inn i riktig format.";
++$lng_error_friend_name = "Beklager, du m&#229; skrive inn b&#229;de ditt eget
++navn og navnet til din venn.<br />";
++$lng_send_friend_ok = "E-posten ble vellykket sendt til din venn.";
++
++#view_recip_functions.php
++$no_exist_recipe = "Oppskriften finnes ikke.";
++$no_author = "Ingen forfattere";
++$no_cat = "Ingen kategorier";
++
++#view_recipe_bbox.php
++$lng_yourn="Ditt navn";
++$lng_yourm="Din e-post";
++$lng_yourfn="Navnet til din venn";
++$lng_yourfm="E-posten til din venn";
++$lng_pfunctions="Funksjoner";
++
++
++#menu.php
++$lng_menu_catlist = "Kategori liste";
++$lng_menu_search ="S&#248;k";
++
++#search.php
++$lng_rec_search = "Oppskrift s&#248;k";
++$lng_title = "Tittel";
++$lng_yields = "Mengde";
++$lng_exactly = "n&#248;yaktig";
++$lng_atleast = "minimun";
++$lng_atmost = "ikke mer enn";
++$lng_anycat = "I hvilken som helst av disse kategoriene";
++$lng_intext = "Instruksjonen inneholder teksten";
++$lng_submit = "Send inn";
++$lng_reset = "T&#248;m";
++
++#search_results.php
++$lng_sres = "S&#248;keresultat";
++$lng_rsres = "S&#248;keresultat - Oppskrifter";
++$lng_res = "Resultat";
++$lng_nores = "Ingen oppskrifter funnet.";
++
++#send_friend.php
++$lng_wishes="Vennlig hilsen";
++$lng_subject="En oppskrift til deg fra ";
++$lng_message1_1="Din venn ";
++$lng_message1_2=" har sendt deg en lenke til";
++$lng_message2="en oppskrift hos ";
++$lng_message3="Bes&#248;k lenken under for &#229; se oppskriften";
++$lng_message4="Sendt fra";
++$lng_from="Fra";
++$lng_error55="Oppskrift-id ikke funnet!<br />Sendingen feilet!";
++
++# Error messages
++$no_db_listings = "Ingen oppf&#248;ringer i Krecipes databasen!";
++$no_recipe_chosen = "Ingen oppskrift valgt.";
++$no_cat_listings ="Ingen oppf&#248;ringer i denne kategorien.";
++?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Sun Feb 26 17:57:33 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 17:57:33 +0100
+Subject: [Krecipesweb-devel] r28 - in trunk/krecipesweb/lang: english norwegian_nb
+Message-ID: <200602261657.k1QGvXO6004369@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 17:57:30 +0100 (Sun, 26 Feb 2006)
+New Revision: 28
+
+Added:
+   trunk/krecipesweb/lang/english/index.htm
+   trunk/krecipesweb/lang/norwegian_nb/index.htm
+Log:
+
+
+Added: trunk/krecipesweb/lang/english/index.htm
+===================================================================
+--- trunk/krecipesweb/lang/english/index.htm	2006-02-26 16:56:29 UTC (rev 27)
++++ trunk/krecipesweb/lang/english/index.htm	2006-02-26 16:57:30 UTC (rev 28)
+@@ -0,0 +1,8 @@
++<html>
++  <head>
++    <title></title>
++    <meta content="">
++    <style></style>
++  </head>
++  <body></body>
++</html>
+\ No newline at end of file
+
+Added: trunk/krecipesweb/lang/norwegian_nb/index.htm
+===================================================================
+--- trunk/krecipesweb/lang/norwegian_nb/index.htm	2006-02-26 16:56:29 UTC (rev 27)
++++ trunk/krecipesweb/lang/norwegian_nb/index.htm	2006-02-26 16:57:30 UTC (rev 28)
+@@ -0,0 +1,8 @@
++<html>
++  <head>
++    <title></title>
++    <meta content="">
++    <style></style>
++  </head>
++  <body></body>
++</html>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Sun Feb 26 18:05:19 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Sun, 26 Feb 2006 18:05:19 +0100
+Subject: [Krecipesweb-devel] r29 - trunk/krecipesweb
+Message-ID: <200602261705.k1QH5JFr006507@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-26 18:05:12 +0100 (Sun, 26 Feb 2006)
+New Revision: 29
+
+Modified:
+   trunk/krecipesweb/config.php
+   trunk/krecipesweb/index.php
+   trunk/krecipesweb/print_recipe.php
+   trunk/krecipesweb/search.php
+   trunk/krecipesweb/search_results.php
+   trunk/krecipesweb/send_friend.php
+   trunk/krecipesweb/view_cat.php
+   trunk/krecipesweb/view_recipe.php
+Log:
+fixed refrences to new language files
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/config.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -19,7 +19,7 @@
+ //Site title
+ $site_title = 'Krecipes Cookbook';
+ //Site language (see the 'lang' subdir for more languages)
+-$site_lang = 'en';
++$site_lang = 'english';
+ //URL to where the Frontend is located
+ $url="http://localhost/krecipes/cvs/krecipesweb/";
+ //URL to the view_recipe.php file
+
+Modified: trunk/krecipesweb/index.php
+===================================================================
+--- trunk/krecipesweb/index.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/index.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -2,8 +2,9 @@
+ 
+ require('config.php');
+ require('functions.php');
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
++
+ ?>
+ 
+ <head>
+
+Modified: trunk/krecipesweb/print_recipe.php
+===================================================================
+--- trunk/krecipesweb/print_recipe.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/print_recipe.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -2,7 +2,7 @@
+ 
+ require('config.php');
+ require('functions.php');
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
+ $recipe_id = $_GET["id"];
+ 
+
+Modified: trunk/krecipesweb/search.php
+===================================================================
+--- trunk/krecipesweb/search.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/search.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -2,7 +2,7 @@
+ 
+ require "config.php";
+ require "functions.php";
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ ?>
+ 
+ <head>
+
+Modified: trunk/krecipesweb/search_results.php
+===================================================================
+--- trunk/krecipesweb/search_results.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/search_results.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -3,7 +3,7 @@
+ 
+ require "config.php";
+ require "functions.php";
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
+ function quotesplit($s, $splitter=' ')
+ {
+
+Modified: trunk/krecipesweb/send_friend.php
+===================================================================
+--- trunk/krecipesweb/send_friend.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/send_friend.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -1,6 +1,6 @@
+ <?php
+ require "config.php";
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
+ 
+ $recipe_id = $_POST["send_id"];
+
+Modified: trunk/krecipesweb/view_cat.php
+===================================================================
+--- trunk/krecipesweb/view_cat.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/view_cat.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -2,7 +2,7 @@
+ 
+      require('config.php');
+      require('functions.php');
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
+ $cat_id = $_GET["id"];
+ $cat_name= stripslashes(($_GET["cat_name"]));
+
+Modified: trunk/krecipesweb/view_recipe.php
+===================================================================
+--- trunk/krecipesweb/view_recipe.php	2006-02-26 16:57:30 UTC (rev 28)
++++ trunk/krecipesweb/view_recipe.php	2006-02-26 17:05:12 UTC (rev 29)
+@@ -2,7 +2,7 @@
+ 
+ require('config.php');
+ require('functions.php');
+-require('lang/'."$site_lang".'.php');
++require('lang/'."$site_lang".'/index.php');
+ 
+ $recipe_id = $_GET["id"];
+ 
+
+
+
+From nilsk at berlios.de  Tue Feb 28 22:08:58 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Tue, 28 Feb 2006 22:08:58 +0100
+Subject: [Krecipesweb-devel] r31 - trunk/krecipesweb
+Message-ID: <200602282108.k1SL8whv001327@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-28 22:08:41 +0100 (Tue, 28 Feb 2006)
+New Revision: 31
+
+Modified:
+   trunk/krecipesweb/config.php
+Log:
+
+
+Modified: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-28 21:07:54 UTC (rev 30)
++++ trunk/krecipesweb/config.php	2006-02-28 21:08:41 UTC (rev 31)
+@@ -1,38 +1,24 @@
+ <?php
+-####################################################################################
+-#
+-#  project           	: Krecipes WebFrontend
+-#  filename          	: config.php
+-#  last modified by  	: Nils Kristian Tomren
+-#  e-mail            	: project at nilsk.net
+-#  purpose           	: Configuration File
+-#  last modified     	: 03.12.2005
+-#
+-####################################################################################
+-# DATABASE SETTINGS
+-$dbhost = 'localhost';
+-$dbuser = 'root';
+-$dbpass = '';
+-$dbname = 'KrecipesWeb';
+ 
+-#SITE SETTINGS
+-//Site title
+-$site_title = 'Krecipes Cookbook';
+-//Site language (see the 'lang' subdir for more languages)
+-$site_lang = 'english';
+-//URL to where the Frontend is located
+-$url="http://localhost/krecipes/cvs/krecipesweb/";
+-//URL to the view_recipe.php file
+-$urlm="http://localhost/krecipes/cvs/krecipesweb/view_recipe.php?id=";
++//Krecipes Web Frontend configuration file
+ 
+-//Webmasters e-mail
+-$admin_mail="webmaster at yoursite.org";
++//Database host:
++$dbhost = "localhost";
++//Database username:
++$dbuser = "root";
++//Database password:
++$dbpass = "";
++//Database name:
++$dbname = "KrecipesWeb";
+ 
+-//Your copyright notice at bottom of print page
+-$print_copy = "&copy; 2005 recipe.com";
+ 
++$site_title = "Krecipes Cookbook";
++$site_lang = "norwegian_nb";
++$url = "http://localhost/krecipes/svn/trunk/krecipesweb/";
++$admin_mail = "websjef at nilsk.net";
++$print_copy = "? 2006 - NilsK.net";
+ 
++include 'settings.php';
+ 
+ 
+-include 'settings.php';
+-?>
++?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Tue Feb 28 22:07:59 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Tue, 28 Feb 2006 22:07:59 +0100
+Subject: [Krecipesweb-devel] r30 - trunk/krecipesweb
+Message-ID: <200602282107.k1SL7xVl000812@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-28 22:07:54 +0100 (Tue, 28 Feb 2006)
+New Revision: 30
+
+Added:
+   trunk/krecipesweb/setup.php
+Log:
+setup file done. needs more testing before release
+
+Added: trunk/krecipesweb/setup.php
+===================================================================
+--- trunk/krecipesweb/setup.php	2006-02-26 17:05:12 UTC (rev 29)
++++ trunk/krecipesweb/setup.php	2006-02-28 21:07:54 UTC (rev 30)
+@@ -0,0 +1,356 @@
++
++
++<head>
++  <title>Krecipes Web Frontend setup</title>
++  <meta name="GENERATOR" content="Quanta Plus" />
++  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
++<link rel="stylesheet" type="text/css" href="inc/main.css" />
++</head>
++<?php
++if(is_file("config.php")) die('<p align=center class=errorbox>The config.php file already exists.<br />
++If you want to run the setup again, you need to delete or move the config.php file.</p>');
++?>
++<body>
++<div align="center">
++<h1>Krecipes Web Frontend setup</h1>
++<?php
++if (!isset($_GET["setupstep"])) $setupstep=""; else $setupstep = $_GET["setupstep"];
++
++switch ($setupstep) {
++//checking for requirements
++case 'check';
++echo '<h3>Step 2/4</h3>';
++$dbhostname = $_POST["dbhostname"];
++$dbusername = $_POST["dbusername"];
++$dbpassword = $_POST["dbpassword"];
++$dbname = $_POST["dbname"];
++//Writing debuginfo
++//echo "DEBUGINFO: host: $dbhostname, user: $dbusername, pass: $dbpassword, db: $dbname";
++$link = mysql_connect($dbhostname, $dbusername, $dbpassword)
++   or die('Could not connect to the database server. Hit back in your browser and check your settings.');
++$sqlconn = 'Ok';
++mysql_select_db($dbname) or die('Connection to the server is ok, but I could not select the database.<br> Hit back in your browser and check your settings.');
++$query = "SELECT ver,generated_by FROM db_info";
++$result = mysql_query( $query );
++$row = mysql_fetch_array($result, MYSQL_NUM);
++$ver = $row[0];
++$generated_by = $row[1];
++//Writing result of syschk
++echo '<br><br><h1>Result of system check:</h1>';
++echo '<table class=bbox_border width=400 cellspacing=2 cellpadding=2>';
++echo '<tr><td width=300></td><td width=100></td></tr>';
++
++echo '<tr><td>MySQL connection</td>';
++if($sqlconn == 'Ok') {
++echo '<td align=center class=okbox>OK</td>';
++} else {
++echo '<td align=center class=errorbox>NOT OK</td>';
++}
++echo '</tr>';
++
++echo '<tr><td>Found Krecipes database</td>';
++if($ver != "") {
++echo '<td align=center class=okbox>OK</td>';
++} else {
++echo '<td align=center class=errorbox>NOT OK</td>';
++}
++echo '</tr>';
++
++echo '<tr><td>Krecipes database version >=0.9</td>';
++if($ver >= 0.9) {
++echo '<td align=center class=okbox>OK</td>';
++} else {
++echo '<td align=center class=errorbox>NOT OK</td>';
++}
++echo '</tr>';
++
++echo '<tr><td>Install folder writable</td>';
++if(is_writable('.')) {
++echo '<td align=center class=okbox>OK</td>';
++} else {
++echo '<td align=center class=errorbox>NOT OK</td>';
++}
++echo '</tr>';
++
++echo '<tr>';
++if(($dbpassword != "") and ($dbusername = "root") ) {
++echo '<td colspan=2>';
++} else {
++echo '<td class=errorbox colspan=2><b>WARNING:</b><br />It is NOT recommended to run a database on the WWW with a root account with no password. You should change this at once!<br /><b>If you decide to continue you do so at your own risk!</b>';
++}
++echo '</td></tr>';
++
++echo '</table><br />';
++
++echo '<FORM action="setup.php?setupstep=addinfo" method="POST">
++<INPUT type="hidden" name="dbhostname" value="'."$dbhostname".'">
++<INPUT type="hidden" name="dbusername" value="'."$dbusername".'">
++<INPUT type="hidden" name="dbpassword" value="'."$dbpassword".'">
++<INPUT type="hidden" name="dbname" value="'."$dbname".'">
++<INPUT type="submit" name="submit" value="Continue ->">
++</FORM>';
++
++
++
++
++break;
++//end check for requirements
++
++case 'addinfo';
++$dbhostname = $_POST["dbhostname"];
++$dbusername = $_POST["dbusername"];
++$dbpassword = $_POST["dbpassword"];
++$dbname = $_POST["dbname"];
++echo '<h1>Final setup</h1>';
++echo '<h3>Step 3/4</h3>'; ?><br />
++<p><h3>Database settings</h3>
++A summary of the data you gave in step one.<br />
++In order to change these you need to go back to setp one.<br /><br />
++<table width="300" class="bbox_border">
++  <tbody>
++
++    <tr>
++      <td width="200">Hostname</td>
++      <td width="100"><INPUT type="text" value="<?php echo $dbhostname ; ?>" size="25" disabled="true"></td>
++    </tr>
++    <tr>
++      <td>Username</td>
++      <td><INPUT type="text" value="<?php echo $dbusername ; ?>" size="25" disabled="true"></td>
++    </tr>
++    <tr>
++      <td>Password</td>
++      <td><INPUT type="password" value="<?php echo $dbpassword ; ?>" size="25" disabled="true"></td>
++    </tr>
++    <tr>
++      <td>Database name</td>
++      <td><INPUT type="text" value="<?php echo $dbname ; ?>" size="25" disabled="true"></td>
++    </tr>
++  </tbody>
++</table>
++
++<FORM action="setup.php?setupstep=final" method="POST">
++<INPUT type="hidden" name="dbhostname" value="<?php echo $dbhostname ;?>">
++<INPUT type="hidden" name="dbusername" value="<?php echo $dbusername ;?>">
++<INPUT type="hidden" name="dbpassword" value="<?php echo $dbpassword ;?>">
++<INPUT type="hidden" name="dbname" value="<?php echo $dbname ;?>"></p>
++<p>
++<br />
++<h3>Language settings</h3>
++Select the language you want this frontend to use.<br /><br />
++<?php 
++         if ($dir = @opendir("lang"))
++           {
++               while (($file = readdir($dir)) !== false)
++               {
++                   if($file != ".." && $file != ".")
++                   {
++                       $filelist[] = $file;
++                   }
++               }
++               closedir($dir);
++           }
++?>
++           <select name="language" >
++           <?php
++           asort($filelist);
++           while (list ($key, $val) = each ($filelist))
++           {
++               echo '<option value='."$val".'>'."$val".'</option>';
++           }
++           ?>
++            </select>
++</p>
++
++<p>
++<br />
++<h3>Additional settings</h3>
++Site and path variables.<br /><br />
++
++<table width="400" class="bbox_border">
++  <tbody>
++    <tr>
++      <td>Administrators email address:</td>
++      <td><INPUT type="text" name="adminmail" size="30"></td>
++    </tr>
++<tr><TD colspan="2" bgcolor="Black" height="1" width="100%"></TD></tr>
++    <tr>
++      <td>The site title:</td>
++      <td><INPUT type="text" name="sitetitle" size="30"></td>
++    </tr>
++<tr><TD colspan="2" bgcolor="Black" height="1" width="100%"></TD></tr>
++
++    <tr>
++      <td>Copyright notice shown at the bottom of the page:</td>
++      <td><INPUT type="text" name="copynote" size="30" value="&#169; 2006 - yoursite.net"></td>
++    </tr>
++<tr><TD colspan="2" bgcolor="Black" height="1" width="100%"></TD></tr>
++
++    <tr>
++      <td colspan="2">Full url to script location:</td>
++    </tr>
++    <tr>
++      <td colspan="2">
++<?php
++$host  = $_SERVER['HTTP_HOST'];
++$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
++$scriptloc = 'http://'."$host".''."$uri".'/'
++?>
++<INPUT type="text" name="scriptloc" value="<?php echo $scriptloc; ?>" size="50">
++</td>
++    </tr>
++    <tr>
++      <td></td>
++      <td></td>
++    </tr>
++  </tbody>
++</table>
++
++</p>
++<INPUT type="submit" name="submit" value="Finalize and write config file =>">
++
++</FORM>
++
++<?php
++break;
++
++case 'final';
++$dbhostname = $_POST["dbhostname"];
++$dbusername = $_POST["dbusername"];
++$dbpassword = $_POST["dbpassword"];
++$dbname = $_POST["dbname"];
++$language = $_POST["language"];
++$adminmail = $_POST["adminmail"];
++$sitetitle = $_POST["sitetitle"];
++$copynote = $_POST["copynote"];
++$scriptloc = $_POST["scriptloc"];
++
++//echo "DEBUGINFO:<br>";
++//echo "host: $dbhostname<br>user: $dbusername<br>pass: $dbpassword<br>db: $dbname<br>lang: $language<br>amail: $adminmail<br>title: $sitetitle<br>copy: $copynote<br>loc: $scriptloc";
++
++if(empty($adminmail) || empty($sitetitle) || empty($copynote) || empty($scriptloc)) {
++	echo '
++<table>
++  <tbody>
++    <tr>
++      <td class=errorbox>
++<b>ERROR:</b><p>
++You need to fill in all fields on the previous page.<br />
++Hit the back button in your browser and fill in all fields <br /><br />
++</p>
++</td>
++    </tr>
++  </tbody>
++</table>';
++}
++else
++{
++
++$filename = "config.php";
++$content="<?php\n\n";
++$content.="//Krecipes Web Frontend configuration file";
++$content.="\n\n//Database host:\n";
++$content.='$dbhost = "';
++$content.=$dbhostname;
++$content.='"';
++$content.=";\n//Database username:\n";
++$content.='$dbuser = "';
++$content.=$dbusername;
++$content.='"';
++$content.=";\n//Database password:\n";
++$content.='$dbpass = "';
++$content.=$dbpassword;
++$content.='"';
++$content.=";\n//Database name:\n";
++$content.='$dbname = "';
++$content.=$dbname;
++$content.='"';
++$content.=";\n\n\n";
++$content.='$site_title = "';
++$content.=$sitetitle;
++$content.='"';
++$content.=";\n";
++$content.='$site_lang = "';
++$content.=$language;
++$content.='"';
++$content.=";\n";
++$content.='$url = "';
++$content.=$scriptloc;
++$content.='"';
++$content.=";\n";
++$content.='$admin_mail = "';
++$content.=$adminmail;
++$content.='"';
++$content.=";\n";
++$content.='$print_copy = "';
++$content.=$copynote;
++$content.='"';
++$content.=";\n\n";
++$content.="include 'settings.php'";
++$content.=";\n\n\n";
++$content.="?>";
++
++//Write to file
++$fp = fopen ("config.php", "a");
++fputs ($fp,$content);
++fclose ($fp);
++
++
++}
++break;
++default;
++if(is_writable('.')) {
++echo "
++<h3>Step 1/4</h3>
++
++<h3>Database settings:</h3>
++<p>Here you need to enter the information this frontend need<br>
++to connect to the database where the Krecipes database is located.</p>
++<FORM method=\"POST\" name=\"dbform\" action=\"setup.php?setupstep=check\">
++
++<table cellspacing=\"3\" cellpadding=\"3\">
++  <tbody>
++    <tr>
++      <td>Server hostname</td>
++      <td><INPUT type=\"text\" name=\"dbhostname\" size=\"25\"></td>
++    </tr>
++    <tr>
++      <td>Username</td>
++      <td><INPUT type=\"text\" name=\"dbusername\" size=\"25\"></td>
++    </tr>
++    <tr>
++      <td>Password</td>
++      <td><INPUT type=\"text\" name=\"dbpassword\" size=\"25\"></td>
++    </tr>
++    <tr>
++      <td>Database name</td>
++      <td><INPUT type=\"text\" name=\"dbname\" value=\"Krecipes\" size=\"25\"></td>
++    </tr>
++  </tbody>
++</table>
++<INPUT type=\"submit\" name=\"submit\" value=\"Submit\">&nbsp;<INPUT type=\"reset\" name=\"reset\" value=\"Reset\">
++
++
++</FORM>
++";
++} else {
++   echo "
++<table class=\"errorbox\">
++    <tr>
++      <td>
++<h4>Error:  Folder not writable</h4>
++You need to make this folder writable for this script (chmod 777),<br />
++in order to create the configuration file.<br /><br />
++Hit the reload button when it's done.
++</td>
++    </tr>
++</table>
++";
++}
++
++//end switch
++}
++?>
++
++</div>
++</body>
++</html>
+
+
+
+From nilsk at berlios.de  Tue Feb 28 22:09:49 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Tue, 28 Feb 2006 22:09:49 +0100
+Subject: [Krecipesweb-devel] r32 - trunk/krecipesweb
+Message-ID: <200602282109.k1SL9nfe001543@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-28 22:09:46 +0100 (Tue, 28 Feb 2006)
+New Revision: 32
+
+Modified:
+   trunk/krecipesweb/index.php
+Log:
+added function to check if config.php file exists
+
+Modified: trunk/krecipesweb/index.php
+===================================================================
+--- trunk/krecipesweb/index.php	2006-02-28 21:08:41 UTC (rev 31)
++++ trunk/krecipesweb/index.php	2006-02-28 21:09:46 UTC (rev 32)
+@@ -1,10 +1,13 @@
+ <?php
+-
++if(!is_file("config.php")) { echo 'The configuration file does not exist.<br />
++You need to setup this frontend before you can use it.<br />
++<a href=setup.php>Click here to go to setup</a>';
++exit; } else {
+ require('config.php');
+ require('functions.php');
+ require('lang/'."$site_lang".'/index.php');
++}
+ 
+-
+ ?>
+ 
+ <head>
+
+
+
+From nilsk at berlios.de  Tue Feb 28 22:10:43 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Tue, 28 Feb 2006 22:10:43 +0100
+Subject: [Krecipesweb-devel] r33 - trunk/krecipesweb
+Message-ID: <200602282110.k1SLAhYb002246@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-28 22:10:29 +0100 (Tue, 28 Feb 2006)
+New Revision: 33
+
+Removed:
+   trunk/krecipesweb/config.php
+Log:
+deleted. frontend not planned to be released with this file
+
+Deleted: trunk/krecipesweb/config.php
+===================================================================
+--- trunk/krecipesweb/config.php	2006-02-28 21:09:46 UTC (rev 32)
++++ trunk/krecipesweb/config.php	2006-02-28 21:10:29 UTC (rev 33)
+@@ -1,24 +0,0 @@
+-<?php
+-
+-//Krecipes Web Frontend configuration file
+-
+-//Database host:
+-$dbhost = "localhost";
+-//Database username:
+-$dbuser = "root";
+-//Database password:
+-$dbpass = "";
+-//Database name:
+-$dbname = "KrecipesWeb";
+-
+-
+-$site_title = "Krecipes Cookbook";
+-$site_lang = "norwegian_nb";
+-$url = "http://localhost/krecipes/svn/trunk/krecipesweb/";
+-$admin_mail = "websjef at nilsk.net";
+-$print_copy = "? 2006 - NilsK.net";
+-
+-include 'settings.php';
+-
+-
+-?>
+\ No newline at end of file
+
+
+
+From nilsk at berlios.de  Tue Feb 28 22:11:22 2006
+From: nilsk at berlios.de (nilsk at berlios.de)
+Date: Tue, 28 Feb 2006 22:11:22 +0100
+Subject: [Krecipesweb-devel] r34 - trunk/krecipesweb/lang
+Message-ID: <200602282111.k1SLBMVr002785@sheep.berlios.de>
+
+Author: nilsk
+Date: 2006-02-28 22:11:19 +0100 (Tue, 28 Feb 2006)
+New Revision: 34
+
+Removed:
+   trunk/krecipesweb/lang/index.htm
+Log:
+
+
+Deleted: trunk/krecipesweb/lang/index.htm
+===================================================================
+--- trunk/krecipesweb/lang/index.htm	2006-02-28 21:10:29 UTC (rev 33)
++++ trunk/krecipesweb/lang/index.htm	2006-02-28 21:11:19 UTC (rev 34)
+@@ -1,12 +0,0 @@
+-<html>
+-
+-<head>
+-  <title></title>
+-  <meta name="GENERATOR" content="Quanta Plus">
+-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+-</head>
+-<body>
+-_
+-
+-</body>
+-</html>
+
+
+

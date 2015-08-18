@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r35 - trunk/krecipesweb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-March/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r35%20-%20trunk/krecipesweb&In-Reply-To=%3C200603011408.k21E85wa013001%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000071.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r35 - trunk/krecipesweb</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r35%20-%20trunk/krecipesweb&In-Reply-To=%3C200603011408.k21E85wa013001%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r35 - trunk/krecipesweb">nilsk at berlios.de
+       </A><BR>
+    <I>Wed Mar  1 15:08:05 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000071.html">[Krecipesweb-devel] r36 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-03-01 15:08:01 +0100 (Wed, 01 Mar 2006)
+New Revision: 35
+
+Modified:
+   trunk/krecipesweb/setup.php
+Log:
+finished the setup file. some more testing needed
+
+Modified: trunk/krecipesweb/setup.php
+===================================================================
+--- trunk/krecipesweb/setup.php	2006-02-28 21:11:19 UTC (rev 34)
++++ trunk/krecipesweb/setup.php	2006-03-01 14:08:01 UTC (rev 35)
+@@ -294,7 +294,32 @@
+ fputs ($fp,$content);
+ fclose ($fp);
+ 
++echo &quot;
++&lt;table class='okbox'&gt;
++  &lt;thead&gt;
++    &lt;tr align='center'&gt;
++&lt;h2&gt;Setup finished
++&lt;/h2&gt;    &lt;/tr&gt;
++  &lt;/thead&gt;
++  &lt;tbody&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++The setup of Krecipes Web Frontend finished successfully!&lt;br /&gt;
++You should delete, rename or move the setup.php file from the base directory.&lt;br /&gt;&lt;br /&gt;
++Please dorp us a line or two at <A HREF="http://krecipesweb.berlios.de">http://krecipesweb.berlios.de</A> if you have any&lt;br /&gt;
++problems or suggestions&lt;p align='center'&gt;
++&lt;a href='index.php'&gt;Click here to go to the mainpage.&lt;/a&gt;&lt;/p&gt;&lt;br /&gt;
++Enjoy cooking!&lt;br /&gt;
++The Krecipes Web Frontend Team
+ 
++&lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;
++&lt;/table&gt;
++
++&quot;;
++
++
+ }
+ break;
+ default;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000071.html">[Krecipesweb-devel] r36 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r37 - trunk/krecipesweb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-March/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r37%20-%20trunk/krecipesweb&In-Reply-To=%3C200603041340.k24DeIuS028248%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000071.html">
+   <LINK REL="Next"  HREF="000073.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r37 - trunk/krecipesweb</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r37%20-%20trunk/krecipesweb&In-Reply-To=%3C200603041340.k24DeIuS028248%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r37 - trunk/krecipesweb">nilsk at berlios.de
+       </A><BR>
+    <I>Sat Mar  4 14:40:18 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000071.html">[Krecipesweb-devel] r36 - trunk/krecipesweb
+</A></li>
+        <LI>Next message: <A HREF="000073.html">[Krecipesweb-devel] r38 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-03-04 14:39:48 +0100 (Sat, 04 Mar 2006)
+New Revision: 37
+
+Modified:
+   trunk/krecipesweb/functions.php
+Log:
+Fixed bug with special characters. They should now appear correctly
+
+Modified: trunk/krecipesweb/functions.php
+===================================================================
+--- trunk/krecipesweb/functions.php	2006-03-02 20:35:28 UTC (rev 36)
++++ trunk/krecipesweb/functions.php	2006-03-04 13:39:48 UTC (rev 37)
+@@ -8,10 +8,7 @@
+ function unescape_and_decode( $string )
+ {
+      $result = str_replace( &quot;;@&quot;, &quot;;&quot;, $string );
+-     //Fixing norwegian special char.(only temp.- needs to be fixed properly)
+-     $string = str_replace( &quot;&#195;&#184;&quot;, &quot;&#248;&quot;, $string );
+-     $string = str_replace( &quot;&#195;&#166;&quot;, &quot;&#230;&quot;, $string );
+-     $string = str_replace( &quot;&#195;&#165;&quot;, &quot;&#229;&quot;, $string );
++	$string = utf8_decode($string);
+      return $string;
+ }
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000071.html">[Krecipesweb-devel] r36 - trunk/krecipesweb
+</A></li>
+	<LI>Next message: <A HREF="000073.html">[Krecipesweb-devel] r38 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

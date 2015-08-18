@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb send_friend.php,1.3,1.4 view_recipe_bbox.php,1.1,1.2 view_recipe.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-December/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2C1.3%2C1.4%20view_recipe_bbox.php%2C1.1%2C1.2%20view_recipe.php%2C1.5%2C1.6&In-Reply-To=%3C200512041826.jB4IQbN23700%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000035.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb send_friend.php,1.3,1.4 view_recipe_bbox.php,1.1,1.2 view_recipe.php,1.5,1.6</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20send_friend.php%2C1.3%2C1.4%20view_recipe_bbox.php%2C1.1%2C1.2%20view_recipe.php%2C1.5%2C1.6&In-Reply-To=%3C200512041826.jB4IQbN23700%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb send_friend.php,1.3,1.4 view_recipe_bbox.php,1.1,1.2 view_recipe.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Dec  4 19:26:37 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000035.html">[Krecipesweb-devel] krecipesweb search_results.php,1.1.1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[Krecipesweb-devel] krecipesweb/inc main.css,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv14161
+
+Modified Files:
+	view_recipe_bbox.php view_recipe.php 
+Added Files:
+	send_friend.php 
+Log Message:
+finishing send friend feature
+
+
+Index: view_recipe_bbox.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe_bbox.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** view_recipe_bbox.php	3 Dec 2005 22:21:27 -0000	1.1
+--- view_recipe_bbox.php	4 Dec 2005 18:26:33 -0000	1.2
+***************
+*** 6,21 ****
+  &lt;DIV class=&quot;bbox_head&quot;&gt;&lt;?php echo $lng_sendfriend;
+  ?&gt;&lt;/DIV&gt;
+! &lt;FORM action=&quot;send_friend.php&quot; method=&quot;POST&quot; target=&quot;_blank&quot;&gt;
+  &lt;INPUT type=&quot;hidden&quot; name=&quot;send_id&quot; value=&quot;&lt;?php echo $recipe_id; ?&gt;&quot;&gt;
+! &lt;INPUT type=&quot;text&quot; name=&quot;sendrname&quot; size=&quot;20&quot; value=&quot;Your name&quot; onFocus=&quot;if (this.value=='Your name') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your name';&quot;&gt;&nbsp;&nbsp;
+! &lt;INPUT type=&quot;text&quot; name=&quot;sendermail&quot; size=&quot;20&quot; value=&quot;Your e-mail&quot; onFocus=&quot;if (this.value=='Your e-mail') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your e-mail';&quot;&gt;&lt;br/&gt;
+! &lt;INPUT type=&quot;text&quot; name=&quot;friendname&quot; size=&quot;20&quot; value=&quot;Your friends name&quot; onFocus=&quot;if (this.value=='Your friends name') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your friends name';&quot;&gt;&nbsp;&nbsp;
+! &lt;INPUT type=&quot;text&quot; name=&quot;friendmail&quot; size=&quot;20&quot; value=&quot;Your friends e-mail&quot; onFocus=&quot;if (this.value=='Your friends e-mail') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='Your friends e-mail';&quot;&gt;&lt;br&gt;
+! &lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;  Send  &quot; src=&quot;img/send.gif&quot;&gt;
+! &lt;INPUT type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;  Clear form  &quot;&gt;
+  &lt;/FORM&gt;
+  &lt;/td&gt;
+        &lt;td width=&quot;50%&quot; class=&quot;bbox2&quot; align=&quot;left&quot; valign=&quot;top&quot;&gt;
+! &lt;DIV class=&quot;bbox_head&quot;&gt;Page Functions&lt;/DIV&gt;
+  
+  &lt;?php echo &quot;
+--- 6,21 ----
+  &lt;DIV class=&quot;bbox_head&quot;&gt;&lt;?php echo $lng_sendfriend;
+  ?&gt;&lt;/DIV&gt;
+! &lt;FORM action=&quot;send_friend.php&quot; method=&quot;POST&quot; name='friendform' onSubmit=&quot;return validate()&quot;&gt;
+  &lt;INPUT type=&quot;hidden&quot; name=&quot;send_id&quot; value=&quot;&lt;?php echo $recipe_id; ?&gt;&quot;&gt;
+! &lt;INPUT type=&quot;text&quot; name='sendername' size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourn ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourn ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourn ?&gt;';&quot;&gt;&nbsp;&nbsp;
+! &lt;INPUT type=&quot;text&quot; name=&quot;sendermail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourm ?&gt;';&quot;&gt;&lt;br/&gt;
+! &lt;INPUT type=&quot;text&quot; name=&quot;friendname&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourfn ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourfn ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourfn ?&gt;';&quot;&gt;&nbsp;&nbsp;
+! &lt;INPUT type=&quot;text&quot; name=&quot;friendmail&quot; size=&quot;20&quot; value=&quot;&lt;?php echo $lng_yourfm ?&gt;&quot; onFocus=&quot;if (this.value=='&lt;?php echo $lng_yourfm ?&gt;') this.value='';&quot; onBlur=&quot;if (this.value=='') this.value='&lt;?php echo $lng_yourfm ?&gt;';&quot;&gt;&lt;br&gt;
+! &lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;  &lt;?php echo  $lng_submit   ?&gt;  &quot;&gt;
+! &lt;INPUT type=&quot;reset&quot; name=&quot;reset&quot; value=&quot;  &lt;?php echo   $lng_reset  ?&gt;  &quot;&gt;
+  &lt;/FORM&gt;
+  &lt;/td&gt;
+        &lt;td width=&quot;50%&quot; class=&quot;bbox2&quot; align=&quot;left&quot; valign=&quot;top&quot;&gt;
+! &lt;DIV class=&quot;bbox_head&quot;&gt;&lt;?php echo   $lng_pfunctions  ?&gt;&lt;/DIV&gt;
+  
+  &lt;?php echo &quot;
+***************
+*** 25,29 ****
+  ?&gt;&lt;br&gt;
+  &lt;A href=&quot;search.php&quot;&gt;&lt;IMG src=&quot;img/search.png&quot; alt=&quot;Search&quot; width=&quot;16&quot; height=&quot;16&quot; align=&quot;bottom&quot; border=&quot;0&quot;&gt;
+! Search for recipes&lt;/A&gt;
+  &lt;/td&gt;
+      &lt;/tr&gt;
+--- 25,29 ----
+  ?&gt;&lt;br&gt;
+  &lt;A href=&quot;search.php&quot;&gt;&lt;IMG src=&quot;img/search.png&quot; alt=&quot;Search&quot; width=&quot;16&quot; height=&quot;16&quot; align=&quot;bottom&quot; border=&quot;0&quot;&gt;
+! &lt;?php echo   $lng_rec_search  ?&gt;&lt;/A&gt;
+  &lt;/td&gt;
+      &lt;/tr&gt;
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** view_recipe.php	3 Dec 2005 22:21:01 -0000	1.5
+--- view_recipe.php	4 Dec 2005 18:26:33 -0000	1.6
+***************
+*** 16,20 ****
+  require('inc/metatags.php');
+  ?&gt;
+! 
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  //Funtion to open print window
+--- 16,43 ----
+  require('inc/metatags.php');
+  ?&gt;
+! &lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;
+!     &lt;!-- Hide code from non-js browsers
+!     function validate()
+!     {
+!         formObj = document.friendform;
+!         if ((formObj.sendername.value == &quot;&quot;) ||
+!             (formObj.sendername.value  == &quot;Your name&quot;) ||
+! 	    (formObj.sendermail.value  == &quot;&quot;) ||
+! 	    (formObj.sendermail.value  == &quot;Your e-mail&quot;) ||
+!             (formObj.friendname.value  == &quot;&quot;) ||
+!             (formObj.friendname.value  == &quot;Your friends name&quot;) ||
+!             (formObj.friendmail.value  == &quot;&quot;))
+!             (formObj.friendmail.value  == &quot;Your friends e-mail&quot;))
+!         {
+!             alert(&quot;You have not filled in all required fields.&quot;);
+!             return false;
+!         }
+!         else {
+!             alert('&lt;? echo &quot;ok&quot;; ?&gt;');
+!             return true;
+!         }
+!     }
+!     // end hiding --&gt;
+! &lt;/SCRIPT&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  //Funtion to open print window
+***************
+*** 28,39 ****
+          window.open(this.href, &quot;&quot;,
+  &quot;top=40,left=40,width=&lt;?php echo &quot;$pwidth&quot;?&gt;,height=&lt;?php echo &quot;$pheight&quot;?&gt;,scrollbars&quot;);
+-         return false;
+-       }
+-     }
+- if (links[i].className.match(&quot;sendrecipe&quot;)) {
+-       links[i].onclick=function() {
+-         // Below - to open a full-sized window, just use: window.open(this.href);
+-         window.open(this.href, &quot;&quot;,
+- &quot;top=40,left=40,width=500,height=600,scrollbars&quot;);
+          return false;
+        }
+--- 51,54 ----
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000035.html">[Krecipesweb-devel] krecipesweb search_results.php,1.1.1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[Krecipesweb-devel] krecipesweb/inc main.css,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

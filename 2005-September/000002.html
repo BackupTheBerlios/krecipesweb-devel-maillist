@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] krecipesweb print_recipe.php,1.1.1.1,1.2 view_recipe.php,1.1.1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2005-September/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20print_recipe.php%2C1.1.1.1%2C1.2%20view_recipe.php%2C1.1.1.1%2C1.2&In-Reply-To=%3C200509301825.j8UIPq925782%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] krecipesweb print_recipe.php,1.1.1.1,1.2 view_recipe.php,1.1.1.1,1.2</H1>
+    <B>nilsk</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20krecipesweb%20print_recipe.php%2C1.1.1.1%2C1.2%20view_recipe.php%2C1.1.1.1%2C1.2&In-Reply-To=%3C200509301825.j8UIPq925782%40bat.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] krecipesweb print_recipe.php,1.1.1.1,1.2 view_recipe.php,1.1.1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Sep 30 20:25:52 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[Krecipesweb-devel] krecipesweb functions.php,1.1.1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[Krecipesweb-devel] krecipesweb/inc print.css,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/krecipesweb/krecipesweb
+In directory sheep:/tmp/cvs-serv25267
+
+Modified Files:
+	print_recipe.php view_recipe.php 
+Log Message:
+na
+
+Index: print_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/print_recipe.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** print_recipe.php	27 Sep 2005 21:39:37 -0000	1.1.1.1
+--- print_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+***************
+*** 19,26 ****
+  &lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;
+  
+- &lt;!-- This script and many more are available free online at --&gt;
+- &lt;!-- The JavaScript Source!! <A HREF="http://javascript.internet.com">http://javascript.internet.com</A> --&gt;
+- 
+- &lt;!-- Begin
+  function printPage() {
+  if (window.print) {
+--- 19,22 ----
+***************
+*** 30,34 ****
+     }
+  }
+- //  End --&gt;
+  &lt;/script&gt;
+  &lt;/head&gt;
+--- 26,29 ----
+***************
+*** 45,49 ****
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;middle&quot; width=&quot;450&quot;&gt;
+!         &lt;img src=&quot;recipe_photo.php?id=&lt;?php echo $recipe_id; ?&gt;&quot; width=&quot;174&quot; border=&quot;0&quot; /&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+--- 40,44 ----
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;middle&quot; width=&quot;450&quot;&gt;
+!         &lt;img src=&quot;recipe_photo.php?id=&lt;?php echo $recipe_id; ?&gt;&quot; border=&quot;0&quot; /&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+***************
+*** 146,150 ****
+  &lt;tr align=&quot;center&quot;&gt;
+    &lt;td width=&quot;100%&quot; colspan=&quot;2&quot; align=&quot;center&quot;&gt;
+! &lt;p&gt;&lt;br /&gt;&lt;br /&gt;  &lt;?php echo &quot; $print_copy  &quot;; ?&gt;
+  &lt;/p&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+--- 141,150 ----
+  &lt;tr align=&quot;center&quot;&gt;
+    &lt;td width=&quot;100%&quot; colspan=&quot;2&quot; align=&quot;center&quot;&gt;
+! &lt;p&gt;&lt;br /&gt;&lt;br /&gt;  &lt;?php echo &quot; $print_copy  &quot;; ?&gt;&lt;br /&gt;
+! &lt;?php
+! //$url = $_SERVER[''HTTP_REFERER''];
+! echo
+! &quot;<A HREF="http://">http://</A>&quot;.$HTTP_SERVER_VARS['HTTP_HOST'].&quot;&quot;.dirname($HTTP_SERVER_VARS['PHP_SELF']).&quot;/&quot;;
+! ?&gt;
+  &lt;/p&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+
+Index: view_recipe.php
+===================================================================
+RCS file: /cvsroot/krecipesweb/krecipesweb/view_recipe.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** view_recipe.php	27 Sep 2005 21:39:35 -0000	1.1.1.1
+--- view_recipe.php	30 Sep 2005 18:25:49 -0000	1.2
+***************
+*** 58,62 ****
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;middle&quot; width=&quot;450&quot;&gt;
+!         &lt;img src=&quot;recipe_photo.php?id=&lt;?php echo $recipe_id; ?&gt;&quot; width=&quot;174&quot; border=&quot;0&quot; /&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+--- 58,62 ----
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;middle&quot; width=&quot;450&quot;&gt;
+!         &lt;img src=&quot;recipe_photo.php?id=&lt;?php echo $recipe_id; ?&gt;&quot; border=&quot;0&quot; /&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[Krecipesweb-devel] krecipesweb functions.php,1.1.1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[Krecipesweb-devel] krecipesweb/inc print.css,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>

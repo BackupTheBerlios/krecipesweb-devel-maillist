@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Krecipesweb-devel] r30 - trunk/krecipesweb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/krecipesweb-devel/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r30%20-%20trunk/krecipesweb&In-Reply-To=%3C200602282107.k1SL7xVl000812%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000064.html">
+   <LINK REL="Next"  HREF="000065.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Krecipesweb-devel] r30 - trunk/krecipesweb</H1>
+    <B>nilsk at berlios.de</B> 
+    <A HREF="mailto:krecipesweb-devel%40lists.berlios.de?Subject=Re%3A%20%5BKrecipesweb-devel%5D%20r30%20-%20trunk/krecipesweb&In-Reply-To=%3C200602282107.k1SL7xVl000812%40sheep.berlios.de%3E"
+       TITLE="[Krecipesweb-devel] r30 - trunk/krecipesweb">nilsk at berlios.de
+       </A><BR>
+    <I>Tue Feb 28 22:07:59 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000064.html">[Krecipesweb-devel] r29 - trunk/krecipesweb
+</A></li>
+        <LI>Next message: <A HREF="000065.html">[Krecipesweb-devel] r31 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: nilsk
+Date: 2006-02-28 22:07:54 +0100 (Tue, 28 Feb 2006)
+New Revision: 30
+
+Added:
+   trunk/krecipesweb/setup.php
+Log:
+setup file done. needs more testing before release
+
+Added: trunk/krecipesweb/setup.php
+===================================================================
+--- trunk/krecipesweb/setup.php	2006-02-26 17:05:12 UTC (rev 29)
++++ trunk/krecipesweb/setup.php	2006-02-28 21:07:54 UTC (rev 30)
+@@ -0,0 +1,356 @@
++
++
++&lt;head&gt;
++  &lt;title&gt;Krecipes Web Frontend setup&lt;/title&gt;
++  &lt;meta name=&quot;GENERATOR&quot; content=&quot;Quanta Plus&quot; /&gt;
++  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;
++&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;inc/main.css&quot; /&gt;
++&lt;/head&gt;
++&lt;?php
++if(is_file(&quot;config.php&quot;)) die('&lt;p align=center class=errorbox&gt;The config.php file already exists.&lt;br /&gt;
++If you want to run the setup again, you need to delete or move the config.php file.&lt;/p&gt;');
++?&gt;
++&lt;body&gt;
++&lt;div align=&quot;center&quot;&gt;
++&lt;h1&gt;Krecipes Web Frontend setup&lt;/h1&gt;
++&lt;?php
++if (!isset($_GET[&quot;setupstep&quot;])) $setupstep=&quot;&quot;; else $setupstep = $_GET[&quot;setupstep&quot;];
++
++switch ($setupstep) {
++//checking for requirements
++case 'check';
++echo '&lt;h3&gt;Step 2/4&lt;/h3&gt;';
++$dbhostname = $_POST[&quot;dbhostname&quot;];
++$dbusername = $_POST[&quot;dbusername&quot;];
++$dbpassword = $_POST[&quot;dbpassword&quot;];
++$dbname = $_POST[&quot;dbname&quot;];
++//Writing debuginfo
++//echo &quot;DEBUGINFO: host: $dbhostname, user: $dbusername, pass: $dbpassword, db: $dbname&quot;;
++$link = mysql_connect($dbhostname, $dbusername, $dbpassword)
++   or die('Could not connect to the database server. Hit back in your browser and check your settings.');
++$sqlconn = 'Ok';
++mysql_select_db($dbname) or die('Connection to the server is ok, but I could not select the database.&lt;br&gt; Hit back in your browser and check your settings.');
++$query = &quot;SELECT ver,generated_by FROM db_info&quot;;
++$result = mysql_query( $query );
++$row = mysql_fetch_array($result, MYSQL_NUM);
++$ver = $row[0];
++$generated_by = $row[1];
++//Writing result of syschk
++echo '&lt;br&gt;&lt;br&gt;&lt;h1&gt;Result of system check:&lt;/h1&gt;';
++echo '&lt;table class=bbox_border width=400 cellspacing=2 cellpadding=2&gt;';
++echo '&lt;tr&gt;&lt;td width=300&gt;&lt;/td&gt;&lt;td width=100&gt;&lt;/td&gt;&lt;/tr&gt;';
++
++echo '&lt;tr&gt;&lt;td&gt;MySQL connection&lt;/td&gt;';
++if($sqlconn == 'Ok') {
++echo '&lt;td align=center class=okbox&gt;OK&lt;/td&gt;';
++} else {
++echo '&lt;td align=center class=errorbox&gt;NOT OK&lt;/td&gt;';
++}
++echo '&lt;/tr&gt;';
++
++echo '&lt;tr&gt;&lt;td&gt;Found Krecipes database&lt;/td&gt;';
++if($ver != &quot;&quot;) {
++echo '&lt;td align=center class=okbox&gt;OK&lt;/td&gt;';
++} else {
++echo '&lt;td align=center class=errorbox&gt;NOT OK&lt;/td&gt;';
++}
++echo '&lt;/tr&gt;';
++
++echo '&lt;tr&gt;&lt;td&gt;Krecipes database version &gt;=0.9&lt;/td&gt;';
++if($ver &gt;= 0.9) {
++echo '&lt;td align=center class=okbox&gt;OK&lt;/td&gt;';
++} else {
++echo '&lt;td align=center class=errorbox&gt;NOT OK&lt;/td&gt;';
++}
++echo '&lt;/tr&gt;';
++
++echo '&lt;tr&gt;&lt;td&gt;Install folder writable&lt;/td&gt;';
++if(is_writable('.')) {
++echo '&lt;td align=center class=okbox&gt;OK&lt;/td&gt;';
++} else {
++echo '&lt;td align=center class=errorbox&gt;NOT OK&lt;/td&gt;';
++}
++echo '&lt;/tr&gt;';
++
++echo '&lt;tr&gt;';
++if(($dbpassword != &quot;&quot;) and ($dbusername = &quot;root&quot;) ) {
++echo '&lt;td colspan=2&gt;';
++} else {
++echo '&lt;td class=errorbox colspan=2&gt;&lt;b&gt;WARNING:&lt;/b&gt;&lt;br /&gt;It is NOT recommended to run a database on the WWW with a root account with no password. You should change this at once!&lt;br /&gt;&lt;b&gt;If you decide to continue you do so at your own risk!&lt;/b&gt;';
++}
++echo '&lt;/td&gt;&lt;/tr&gt;';
++
++echo '&lt;/table&gt;&lt;br /&gt;';
++
++echo '&lt;FORM action=&quot;setup.php?setupstep=addinfo&quot; method=&quot;POST&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbhostname&quot; value=&quot;'.&quot;$dbhostname&quot;.'&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbusername&quot; value=&quot;'.&quot;$dbusername&quot;.'&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbpassword&quot; value=&quot;'.&quot;$dbpassword&quot;.'&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbname&quot; value=&quot;'.&quot;$dbname&quot;.'&quot;&gt;
++&lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Continue -&gt;&quot;&gt;
++&lt;/FORM&gt;';
++
++
++
++
++break;
++//end check for requirements
++
++case 'addinfo';
++$dbhostname = $_POST[&quot;dbhostname&quot;];
++$dbusername = $_POST[&quot;dbusername&quot;];
++$dbpassword = $_POST[&quot;dbpassword&quot;];
++$dbname = $_POST[&quot;dbname&quot;];
++echo '&lt;h1&gt;Final setup&lt;/h1&gt;';
++echo '&lt;h3&gt;Step 3/4&lt;/h3&gt;'; ?&gt;&lt;br /&gt;
++&lt;p&gt;&lt;h3&gt;Database settings&lt;/h3&gt;
++A summary of the data you gave in step one.&lt;br /&gt;
++In order to change these you need to go back to setp one.&lt;br /&gt;&lt;br /&gt;
++&lt;table width=&quot;300&quot; class=&quot;bbox_border&quot;&gt;
++  &lt;tbody&gt;
++
++    &lt;tr&gt;
++      &lt;td width=&quot;200&quot;&gt;Hostname&lt;/td&gt;
++      &lt;td width=&quot;100&quot;&gt;&lt;INPUT type=&quot;text&quot; value=&quot;&lt;?php echo $dbhostname ; ?&gt;&quot; size=&quot;25&quot; disabled=&quot;true&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Username&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;text&quot; value=&quot;&lt;?php echo $dbusername ; ?&gt;&quot; size=&quot;25&quot; disabled=&quot;true&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Password&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;password&quot; value=&quot;&lt;?php echo $dbpassword ; ?&gt;&quot; size=&quot;25&quot; disabled=&quot;true&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Database name&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;text&quot; value=&quot;&lt;?php echo $dbname ; ?&gt;&quot; size=&quot;25&quot; disabled=&quot;true&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;
++&lt;/table&gt;
++
++&lt;FORM action=&quot;setup.php?setupstep=final&quot; method=&quot;POST&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbhostname&quot; value=&quot;&lt;?php echo $dbhostname ;?&gt;&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbusername&quot; value=&quot;&lt;?php echo $dbusername ;?&gt;&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbpassword&quot; value=&quot;&lt;?php echo $dbpassword ;?&gt;&quot;&gt;
++&lt;INPUT type=&quot;hidden&quot; name=&quot;dbname&quot; value=&quot;&lt;?php echo $dbname ;?&gt;&quot;&gt;&lt;/p&gt;
++&lt;p&gt;
++&lt;br /&gt;
++&lt;h3&gt;Language settings&lt;/h3&gt;
++Select the language you want this frontend to use.&lt;br /&gt;&lt;br /&gt;
++&lt;?php 
++         if ($dir = @opendir(&quot;lang&quot;))
++           {
++               while (($file = readdir($dir)) !== false)
++               {
++                   if($file != &quot;..&quot; &amp;&amp; $file != &quot;.&quot;)
++                   {
++                       $filelist[] = $file;
++                   }
++               }
++               closedir($dir);
++           }
++?&gt;
++           &lt;select name=&quot;language&quot; &gt;
++           &lt;?php
++           asort($filelist);
++           while (list ($key, $val) = each ($filelist))
++           {
++               echo '&lt;option value='.&quot;$val&quot;.'&gt;'.&quot;$val&quot;.'&lt;/option&gt;';
++           }
++           ?&gt;
++            &lt;/select&gt;
++&lt;/p&gt;
++
++&lt;p&gt;
++&lt;br /&gt;
++&lt;h3&gt;Additional settings&lt;/h3&gt;
++Site and path variables.&lt;br /&gt;&lt;br /&gt;
++
++&lt;table width=&quot;400&quot; class=&quot;bbox_border&quot;&gt;
++  &lt;tbody&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Administrators email address:&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;text&quot; name=&quot;adminmail&quot; size=&quot;30&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++&lt;tr&gt;&lt;TD colspan=&quot;2&quot; bgcolor=&quot;Black&quot; height=&quot;1&quot; width=&quot;100%&quot;&gt;&lt;/TD&gt;&lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;The site title:&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;text&quot; name=&quot;sitetitle&quot; size=&quot;30&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++&lt;tr&gt;&lt;TD colspan=&quot;2&quot; bgcolor=&quot;Black&quot; height=&quot;1&quot; width=&quot;100%&quot;&gt;&lt;/TD&gt;&lt;/tr&gt;
++
++    &lt;tr&gt;
++      &lt;td&gt;Copyright notice shown at the bottom of the page:&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=&quot;text&quot; name=&quot;copynote&quot; size=&quot;30&quot; value=&quot;&#169; 2006 - yoursite.net&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++&lt;tr&gt;&lt;TD colspan=&quot;2&quot; bgcolor=&quot;Black&quot; height=&quot;1&quot; width=&quot;100%&quot;&gt;&lt;/TD&gt;&lt;/tr&gt;
++
++    &lt;tr&gt;
++      &lt;td colspan=&quot;2&quot;&gt;Full url to script location:&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td colspan=&quot;2&quot;&gt;
++&lt;?php
++$host  = $_SERVER['HTTP_HOST'];
++$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
++$scriptloc = '<A HREF="http://">http://</A>'.&quot;$host&quot;.''.&quot;$uri&quot;.'/'
++?&gt;
++&lt;INPUT type=&quot;text&quot; name=&quot;scriptloc&quot; value=&quot;&lt;?php echo $scriptloc; ?&gt;&quot; size=&quot;50&quot;&gt;
++&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;&lt;/td&gt;
++      &lt;td&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;
++&lt;/table&gt;
++
++&lt;/p&gt;
++&lt;INPUT type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Finalize and write config file =&gt;&quot;&gt;
++
++&lt;/FORM&gt;
++
++&lt;?php
++break;
++
++case 'final';
++$dbhostname = $_POST[&quot;dbhostname&quot;];
++$dbusername = $_POST[&quot;dbusername&quot;];
++$dbpassword = $_POST[&quot;dbpassword&quot;];
++$dbname = $_POST[&quot;dbname&quot;];
++$language = $_POST[&quot;language&quot;];
++$adminmail = $_POST[&quot;adminmail&quot;];
++$sitetitle = $_POST[&quot;sitetitle&quot;];
++$copynote = $_POST[&quot;copynote&quot;];
++$scriptloc = $_POST[&quot;scriptloc&quot;];
++
++//echo &quot;DEBUGINFO:&lt;br&gt;&quot;;
++//echo &quot;host: $dbhostname&lt;br&gt;user: $dbusername&lt;br&gt;pass: $dbpassword&lt;br&gt;db: $dbname&lt;br&gt;lang: $language&lt;br&gt;amail: $adminmail&lt;br&gt;title: $sitetitle&lt;br&gt;copy: $copynote&lt;br&gt;loc: $scriptloc&quot;;
++
++if(empty($adminmail) || empty($sitetitle) || empty($copynote) || empty($scriptloc)) {
++	echo '
++&lt;table&gt;
++  &lt;tbody&gt;
++    &lt;tr&gt;
++      &lt;td class=errorbox&gt;
++&lt;b&gt;ERROR:&lt;/b&gt;&lt;p&gt;
++You need to fill in all fields on the previous page.&lt;br /&gt;
++Hit the back button in your browser and fill in all fields &lt;br /&gt;&lt;br /&gt;
++&lt;/p&gt;
++&lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;
++&lt;/table&gt;';
++}
++else
++{
++
++$filename = &quot;config.php&quot;;
++$content=&quot;&lt;?php\n\n&quot;;
++$content.=&quot;//Krecipes Web Frontend configuration file&quot;;
++$content.=&quot;\n\n//Database host:\n&quot;;
++$content.='$dbhost = &quot;';
++$content.=$dbhostname;
++$content.='&quot;';
++$content.=&quot;;\n//Database username:\n&quot;;
++$content.='$dbuser = &quot;';
++$content.=$dbusername;
++$content.='&quot;';
++$content.=&quot;;\n//Database password:\n&quot;;
++$content.='$dbpass = &quot;';
++$content.=$dbpassword;
++$content.='&quot;';
++$content.=&quot;;\n//Database name:\n&quot;;
++$content.='$dbname = &quot;';
++$content.=$dbname;
++$content.='&quot;';
++$content.=&quot;;\n\n\n&quot;;
++$content.='$site_title = &quot;';
++$content.=$sitetitle;
++$content.='&quot;';
++$content.=&quot;;\n&quot;;
++$content.='$site_lang = &quot;';
++$content.=$language;
++$content.='&quot;';
++$content.=&quot;;\n&quot;;
++$content.='$url = &quot;';
++$content.=$scriptloc;
++$content.='&quot;';
++$content.=&quot;;\n&quot;;
++$content.='$admin_mail = &quot;';
++$content.=$adminmail;
++$content.='&quot;';
++$content.=&quot;;\n&quot;;
++$content.='$print_copy = &quot;';
++$content.=$copynote;
++$content.='&quot;';
++$content.=&quot;;\n\n&quot;;
++$content.=&quot;include 'settings.php'&quot;;
++$content.=&quot;;\n\n\n&quot;;
++$content.=&quot;?&gt;&quot;;
++
++//Write to file
++$fp = fopen (&quot;config.php&quot;, &quot;a&quot;);
++fputs ($fp,$content);
++fclose ($fp);
++
++
++}
++break;
++default;
++if(is_writable('.')) {
++echo &quot;
++&lt;h3&gt;Step 1/4&lt;/h3&gt;
++
++&lt;h3&gt;Database settings:&lt;/h3&gt;
++&lt;p&gt;Here you need to enter the information this frontend need&lt;br&gt;
++to connect to the database where the Krecipes database is located.&lt;/p&gt;
++&lt;FORM method=\&quot;POST\&quot; name=\&quot;dbform\&quot; action=\&quot;setup.php?setupstep=check\&quot;&gt;
++
++&lt;table cellspacing=\&quot;3\&quot; cellpadding=\&quot;3\&quot;&gt;
++  &lt;tbody&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Server hostname&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=\&quot;text\&quot; name=\&quot;dbhostname\&quot; size=\&quot;25\&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Username&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=\&quot;text\&quot; name=\&quot;dbusername\&quot; size=\&quot;25\&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Password&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=\&quot;text\&quot; name=\&quot;dbpassword\&quot; size=\&quot;25\&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td&gt;Database name&lt;/td&gt;
++      &lt;td&gt;&lt;INPUT type=\&quot;text\&quot; name=\&quot;dbname\&quot; value=\&quot;Krecipes\&quot; size=\&quot;25\&quot;&gt;&lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;
++&lt;/table&gt;
++&lt;INPUT type=\&quot;submit\&quot; name=\&quot;submit\&quot; value=\&quot;Submit\&quot;&gt;&nbsp;&lt;INPUT type=\&quot;reset\&quot; name=\&quot;reset\&quot; value=\&quot;Reset\&quot;&gt;
++
++
++&lt;/FORM&gt;
++&quot;;
++} else {
++   echo &quot;
++&lt;table class=\&quot;errorbox\&quot;&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++&lt;h4&gt;Error:  Folder not writable&lt;/h4&gt;
++You need to make this folder writable for this script (chmod 777),&lt;br /&gt;
++in order to create the configuration file.&lt;br /&gt;&lt;br /&gt;
++Hit the reload button when it's done.
++&lt;/td&gt;
++    &lt;/tr&gt;
++&lt;/table&gt;
++&quot;;
++}
++
++//end switch
++}
++?&gt;
++
++&lt;/div&gt;
++&lt;/body&gt;
++&lt;/html&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000064.html">[Krecipesweb-devel] r29 - trunk/krecipesweb
+</A></li>
+	<LI>Next message: <A HREF="000065.html">[Krecipesweb-devel] r31 - trunk/krecipesweb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/krecipesweb-devel">More information about the Krecipesweb-devel
+mailing list</a><br>
+</body></html>
